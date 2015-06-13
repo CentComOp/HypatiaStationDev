@@ -426,7 +426,7 @@ client
 
 /client/proc/view_var_Topic(href, href_list, hsrc)
 	//This should all be moved over to datum/admins/Topic() or something ~Carn
-	if( (usr.client != src) || !src.holder )
+	if(!check_rights(R_ADMIN|R_MOD))
 		return
 	if(href_list["Vars"])
 		debug_variables(locate(href_list["Vars"]))
@@ -834,6 +834,9 @@ client
 
 		var/new_language = input("Please choose a language to add.","Language",null) as null|anything in all_languages
 
+		if(!new_language)
+			return
+
 		if(!H)
 			usr << "Mob doesn't exist anymore"
 			return
@@ -856,6 +859,9 @@ client
 			return
 
 		var/datum/language/rem_language = input("Please choose a language to remove.","Language",null) as null|anything in H.languages
+
+		if(!rem_language)
+			return
 
 		if(!H)
 			usr << "Mob doesn't exist anymore"
