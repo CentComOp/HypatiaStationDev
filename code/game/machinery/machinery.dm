@@ -483,7 +483,7 @@ Class Procs:
 
 	//Agent cards lower threatlevel.
 	var/obj/item/weapon/card/id/id = GetIdCard(perp)
-	if(id && istype(id, /obj/item/weapon/card/id/syndicate, /obj/item/weapon/card/id/centcom))
+	if(id && istype(id, /obj/item/weapon/card/id/syndicate))
 		threatcount -= 2
 
 	if(auth_weapons && !src.allowed(perp))
