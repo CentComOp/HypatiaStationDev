@@ -123,8 +123,8 @@
 					user << "<span class='notice'>You remove the circuit board.</span>"
 				else
 					user << "<span class='notice'>You remove the circuit board and other components.</span>"
-					for(var/obj/item/weapon/W in components)
-						W.loc = src.loc
+					for(var/obj/item/I in components)
+						I.loc = src.loc
 				desc = initial(desc)
 				req_components = null
 				components = null
@@ -199,7 +199,9 @@ to destroy them and players will be able to make replacements.
 							/obj/machinery/vending/autodrobe = "AutoDrobe",
 							/obj/machinery/vending/hatdispenser = "Hatlord 9000",
 							/obj/machinery/vending/suitdispenser = "Suitlord 9000",
-							/obj/machinery/vending/shoedispenser = "Shoelord 9000")
+							/obj/machinery/vending/shoedispenser = "Shoelord 9000",
+							/obj/machinery/vending/clothing = "ClothesMate",
+							/obj/machinery/vending/crittercare = "CritterCare")
 
 /obj/item/weapon/circuitboard/vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/weapon/screwdriver))

@@ -72,6 +72,9 @@
 	icon_state = "emitter"
 	damage = 30
 
+/obj/item/projectile/beam/emitter/singularity_pull()
+	return //don't want the emitters to miss
+
 /obj/item/projectile/lasertag
 	name = "laser tag beam"
 	icon_state = "omnilaser"
@@ -117,6 +120,12 @@
 	layer = 3
 	var/turf/last = null
 	kill_count = 6
+	var/bullet_acted = 0
+
+	Bump(var/atom/A)
+		if((A != firer) && !bullet_acted)
+			A.bullet_act(src)
+			bullet_acted = 1
 
 	proc/adjustAngle(angle)
 		angle = round(angle) + 45
@@ -187,16 +196,15 @@
 				del(X)
 				break
 			for(var/atom/O in TT)
-				if(!O.CanPass(src))
-					del(X)
-					broke = 1
-					break
-			for(var/mob/living/O in TT.contents)
-				if(istype(O, /mob/living))
+				if(istype(O,/mob/living))
 					if(O.density)
 						del(X)
 						broke = 1
 						break
+				if(!O.CanPass(src))
+					del(X)
+					broke = 1
+					break
 			if(broke)
 				if(X)
 					del(X)
@@ -216,8 +224,9 @@
 					icon_state = "[tang]"
 					var/turf/simulated/floor/f = current
 					if(f && istype(f))
-						f.break_tile()
-						f.hotspot_expose(1000,CELL_VOLUME)
+						if(!bullet_acted)
+							f.break_tile()
+							f.hotspot_expose(1000,CELL_VOLUME)
 				if((x == 1 || x == world.maxx || y == 1 || y == world.maxy))
 					//world << "deleting"
 					//del(src) //Delete if it passes the world edge
