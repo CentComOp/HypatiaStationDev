@@ -225,10 +225,8 @@ obj/item/weapon/twohanded/
 /obj/item/weapon/twohanded/dualsaber/update_icon()
 	if(wielded)
 		icon_state = "dualsaber[blade_color][wielded]"
-		reflect_chance = 100
 	else
 		icon_state = "dualsaber0"
-		reflect_chance = 0
 
 /obj/item/weapon/twohanded/dualsaber/attack(target as mob, mob/living/user as mob)
 	..()
@@ -268,6 +266,10 @@ obj/item/weapon/twohanded/
 	..()
 	hitsound = "swing_hit"
 
+/obj/item/weapon/twohanded/dualsaber/IsReflect()
+	if(wielded)
+		return 1
+
 /obj/item/weapon/twohanded/dualsaber/wield()
 	..()
 	hitsound = 'sound/weapons/blade1.ogg'
@@ -296,7 +298,7 @@ obj/item/weapon/twohanded/
 	force_wielded = 18 // Was 13, Buffed - RR
 	throwforce = 20
 	throw_speed = 3
-	no_spin = 1
+	no_spin_thrown = 1 // Thrown spears that spin look dumb. -Fox
 	flags = NOSHIELD
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 

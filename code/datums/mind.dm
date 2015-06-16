@@ -964,21 +964,17 @@ datum/mind
 						special_role = null
 						current << "<span class='userdanger'>Your powers have been quenched! You are no longer a shadowling!</span>"
 						current.spell_list.Cut()
+						if(current.mind)
+							current.mind.spell_list.Cut()
 						message_admins("[key_name_admin(usr)] has de-shadowling'ed [current].")
 						log_admin("[key_name(usr)] has de-shadowling'ed [current].")
 						current.verbs -= /mob/living/carbon/human/proc/shadowling_hatch
 						current.verbs -= /mob/living/carbon/human/proc/shadowling_ascendance
-						if(current.languages)
-							for(var/datum/language/L in current.languages)
-								if(L.name == "Shadowling Hivemind")
-									del(L)
+						current.remove_language("Shadowling Hivemind")
 					else if(src in ticker.mode.shadowling_thralls)
 						ticker.mode.shadowling_thralls -= src
 						special_role = null
-						if(current.languages)
-							for(var/datum/language/L in current.languages)
-								if(L.name == "Shadowling Hivemind")
-									del(L)
+						current.remove_language("Shadowling Hivemind")
 						current << "<span class='userdanger'>You have been brainwashed! You are no longer a thrall!</span>"
 						message_admins("[key_name_admin(usr)] has de-thrall'ed [current].")
 						log_admin("[key_name(usr)] has de-thrall'ed [current].")
@@ -1073,8 +1069,14 @@ datum/mind
 		else if (href_list["common"])
 			switch(href_list["common"])
 				if("undress")
-					for(var/obj/item/W in current)
-						current.unEquip(W, 1)
+					if(ishuman(current))
+						var/mob/living/carbon/human/H = current
+						// Don't "undress" organs right out of the body
+						for(var/obj/item/W in H.contents - (H.organs | H.internal_organs))
+							current.unEquip(W, 1)
+					else
+						for(var/obj/item/W in current)
+							current.unEquip(W, 1)
 				if("takeuplink")
 					take_uplink()
 					memory = null//Remove any memory they may have had.
