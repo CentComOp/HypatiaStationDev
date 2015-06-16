@@ -136,7 +136,7 @@ var/list/sacrificed = list()
 			cultist_count += 1
 	if(cultist_count >= 9)
 		cult_log("THE CULT HAS SUMMONED NAR'SIE. GGNORE")
-		new /obj/machinery/singularity/narsie/large(src.loc)
+		new /obj/singularity/narsie/large(src.loc)
 		if(ticker.mode.name == "cult")
 			ticker.mode:eldergod = 0
 		return
@@ -1005,15 +1005,15 @@ var/list/sacrificed = list()
 				O.show_message(text("\red <B>[] invokes a talisman at []</B>", usr, T), 1)
 
 			if(issilicon(T))
-				T.Weaken(15)
+				T.Weaken(10)
 
 			else if(iscarbon(T))
 				var/mob/living/carbon/C = T
 				flick("e_flash", C.flash)
 				if (!(HULK in C.mutations))
 					C.silent += 15
-				C.Weaken(25)
-				C.Stun(25)
+				C.Weaken(10)
+				C.Stun(10)
 		return
 
 /////////////////////////////////////////TWENTY-FIFTH RUNE

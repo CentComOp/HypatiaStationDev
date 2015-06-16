@@ -984,7 +984,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle/pistol/m1911(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/matches(M), slot_r_store)
-			M.equip_if_possible(new /obj/item/weapon/melee/telebaton(M), slot_l_store)
+			M.equip_if_possible(new /obj/item/weapon/melee/classic_baton/telescopic(M), slot_l_store)
 
 			var/obj/item/device/pda/centcom/pda = new(M)
 			pda.owner = M.real_name
@@ -996,7 +996,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M.equip_if_possible(pda, slot_wear_pda)
 
 			M.equip_if_possible(new /obj/item/clothing/glasses/sunglasses(M), slot_l_store)
-			M.equip_if_possible(new /obj/item/weapon/melee/telebaton(M), slot_r_store)
+			M.equip_if_possible(new /obj/item/weapon/melee/classic_baton/telescopic(M), slot_r_store)
 
 			var/obj/item/weapon/card/id/W = new(M)
 			W.name = "[M.real_name]'s ID Card (Special Operations Officer)"
@@ -1109,7 +1109,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	spawn(30)
 		for(var/obj/machinery/the_singularitygen/G in world)
 			if(G.anchored)
-				var/obj/machinery/singularity/S = new /obj/machinery/singularity(get_turf(G), 50)
+				var/obj/singularity/S = new /obj/singularity(get_turf(G), 50)
 				spawn(0)
 					del(G)
 				S.energy = 1750
