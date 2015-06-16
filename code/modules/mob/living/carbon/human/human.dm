@@ -377,7 +377,7 @@
 /mob/living/carbon/human/blob_act()
 	if(stat == 2)	return
 	show_message("\red The blob attacks you!")
-	var/dam_zone = pick("chest", "l_hand", "r_hand", "l_leg", "r_leg")
+	var/dam_zone = pick("head", "chest", "groin", "l_arm", "l_hand", "r_arm", "r_hand", "l_leg", "l_foot", "r_leg", "r_foot")
 	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
 	apply_damage(rand(20,30), BRUTE, affecting, run_armor_check(affecting, "melee"))
 	return
@@ -410,14 +410,16 @@
 		M.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
 		src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [M.name] ([M.ckey])</font>")
 		var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
-		var/dam_zone = pick("chest", "l_hand", "r_hand", "l_leg", "r_leg")
+		if(check_shields(damage, "the [M.name]"))
+			return 0
+		var/dam_zone = pick("head", "chest", "groin", "l_arm", "l_hand", "r_arm", "r_hand", "l_leg", "l_foot", "r_leg", "r_foot")
 		var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
 		var/armor = run_armor_check(affecting, "melee")
 
 		var/obj/item/organ/external/affected = src.get_organ(dam_zone)
 		affected.add_autopsy_data(M.name, damage) // Add the mob's name to the autopsy data
 		apply_damage(damage, BRUTE, affecting, armor, M.name)
-		if(armor >= 2)	return
+		updatehealth()
 
 /mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/L as mob)
 
@@ -463,8 +465,10 @@
 		else
 			damage = rand(5, 25)
 
+		if(check_shields(damage, "the [M.name]"))
+			return 0
 
-		var/dam_zone = pick("head", "chest", "l_arm", "r_arm", "l_leg", "r_leg", "groin")
+		var/dam_zone = pick("head", "chest", "groin", "l_arm", "l_hand", "r_arm", "r_hand", "l_leg", "l_foot", "r_leg", "r_foot")
 
 		var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
 		var/armor_block = run_armor_check(affecting, "melee")
@@ -1497,18 +1501,6 @@
 		W.add_fingerprint(src)
 
 
-
-/mob/living/carbon/human/canSingulothPull(var/obj/machinery/singularity/singulo)
-	if(!..())
-		return 0
-
-	if(istype(shoes,/obj/item/clothing/shoes/magboots))
-		var/obj/item/clothing/shoes/magboots/M = shoes
-		if(M.magpulse)
-			return 0
-	return 1
-
-
 //Putting a couple of procs here that I don't know where else to dump.
 //Mostly going to be used for Vox and Vox Armalis, but other human mobs might like them (for adminbuse).
 
@@ -1690,6 +1682,29 @@
 		threatcount -= 5
 
 	return threatcount
+
+/mob/living/carbon/human/singularity_act()
+	var/gain = 20
+	if(mind)
+		if((mind.assigned_role == "Station Engineer") || (mind.assigned_role == "Chief Engineer") )
+			gain = 100
+		if(mind.assigned_role == "Clown")
+			gain = rand(-300, 300)
+	investigate_log("([key_name(src)]) has been consumed by the singularity.","singulo") //Oh that's where the clown ended up!
+	gib()
+	return(gain)
+
+/mob/living/carbon/human/singularity_pull(S, current_size)
+	if(current_size >= STAGE_THREE)
+		var/list/handlist = list(l_hand, r_hand)
+		for(var/obj/item/hand in handlist)
+			if(prob(current_size * 5) && hand.w_class >= ((11-current_size)/2)  && unEquip(hand))
+				step_towards(hand, src)
+				src << "<span class='warning'>\The [S] pulls \the [hand] from your grip!</span>"
+	apply_effect(current_size * 3, IRRADIATE)
+	if(mob_negates_gravity())
+		return
+	..()
 
 /mob/living/carbon/human/canBeHandcuffed()
 	return 1

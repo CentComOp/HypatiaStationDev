@@ -35,7 +35,6 @@
 	var/permeability_coefficient = 1 // for chemicals/diseases
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
-	var/reflect_chance = 0 //This var dictates what % of a time an object will reflect an energy based weapon's shot
 	var/armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
@@ -296,7 +295,45 @@
 /obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = 0)
 	if(!slot) return 0
 	if(!M) return 0
+	if(issmall(M))
+		//START MONKEY
+		var/mob/living/carbon/human/H = M
 
+		switch(slot)
+			if(slot_l_hand)
+				if(H.l_hand)
+					return 0
+				return 1
+			if(slot_r_hand)
+				if(H.r_hand)
+					return 0
+				return 1
+			if(slot_wear_mask)
+				if(H.wear_mask)
+					return 0
+				if( !(slot_flags & SLOT_MASK) )
+					return 0
+				return 1
+			if(slot_back)
+				if(H.back)
+					return 0
+				if( !(slot_flags & SLOT_BACK) )
+					return 0
+				return 1
+			if(slot_handcuffed)
+				if(H.handcuffed)
+					return 0
+				if(!istype(src, /obj/item/weapon/restraints/handcuffs))
+					return 0
+				return 1
+			if(slot_in_backpack)
+				if (H.back && istype(H.back, /obj/item/weapon/storage/backpack))
+					var/obj/item/weapon/storage/backpack/B = H.back
+					if(B.contents.len < B.storage_slots && w_class <= B.max_w_class)
+						return 1
+				return 0
+		return 0 //Unsupported slot
+		//END MONKEY
 	if(ishuman(M))
 		//START HUMAN
 		var/mob/living/carbon/human/H = M
@@ -537,8 +574,7 @@
 	return 0
 
 /obj/item/proc/IsReflect(var/def_zone) //This proc determines if and at what% an object will reflect energy projectiles if it's in l_hand,r_hand or wear_suit
-	if(prob(reflect_chance))
-		return 1
+	return 0
 
 /obj/item/proc/get_loc_turf()
 	var/atom/L = loc
@@ -606,7 +642,7 @@
 					M.drop_item()
 				M.eye_blurry += 10
 				M.Paralyse(1)
-				M.Weaken(4)
+				M.Weaken(2)
 			if (eyes.damage >= eyes.min_broken_damage)
 				if(M.stat != 2)
 					M << "\red You go blind!"
@@ -662,3 +698,9 @@
 	for(var/obj/item/A in world)
 		if(A.type == type && !A.blood_overlay)
 			A.blood_overlay = image(I)
+
+/obj/item/singularity_pull(S, current_size)
+	spawn(0) //this is needed or multiple items will be thrown sequentially and not simultaneously
+		if(current_size >= STAGE_FOUR)
+			throw_at(S,14,3)
+		else ..()

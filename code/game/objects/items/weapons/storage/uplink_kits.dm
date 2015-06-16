@@ -68,6 +68,7 @@
 				new /obj/item/weapon/aiModule/syndicate(src)
 				new /obj/item/weapon/card/emag(src)
 				new /obj/item/device/encryptionkey/binary(src)
+				new /obj/item/weapon/aiModule/toyAI(src)
 				return
 
 			if("lordsingulo")
@@ -129,7 +130,7 @@
 
 /obj/item/weapon/storage/box/syndie_kit/space
 	name = "Boxed Space Suit and Helmet"
-	can_hold = list(/obj/item/clothing/suit/space/syndicate/black/red, /obj/item/clothing/head/helmet/space/syndicate/black/red)
+	can_hold = list("/obj/item/clothing/suit/space/syndicate/black/red", "/obj/item/clothing/head/helmet/space/syndicate/black/red")
 	max_w_class = 3
 
 /obj/item/weapon/storage/box/syndie_kit/space/New()
@@ -140,7 +141,7 @@
 
 /obj/item/weapon/storage/box/syndie_kit/hardsuit
 	name = "Boxed Blood Red Suit and Helmet"
-	can_hold = list(/obj/item/clothing/suit/space/rig/syndi, /obj/item/clothing/head/helmet/space/rig/syndi)
+	can_hold = list("/obj/item/clothing/suit/space/rig/syndi", "/obj/item/clothing/head/helmet/space/rig/syndi")
 	max_w_class = 3
 
 /obj/item/weapon/storage/box/syndie_kit/hardsuit/New()

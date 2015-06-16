@@ -90,10 +90,6 @@ var/global/list/datum/stack_recipe/metal_recipes = list ( \
 	flags = CONDUCT
 	origin_tech = "materials=1"
 
-/obj/item/stack/sheet/metal/full/New()
-	..()
-	amount = 50
-
 /obj/item/stack/sheet/metal/cyborg
 	name = "metal"
 	desc = "Sheets made out off metal. It has been dubbed Metal Sheets."
@@ -136,10 +132,6 @@ var/global/list/datum/stack_recipe/plasteel_recipes = list ( \
 	recipes = plasteel_recipes
 	return ..()
 
-/obj/item/stack/sheet/plasteel/full/New(var/loc, var/amount=null)
-	amount = 50
-	..(loc, amount)
-
 /*
  * Wood
  */
@@ -155,11 +147,13 @@ var/global/list/datum/stack_recipe/wood_recipes = list ( \
 	new/datum/stack_recipe("wooden door", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("coffin", /obj/structure/closet/coffin, 5, time = 15, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("apiary", /obj/item/apiary, 10, time = 25, one_per_turf = 0, on_floor = 0), \
+	new/datum/stack_recipe("easel", /obj/structure/easel, 3, one_per_turf = 1, on_floor = 1), \
 	)
 
 /obj/item/stack/sheet/wood
 	name = "wooden planks"
 	desc = "One can only guess that this is a bunch of wood."
+	gender = PLURAL
 	singular_name = "wood plank"
 	icon_state = "sheet-wood"
 	origin_tech = "materials=1;biotech=1"
