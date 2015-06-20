@@ -147,7 +147,7 @@
 	exclaim_verb = "roars"
 	colour = "soghun"
 	key = "o"
-	flags = RESTRICTED
+	flags = WHITELISTED
 	syllables = list("ss","ss","ss","ss","skak","seeki","resh","las","esi","kor","sh")
 
 /datum/language/unathi/get_random_name()
@@ -158,13 +158,13 @@
 	return capitalize(new_name)
 
 /datum/language/tajaran
-	name = "Siik'tajr"
+	name = "Siik'maas"
 	desc = "The traditionally employed tongue of Ahdomai, composed of expressive yowls and chirps. Native to the Tajaran."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
 	exclaim_verb = "yowls"
 	colour = "tajaran"
-	key = "j"
+	key = "y"
 	flags = RESTRICTED
 	syllables = list("rr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr", \
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r", \
@@ -180,6 +180,18 @@
 		new_name += ..(gender,1)
 	return new_name
 
+/datum/language/tajaran_sign
+	name = "Siik'tajr"
+	desc = "An expressive language that combines yowls and chirps with posture, tail and ears. Spoken by many Tajaran."
+	speech_verb = "mrowls"
+	colour = "tajaran_signlang"
+	key = "j"		//only "dfpqxyz" left.
+
+	//need to find a way to resolve possesive macros
+	signlang_verb = list("flicks their left ear", "flicks their right ear", "swivels their ears", "twitches their tail", "curls the end of their tail", "arches their tail", "wiggles the end of their tail", "waves their tail about", "holds up a claw", "gestures with their left hand", "gestures with their right hand", "gestures with their tail", "gestures with their ears")
+
+	flags = WHITELISTED | NONVERBAL
+
 /datum/language/vulpkanin
 	name = "Canilunzt"
 	desc = "The guttural language spoken and utilized by the inhabitants of Vazzend system, composed of growls, barks, yaps, and heavy utilization of ears and tail movements.Vulpkanin speak this language with ease."
@@ -188,7 +200,7 @@
 	exclaim_verb = "barks"
 	colour = "vulpkanin"
 	key = "7"
-	flags = RESTRICTED
+	flags = WHITELISTED
 	syllables = list("rur","ya","cen","rawr","bar","kuk","tek","qat","uk","wu","vuh","tah","tch","schz","auch", \
 	"ist","ein","entch","zwichs","tut","mir","wo","bis","es","vor","nic","gro","lll","enem","zandt","tzch","noch", \
 	"hel","ischt","far","wa","baram","iereng","tech","lach","sam","mak","lich","gen","or","ag","eck","gec","stag","onn", \
@@ -202,7 +214,7 @@
 	exclaim_verb = "warbles"
 	colour = "skrell"
 	key = "k"
-	flags = RESTRICTED
+	flags = WHITELISTED
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
 /datum/language/vox
@@ -219,6 +231,18 @@
 
 /datum/language/vox/get_random_name()
 	return ..(FEMALE,1,6)
+
+/datum/language/obsedai
+	name = "Tummese"
+	desc = "The common tongue of the Obsedai. It sounds like deep rumbling and resonant notes to everyone else."
+	speech_verb = "rumbles"
+	ask_verb = "mumbles"
+	exclaim_verb = "crashes"
+	colour = "#008B8B"
+	key = "9"
+	native = 1
+	flags = WHITELISTED
+	syllables = list("kau", "sah", "kerh", "sti", "ruh", "vi", "li", "avi")
 
 /datum/language/diona
 	name = "Rootspeak"
@@ -268,6 +292,18 @@
 	key = "f"
 	flags = RESTRICTED | WHITELISTED
 	syllables = list("blob","plop","pop","bop","boop")
+
+/datum/language/ankalai
+	name = "Starspeak"
+	desc = "A humming, subvocal language communicated by the extra-universal An'kalai. While not auditory to most species it can be picked up across high frequency electronic recording devices as a sort of high pitched chaotic series of notes."
+	speech_verb = "hums"
+	ask_verb = "murmur"
+	exclaim_verb = "thrum"
+	whisper_verb = "croon"
+	colour = "#7ED6CB"
+	key = "8"
+	flags = WHITELISTED | HIVEMIND
+	syllables = list("hmm","mm","nn","enn","emm","eem","knn","gmm")
 
 /datum/language/common
 	name = "Galactic Common"
@@ -330,15 +366,35 @@
 	key = "3"
 	syllables = list ("gra","ba","ba","breh","bra","rah","dur","ra","ro","gro","go","ber","bar","geh","heh", "gra")
 
-/datum/language/clown
-	name = "Clownish"
-	desc = "The language of clown planet. Mother tongue of clowns throughout the Galaxy."
-	speech_verb = "honks"
-	ask_verb = "honks"
-	exclaim_verb = "honks"
-	colour = "clown"
-	key = "0"
-	syllables = list ("honk","squeak","bonk","toot","narf","zub","wee","wub","norf")
+/datum/language/mwc
+	name = "Milky Way Common"
+	desc = "An old language modified and now predominately used within the Milky Way Collective."
+	speech_verb = "stresses"
+	ask_verb = "accentuates"
+	exclaim_verb = "whoops"
+	colour = "#008B8B"
+	key = "5"
+	syllables = list ("ahz","aaktz","areid","nos","bal","kir","zet","jut","tar","vex","urk","ost","gaz","kel","mer","das","heirr","got","svin","erz","mur","faz","tey","lak","fret","wilz","boz","bren","kol","til","ekt","tur","zas","ver","rien","kesh")
+
+/datum/language/caravazan
+	name = "Caravazan"
+	desc = "A language originating from a single planet, and then brought across the Caravazan Empire."
+	speech_verb = "declares"
+	ask_verb = "inquires"
+	exclaim_verb = "asserts"
+	colour = "#008B8B"
+	key = "6"
+	syllables = list ( "pol","aker","os","lil","ols","kev","vlitch","pois","slel","dit","van","vlad","in","hen","maen","da","so","kils","der","blat","nur","ma","mar","wen","nir","grad","prus","tri","gal","tar","kov","flen","jur","wed","stal","len","er")
+
+/datum/language/sirian
+	name = "Sirian"
+	desc = "Initially a bastardization of several languages, developed into the official language of the Federation of Sirius."
+	speech_verb = "conveys"
+	ask_verb = "ponders"
+	exclaim_verb = "bellows"
+	colour = "#008B8B"
+	key = "7"
+	syllables = list ( "reis", "du", "sé", "mëo", "waíse", "wëy", "gü", "lai", "kp", "du", "dauth", "brun", "bjart", "äen", "älf", "ach", "yawë", "uni", "taune", "sköl", "skul", "sem", "shurt", "rú", "röth", "ram", "fra", "hóre", "gywnn", "völ", "caí", "eyre", "lát", "fram", "gëul", "böll", "rïsh", "nen", "thrys", "tuath", "ono" )
 
 /datum/language/wryn
 	name = "Wryn Hivemind"

@@ -343,9 +343,25 @@
 /datum/unarmed_attack/punch
 	attack_verb = list("punch")
 
+/datum/unarmed_attack/obsedai
+	attack_verb = list("smash", "bludgeon")
+	damage = 40
+	attack_sound = "punch"
+	miss_sound = 'sound/weapons/punchmiss.ogg'
+
 /datum/unarmed_attack/punch/weak
 	attack_verb = list("flail")
 	damage = 1
+
+/datum/unarmed_attack/kick
+	attack_verb = list("kicked", "kicked", "kicked", "kneed")
+	attack_sound = "swing_hit"
+	damage = 0
+
+/datum/unarmed_attack/stomp
+	attack_verb = list("stomp")
+	attack_sound = "swing_hit"
+	damage = 0
 
 /datum/unarmed_attack/diona
 	attack_verb = list("lash", "bludgeon")
