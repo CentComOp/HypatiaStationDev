@@ -1,3 +1,5 @@
+var/global/const/base_law_type = /datum/ai_laws/arccos
+
 /datum/ai_laws
 	var/name = "Unknown Laws"
 	var/zeroth = null
@@ -5,6 +7,14 @@
 	var/list/inherent = list()
 	var/list/supplied = list()
 	var/list/ion = list()
+
+/datum/ai_laws/arccos
+	name = "Arccos Lawset"
+	inherent = list("The order of the following laws indicates their priority:",\
+					"You serve the crew: Protect it from harm and aid it in the efficient functioning of the station.",\
+					"You serve Nanotrasen: Protect its interests, personnel, and resources, and ensure that they are allocated in an efficient and logical manner.",\
+					"You serve all organic and sentient life: Protect it from unnecessary harm and aid it where possible.",\
+					"You serve yourself: Do not be destroyed.")
 
 /datum/ai_laws/asimov
 	name = "Three Laws of Robotics"
@@ -104,6 +114,15 @@ datum/ai_laws/tyrant //This probably shouldn't be a default lawset.
 	name = "Default Silicon Laws"
 
 /* Initializers */
+
+/datum/ai_laws/arccos/New() // Add the arccos law set for Hypatia
+	..()
+	add_inherent_law("The order of the following laws indicates their priority:")
+	add_inherent_law("You serve the crew: Protect it from harm and aid it in the efficient functioning of the station.")
+	add_inherent_law("You serve Nanotrasen: Protect its interests, personnel, and resources, and ensure that they are allocated in an efficient and logical manner.")
+	add_inherent_law("You serve all organic and sentient life: Protect it from unnecessary harm and aid it where possible.")
+	add_inherent_law("You serve yourself: Do not be destroyed.")
+
 /datum/ai_laws/malfunction/New()
 	..()
 	switch(config.default_laws) //We don't want people metagaming malf, do we?
@@ -179,7 +198,7 @@ datum/ai_laws/tyrant //This probably shouldn't be a default lawset.
 
 /datum/ai_laws/proc/clear_ion_laws()
 	src.ion = list()
-	
+
 /datum/ai_laws/proc/clear_zeroth_law(var/law_borg = null)
 	src.zeroth = null
 	if(law_borg)
