@@ -454,6 +454,14 @@
 	_color = "sundress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
+/obj/item/clothing/under/sundress_white
+	name = "white sundress"
+	desc = "A white sundress decorated with purple lilies."
+	icon_state = "sundress_white"
+	item_state = "sundress_white"
+	_color = "sundress_white"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
 /obj/item/clothing/under/roman
 	name = "roman armor"
 	desc = "An ancient Roman armor. Made of metallic strips and leather straps."
@@ -483,6 +491,13 @@
 	icon_state = "flapper"
 	item_state = "flapper"
 	_color = "flapper"
+
+/obj/item/clothing/under/gentlesuit
+	name = "Gentlemans Suit"
+	desc = "A silk black shirt with a white tie and a matching gray vest and slacks. Feels proper."
+	icon_state = "gentlesuit"
+	item_state = "gentlesuit"
+	_color = "gentlesuit"
 
 /obj/item/clothing/under/mafia
 	name = "mafia outfit"

@@ -173,6 +173,13 @@
 	item_state = "bandana"
 	loose = 0
 
+/obj/item/clothing/head/bowler
+	name = "bowler-hat"
+	desc = "Gentleman, elite aboard!"
+	icon_state = "bowler"
+	item_state = "bowler"
+	body_parts_covered = 0
+
 //stylish bs12 hats
 
 /obj/item/clothing/head/bowlerhat
