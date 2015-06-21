@@ -62,13 +62,13 @@
 	h_style = "Tajaran Ears"
 	..(new_loc, "Tajaran")
 
-/mob/living/carbon/human/vulpkanin/New(var/new_loc)
+/mob/living/carbon/human/vulsarian/New(var/new_loc)
 	h_style = "Bald"
 	..(new_loc, "Vulpkanin")
 
-/mob/living/carbon/human/unathi/New(var/new_loc)
-	h_style = "Unathi Horns"
-	..(new_loc, "Unathi")
+/mob/living/carbon/human/soghun/New(var/new_loc)
+	h_style = "Soghun Horns"
+	..(new_loc, "Soghun")
 
 /mob/living/carbon/human/vox/New(var/new_loc)
 	h_style = "Short Vox Quills"
@@ -85,9 +85,9 @@
 /mob/living/carbon/human/kidan/New(var/new_loc)
 	..(new_loc, "Kidan")
 
-/mob/living/carbon/human/plasma/New(var/new_loc)
+/mob/living/carbon/human/phoron/New(var/new_loc)
 	h_style = "Bald"
-	..(new_loc, "Plasmaman")
+	..(new_loc, "Phoronman")
 
 /mob/living/carbon/human/slime/New(var/new_loc)
 	..(new_loc, "Slime People")

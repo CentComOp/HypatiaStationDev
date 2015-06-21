@@ -3,7 +3,7 @@
  *		Oxygen
  *		Anesthetic
  *		Air
- *		Plasma
+ *		Phoron
  *		Emergency Oxygen
  */
 
@@ -84,22 +84,22 @@
 	return
 
 /*
- * Plasma
+ * Phoron
  */
-/obj/item/weapon/tank/plasma
-	name = "plasma tank"
-	desc = "Contains dangerous plasma. Do not inhale. Warning: extremely flammable."
-	icon_state = "plasma"
+/obj/item/weapon/tank/phoron
+	name = "phoron tank"
+	desc = "Contains dangerous phoron. Do not inhale. Warning: extremely flammable."
+	icon_state = "phoron"
 	flags = CONDUCT
 	slot_flags = null	//they have no straps!
 
-/obj/item/weapon/tank/plasma/New()
+/obj/item/weapon/tank/phoron/New()
 	..()
 	src.air_contents.toxins = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C)
 	return
 
 
-/obj/item/weapon/tank/plasma/attackby(obj/item/weapon/W as obj, mob/user as mob, params)
+/obj/item/weapon/tank/phoron/attackby(obj/item/weapon/W as obj, mob/user as mob, params)
 	..()
 
 	if (istype(W, /obj/item/weapon/flamethrower))
@@ -112,21 +112,21 @@
 		F.update_icon()
 	return
 
-/obj/item/weapon/tank/plasma/full/New()
+/obj/item/weapon/tank/phoron/full/New()
 	..()
 	src.air_contents.toxins = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
 	return
 
-/obj/item/weapon/tank/plasma/plasmaman
-	desc = "The lifeblood of plasmamen.  Warning:  Extremely flammable, do not inhale (unless you're a plasman)."
-	icon_state = "plasma_fr"
+/obj/item/weapon/tank/phoron/phoronman
+	desc = "The lifeblood of phoronmen.  Warning:  Extremely flammable, do not inhale (unless you're a phoronn)."
+	icon_state = "phoron_fr"
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 
-/obj/item/weapon/tank/plasma/plasmaman/examine()
+/obj/item/weapon/tank/phoron/phoronman/examine()
 	set src in usr
 	..()
 	if(air_contents.toxins < 0.2 && loc==usr)
-		usr << text("\red <B>The meter on the [src.name] indicates you are almost out of plasma!</B>")
+		usr << text("\red <B>The meter on the [src.name] indicates you are almost out of phoron!</B>")
 		usr << sound('sound/effects/alert.ogg')
 
 /*

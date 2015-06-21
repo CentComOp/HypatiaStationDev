@@ -1,7 +1,7 @@
 
 #define NITROGEN_RETARDATION_FACTOR 0.15	//Higher == N2 slows reaction more
 #define THERMAL_RELEASE_MODIFIER 750		//Higher == more heat released during reaction
-#define PLASMA_RELEASE_MODIFIER 1500		//Higher == less plasma released by reaction
+#define PHORON_RELEASE_MODIFIER 1500		//Higher == less phoron released by reaction
 #define OXYGEN_RELEASE_MODIFIER 1500		//Higher == less oxygen released at high temperature/power
 #define REACTION_POWER_MODIFIER 1.1			//Higher == more overall power
 
@@ -211,7 +211,7 @@
 
 
 		//Calculate how much gas to release
-		removed.toxins += max(device_energy / PLASMA_RELEASE_MODIFIER, 0)
+		removed.toxins += max(device_energy / PHORON_RELEASE_MODIFIER, 0)
 
 		removed.oxygen += max((device_energy + removed.temperature - T0C) / OXYGEN_RELEASE_MODIFIER, 0)
 
@@ -280,7 +280,7 @@
 	for(var/obj/machinery/power/rad_collector/R in rad_collectors)
 		var/distance = get_dist(R, src)
 		if(distance <= 15)
-			//for collectors using standard plasma tanks at 1013 kPa, the actual power generated will be this power*POWER_FACTOR*20*29 = power*POWER_FACTOR*580
+			//for collectors using standard phoron tanks at 1013 kPa, the actual power generated will be this power*POWER_FACTOR*20*29 = power*POWER_FACTOR*580
 			R.receive_pulse(power * POWER_FACTOR * (min(3/distance, 1))**2)
 	return
 

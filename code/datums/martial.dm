@@ -232,12 +232,12 @@
 
 #define TORNADO_COMBO "HHD"
 #define THROWBACK_COMBO "DHD"
-#define PLASMA_COMBO "HDDDH"
+#define PHORON_COMBO "HDDDH"
 
-/datum/martial_art/plasma_fist
-	name = "Plasma Fist"
+/datum/martial_art/phoron_fist
+	name = "Phoron Fist"
 
-/datum/martial_art/plasma_fist/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/phoron_fist/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(findtext(streak,TORNADO_COMBO))
 		streak = ""
 		Tornado(A,D)
@@ -246,13 +246,13 @@
 		streak = ""
 		Throwback(A,D)
 		return 1
-	if(findtext(streak,PLASMA_COMBO))
+	if(findtext(streak,PHORON_COMBO))
 		streak = ""
-		Plasma(A,D)
+		Phoron(A,D)
 		return 1
 	return 0
 
-/datum/martial_art/plasma_fist/proc/Tornado(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/phoron_fist/proc/Tornado(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.say("TORNADO SWEEP!")
 	spawn(0)
 		for(var/i in list(NORTH,SOUTH,EAST,WEST,EAST,SOUTH,NORTH,SOUTH,EAST,WEST,EAST,SOUTH))
@@ -266,39 +266,39 @@
 	R.cast(turfs)
 	return
 
-/datum/martial_art/plasma_fist/proc/Throwback(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	D.visible_message("<span class='danger'>[A] has hit [D] with Plasma Punch!</span>", \
-								"<span class='userdanger'>[A] has hit [D] with Plasma Punch!</span>")
+/datum/martial_art/phoron_fist/proc/Throwback(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+	D.visible_message("<span class='danger'>[A] has hit [D] with Phoron Punch!</span>", \
+								"<span class='userdanger'>[A] has hit [D] with Phoron Punch!</span>")
 	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
 	D.throw_at(throw_target, 200, 4)
 	A.say("HYAH!")
 	return
 
-/datum/martial_art/plasma_fist/proc/Plasma(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/phoron_fist/proc/Phoron(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
-	A.say("PLASMA FIST!")
-	D.visible_message("<span class='danger'>[A] has hit [D] with THE PLASMA FIST TECHNIQUE!</span>", \
-								"<span class='userdanger'>[A] has hit [D] with THE PLASMA FIST TECHNIQUE!</span>")
+	A.say("PHORON FIST!")
+	D.visible_message("<span class='danger'>[A] has hit [D] with THE PHORON FIST TECHNIQUE!</span>", \
+								"<span class='userdanger'>[A] has hit [D] with THE PHORON FIST TECHNIQUE!</span>")
 	D.gib()
 	return
 
-/datum/martial_art/plasma_fist/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/phoron_fist/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("H")
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/plasma_fist/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/phoron_fist/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("D")
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
 
-/datum/martial_art/plasma_fist/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/phoron_fist/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("G")
 	if(check_streak(A,D))
 		return 1
@@ -347,20 +347,20 @@
 		style.remove(H)
 	return
 
-/obj/item/weapon/plasma_fist_scroll
-	name = "Plasma Fist Scroll"
+/obj/item/weapon/phoron_fist_scroll
+	name = "Phoron Fist Scroll"
 	desc = "Teaches the traditional wizard martial art."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state ="scroll2"
 	var/used = 0
 
-/obj/item/weapon/plasma_fist_scroll/attack_self(mob/user as mob)
+/obj/item/weapon/phoron_fist_scroll/attack_self(mob/user as mob)
 	if(!ishuman(user))
 		return
 	if(!used)
 		var/mob/living/carbon/human/H = user
-		var/datum/martial_art/plasma_fist/F = new/datum/martial_art/plasma_fist(null)
+		var/datum/martial_art/phoron_fist/F = new/datum/martial_art/phoron_fist(null)
 		F.teach(H)
-		H << "<span class='notice'>You learn the PLASMA FIST style.</span>"
+		H << "<span class='notice'>You learn the PHORON FIST style.</span>"
 		used = 1
 		desc += "It looks like it's magic was used up."

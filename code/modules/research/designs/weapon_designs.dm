@@ -99,13 +99,13 @@
 	build_path = /obj/item/weaponcrafting/receiver
 	category = list("Weapons")
 
-/datum/design/plasmapistol
-	name = "Plasma Pistol"
+/datum/design/phoronpistol
+	name = "Phoron Pistol"
 	desc = "A specialized firearm designed to fire lethal bolts of toxins."
 	id = "ppistol"
-	req_tech = list("combat" = 5, "plasmatech" = 4)
+	req_tech = list("combat" = 5, "phorontech" = 4)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 5000, "$glass" = 1000, "$plasma" = 3000)
+	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
 	build_path = /obj/item/weapon/gun/energy/toxgun
 	locked = 1
 	category = list("Weapons")

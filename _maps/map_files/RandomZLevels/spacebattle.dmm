@@ -361,7 +361,7 @@
 "gW" = (/turf/space,/turf/simulated/shuttle/wall{dir = 8; icon_state = "diagonalWall3"},/area/awaymission/spacebattle/syndicate7)
 "gX" = (/turf/simulated/shuttle/wall{icon_state = "wall3"},/area/awaymission/spacebattle/syndicate7)
 "gY" = (/obj/structure/shuttle/engine/propulsion,/turf/space,/area/awaymission/spacebattle/syndicate4)
-"gZ" = (/obj/item/weapon/pickaxe,/obj/item/weapon/pickaxe/plasmacutter,/obj/structure/closet/crate,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
+"gZ" = (/obj/item/weapon/pickaxe,/obj/item/weapon/pickaxe/phoroncutter,/obj/structure/closet/crate,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
 "ha" = (/obj/item/weapon/circular_saw,/turf/simulated/floor{icon_state = "white"},/area/awaymission/spacebattle/cruiser)
 "hb" = (/obj/item/weapon/paper_bin,/turf/simulated/floor/wood,/area/awaymission/spacebattle/cruiser)
 "hc" = (/obj/effect/landmark/corpse/engineer/rig{corpseidjob = "Gunner"; mobname = "Dan Hedricks"; name = "Dan Hedricks"},/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating/airless,/area/awaymission/spacebattle/cruiser)
@@ -371,7 +371,7 @@
 "hg" = (/obj/structure/shuttle/engine/heater{tag = "icon-heater (EAST)"; icon_state = "heater"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/awaymission/spacebattle/syndicate7)
 "hh" = (/obj/structure/shuttle/engine/propulsion{tag = "icon-propulsion_r (WEST)"; icon_state = "propulsion_r"; dir = 8},/turf/space,/area/awaymission/spacebattle/syndicate7)
 "hi" = (/obj/structure/largecrate,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
-"hj" = (/obj/structure/closet/crate/secure/plasma,/obj/item/weapon/tank/plasma,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
+"hj" = (/obj/structure/closet/crate/secure/phoron,/obj/item/weapon/tank/phoron,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
 "hk" = (/obj/structure/closet/crate/medical,/obj/item/weapon/storage/firstaid/fire,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
 "hl" = (/obj/structure/rack,/obj/item/clothing/suit/space/rig,/obj/item/clothing/head/helmet/space/rig,/turf/simulated/floor,/area/awaymission/spacebattle/cruiser)
 "hm" = (/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/floor{dir = 5; icon_state = "warning"},/area/awaymission/spacebattle/cruiser)
@@ -469,9 +469,9 @@
 "ja" = (/obj/structure/shuttle/engine/heater,/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating/airless,/area/awaymission/spacebattle/syndicate6)
 "jb" = (/obj/structure/shuttle/engine/propulsion,/turf/space,/area/awaymission/spacebattle/syndicate6)
 "jc" = (/turf/simulated/floor/plating/airless/asteroid,/area/space)
-"jd" = (/turf/simulated/wall/mineral/plasma,/area/awaymission/spacebattle/secret)
+"jd" = (/turf/simulated/wall/mineral/phoron,/area/awaymission/spacebattle/secret)
 "je" = (/turf/simulated/floor{tag = "icon-alienvault"; icon_state = "alienvault"},/area/awaymission/spacebattle/secret)
-"jf" = (/obj/machinery/door/airlock/plasma,/turf/simulated/wall/mineral/plasma,/area/awaymission/spacebattle/secret)
+"jf" = (/obj/machinery/door/airlock/phoron,/turf/simulated/wall/mineral/phoron,/area/awaymission/spacebattle/secret)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

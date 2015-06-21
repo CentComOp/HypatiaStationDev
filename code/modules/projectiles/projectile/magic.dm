@@ -211,7 +211,7 @@ proc/wabbajack(mob/living/M)
 				if("human")
 					new_mob = new /mob/living/carbon/human/human(M.loc)
 					// Include standard, whitelisted, and monkey species...
-					var/list/new_species = list("Human","Tajaran","Skrell","Unathi","Diona","Vulpkanin")
+					var/list/new_species = list("Human","Tajaran","Skrell","Soghun","Diona","Vulpkanin")
 					new_species |= whitelisted_species
 					for(var/SN in all_species)
 						var/datum/species/S = all_species[SN]

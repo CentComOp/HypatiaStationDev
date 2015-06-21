@@ -62,7 +62,7 @@ datum/species/monkey/get_random_name(var/gender)
 	tail = "farwatail"
 
 
-/datum/species/monkey/vulpkanin
+/datum/species/monkey/vulsarian
 	name = "Wolpin"
 
 	icobase = 'icons/mob/human_races/monkeys/r_wolpin.dmi'
@@ -91,17 +91,17 @@ datum/species/monkey/get_random_name(var/gender)
 	bodyflags = FEET_PADDED
 
 
-/datum/species/monkey/unathi
+/datum/species/monkey/soghun
 	name = "Stok"
 
 	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_stok.dmi'
 
 	tail = "stoktail"
-	greater_form = "Unathi"
+	greater_form = "Soghun"
 	default_language = "Stok"
 	flesh_color = "#34AF10"
 	base_color = "#066000"
-	reagent_tag = IS_UNATHI
+	reagent_tag = IS_SOGHUN
 
 	bodyflags = FEET_CLAWS | HAS_TAIL

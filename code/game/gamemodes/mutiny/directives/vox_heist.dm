@@ -31,7 +31,7 @@ datum/directive/vox_heist
     if(command_positions.Find(M.mind.assigned_role))
       return 1
     var/species = M.get_species()
-    if(species == "Tajaran" || species == "Unathi")
+    if(species == "Tajaran" || species == "Soghun")
       return 5
     if(security_positions.Find(M.mind.assigned_role))
       return 2
@@ -40,7 +40,7 @@ datum/directive/vox_heist
 datum/directive/vox_heist/get_description()
   return {"
     <p>
-      A vox warship has commandeered a Nanotrasen transport carrying 2,500 cubic meters of liquid plasma.
+      A vox warship has commandeered a Nanotrasen transport carrying 2,500 cubic meters of liquid phoron.
       The raiders are willing to return the stolen cargo in exchange for the capture or execution of so-called "vox pariah" that are stationed aboard [station_name()].
       If the transport is not recovered, the estimated loss of profits is a threat to the solvency of the company.
       Predictive analysis has identified certain members of the crew as sympathetic to the vox pariah. Detain the sympathizers to guarantee a successful exchange.

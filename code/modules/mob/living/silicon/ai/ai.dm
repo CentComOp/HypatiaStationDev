@@ -145,7 +145,7 @@ var/list/ai_verbs_default = list(
 	add_language("Sol Common", 1)
 	add_language("Tradeband", 1)
 	add_language("Gutter", 0)
-	add_language("Sinta'unathi", 0)
+	add_language("Sinta'soghun", 0)
 	add_language("Siik'tajr", 0)
 	add_language("Canilunzt", 0)
 	add_language("Skrellian", 0)

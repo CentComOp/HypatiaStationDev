@@ -67,7 +67,7 @@
 	R.add_language("Sol Common", 1)
 	R.add_language("Tradeband", 1)
 	R.add_language("Gutter", 0)
-	R.add_language("Sinta'unathi", 0)
+	R.add_language("Sinta'soghun", 0)
 	R.add_language("Siik'tajr", 0)
 	R.add_language("Canilunzt", 0)
 	R.add_language("Skrellian", 0)
@@ -278,7 +278,7 @@
 	R.add_language("Sol Common", 1)
 	R.add_language("Tradeband", 1)
 	R.add_language("Gutter", 1)
-	R.add_language("Sinta'unathi", 1)
+	R.add_language("Sinta'soghun", 1)
 	R.add_language("Siik'tajr", 1)
 	R.add_language("Canilunzt", 1)
 	R.add_language("Skrellian", 1)
@@ -358,7 +358,7 @@
 		src.modules += new /obj/item/device/flash/cyborg(src)
 		src.modules += new /obj/item/borg/sight/thermal(src)
 		src.modules += new /obj/item/weapon/gun/energy/laser/cyborg(src)
-		src.modules += new /obj/item/weapon/pickaxe/plasmacutter(src)
+		src.modules += new /obj/item/weapon/pickaxe/phoroncutter(src)
 		src.modules += new /obj/item/borg/combat/shield(src)
 		src.modules += new /obj/item/borg/combat/mobility(src)
 		src.modules += new /obj/item/weapon/wrench(src) //Is a combat android really going to be stopped by a chair?
@@ -413,8 +413,8 @@
 		src.modules += new /obj/item/weapon/reagent_containers/spray/cleaner/drone(src)
 		src.modules += new /obj/item/weapon/soap(src)
 
-		src.emag = new /obj/item/weapon/pickaxe/plasmacutter(src)
-		src.emag.name = "Plasma Cutter"
+		src.emag = new /obj/item/weapon/pickaxe/phoroncutter(src)
+		src.emag.name = "Phoron Cutter"
 
 		for(var/T in stacktypes)
 			var/obj/item/stack/sheet/W = new T(src)

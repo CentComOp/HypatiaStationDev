@@ -232,26 +232,26 @@
 		L.apply_effect(15,IRRADIATE,0)
 	return
 
-/obj/machinery/door/airlock/plasma
-	name = "plasma airlock"
+/obj/machinery/door/airlock/phoron
+	name = "phoron airlock"
 	desc = "No way this can end badly."
 	icon = 'icons/obj/doors/Doorplasma.dmi'
-	mineral = "plasma"
+	mineral = "phoron"
 
-/obj/machinery/door/airlock/plasma/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/door/airlock/phoron/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
-		PlasmaBurn(exposed_temperature)
+		PhoronBurn(exposed_temperature)
 
-/obj/machinery/door/airlock/plasma/proc/ignite(exposed_temperature)
+/obj/machinery/door/airlock/phoron/proc/ignite(exposed_temperature)
 	if(exposed_temperature > 300)
-		PlasmaBurn(exposed_temperature)
+		PhoronBurn(exposed_temperature)
 
-/obj/machinery/door/airlock/plasma/proc/PlasmaBurn(temperature)
+/obj/machinery/door/airlock/phoron/proc/PhoronBurn(temperature)
 	atmos_spawn_air(SPAWN_HEAT | SPAWN_TOXINS, 500)
 	new/obj/structure/door_assembly( src.loc )
 	del (src)
 
-/obj/machinery/door/airlock/plasma/BlockSuperconductivity() //we don't stop the heat~
+/obj/machinery/door/airlock/phoron/BlockSuperconductivity() //we don't stop the heat~
 	return 0
 
 /obj/machinery/door/airlock/clown
@@ -855,7 +855,7 @@ About the new airlock wires panel:
 		..()
 	return
 
-/obj/machinery/door/airlock/plasma/attackby(C as obj, mob/user as mob, params)
+/obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob, params)
 	if(C)
 		ignite(is_hot(C))
 	..()
