@@ -25,7 +25,9 @@
 	tail = "sogtail"
 	unarmed_type = /datum/unarmed_attack/claws
 	primitive_form = "Stok"
+	total_health = 125
 	darksight = 3
+	brute_mod = 0.8
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
 	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \
@@ -33,17 +35,17 @@
 	else, frequently even their own lives. They prefer warmer temperatures than most species and \
 	their native tongue is a heavy hissing laungage called Sinta'Unathi."
 
-	flags = HAS_LIPS | HAS_UNDERWEAR
+	flags = IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR
 	bodyflags = FEET_CLAWS | HAS_TAIL | HAS_SKIN_COLOR | TAIL_WAGGING
 	dietflags = DIET_CARN
 
-	cold_level_1 = 280 //Default 260 - Lower is better
-	cold_level_2 = 220 //Default 200
-	cold_level_3 = 140 //Default 120
+	cold_level_1 = 290 //Default 260 - Lower is better
+	cold_level_2 = 240 //Default 200
+	cold_level_3 = 200 //Default 120
 
-	heat_level_1 = 380 //Default 360 - Higher is better
-	heat_level_2 = 420 //Default 400
-	heat_level_3 = 480 //Default 460
+	heat_level_1 = 420 //Default 360 - Higher is better
+	heat_level_2 = 480 //Default 400
+	heat_level_3 = 1100 //Default 460
 	heat_level_3_breathe = 1100 //Default 1000
 
 	flesh_color = "#34AF10"
@@ -64,7 +66,10 @@
 	language = "Siik'tajr"
 	tail = "tajtail"
 	unarmed_type = /datum/unarmed_attack/claws
-	darksight = 8
+	darksight = 12
+	total_health = 110
+	slowdown = 0.8
+	burn_mod = 1.5
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
 	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
@@ -72,9 +77,9 @@
 	of family and politics. They prefer colder environments, and speak a variety of languages, mostly Siik'Maas, \
 	using unique inflections their mouths form."
 
-	cold_level_1 = 240
-	cold_level_2 = 180
-	cold_level_3 = 100
+	cold_level_1 = 180
+	cold_level_2 = 120
+	cold_level_3 = 60
 
 	heat_level_1 = 340
 	heat_level_2 = 380
@@ -83,7 +88,7 @@
 
 	primitive_form = "Farwa"
 
-	flags = HAS_LIPS | HAS_UNDERWEAR | CAN_BE_FAT
+	flags = IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | CAN_BE_FAT
 	bodyflags = FEET_PADDED | HAS_TAIL | HAS_SKIN_COLOR | TAIL_WAGGING
 	dietflags = DIET_OMNI
 
@@ -112,7 +117,7 @@
 	to the degree it can cause conflict with more rigorous and strict authorities. They speak a guttural language known as 'Canilunzt' \
     which has a heavy emphasis on utilizing tail positioning and ear twitches to communicate intent."
 
-	flags = HAS_LIPS | HAS_UNDERWEAR
+	flags = IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR
 	bodyflags = FEET_PADDED | HAS_TAIL | HAS_SKIN_COLOR | TAIL_WAGGING
 	dietflags = DIET_OMNI
 
@@ -132,6 +137,7 @@
 	language = "Skrellian"
 	primitive_form = "Neara"
 	unarmed_type = /datum/unarmed_attack/punch
+	total_health = 90
 
 	blurb = "An amphibious species, Skrell come from the star system known as Qerr'Vallis, which translates to 'Star of \
 	the royals' or 'Light of the Crown'.<br/><br/>Skrell are a highly advanced and logical race who live under the rule \
@@ -139,7 +145,18 @@
 	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
 	the secrets of their empire to their allies."
 
-	flags = HAS_LIPS | HAS_UNDERWEAR
+	cold_level_1 = 280 //Default 260 - Lower is better
+	cold_level_2 = 240 //Default 200
+	cold_level_3 = 150 //Default 120
+
+	heat_level_1 = 360 //Default 360 - Higher is better
+	heat_level_2 = 400 //Default 400
+	heat_level_3 = 1000 //Default 1000
+
+	warning_high_pressure = 555
+	hazard_high_pressure = 750
+
+	flags = IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR
 	bodyflags = HAS_SKIN_COLOR
 	dietflags = DIET_HERB
 
@@ -356,7 +373,10 @@
 	language = "Rootspeak"
 	unarmed_type = /datum/unarmed_attack/diona
 	//primitive_form = "Nymph"
-	slowdown = 5
+	slowdown = 7
+	total_health = 200
+	brute_mod = 0.5
+	burn_mod = 1
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
@@ -365,9 +385,9 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	heat_level_1 = 300
-	heat_level_2 = 340
-	heat_level_3 = 400
+	heat_level_1 = 500
+	heat_level_2 = 1000
+	heat_level_3 = 2000
 	heat_level_3_breathe = 700
 
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
@@ -378,7 +398,7 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	flags = NO_BREATHE | REQUIRE_LIGHT | IS_PLANT | RAD_ABSORB | NO_BLOOD | NO_PAIN
+	flags = IS_WHITELISTED | NO_BREATHE | REQUIRE_LIGHT | IS_PLANT | RAD_ABSORB | NO_BLOOD | NO_PAIN
 	dietflags = 0		//Diona regenerate nutrition in light, no diet necessary
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
@@ -414,7 +434,7 @@
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/primitive/diona/D = other
 	if(istype(D))
-		return 1
+		return 110
 	return 0
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
