@@ -715,7 +715,7 @@
 	desc = "A vendor with a wide variety of masks and gas tanks."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "dispenser"
-	product_paths = "/obj/item/weapon/tank/oxygen;/obj/item/weapon/tank/plasma;/obj/item/weapon/tank/emergency_oxygen;/obj/item/weapon/tank/emergency_oxygen/engi;/obj/item/clothing/mask/breath"
+	product_paths = "/obj/item/weapon/tank/oxygen;/obj/item/weapon/tank/phoron;/obj/item/weapon/tank/emergency_oxygen;/obj/item/weapon/tank/emergency_oxygen/engi;/obj/item/clothing/mask/breath"
 	product_amounts = "10;10;10;5;25"
 	vend_delay = 0
 */
@@ -897,7 +897,7 @@
 
 
 //This one's from bay12
-/obj/machinery/vending/plasmaresearch
+/obj/machinery/vending/phoronresearch
 	name = "Toximate 3000"
 	desc = "All the fine parts you need in one vending machine!"
 	products = list(/obj/item/clothing/under/rank/scientist = 6,/obj/item/clothing/suit/bio_suit = 6,/obj/item/clothing/head/bio_hood = 6,
@@ -1227,7 +1227,7 @@
 /obj/machinery/vending/eva
 	name = "Hardsuit Kits"
 	desc = "Conversion kits for your alien hardsuit needs."
-	products = list(/obj/item/device/modkit = 6,/obj/item/device/modkit/tajaran = 6,/obj/item/device/modkit/unathi = 6,/obj/item/device/modkit/skrell = 6,/obj/item/device/modkit/vox = 6)
+	products = list(/obj/item/device/modkit = 6,/obj/item/device/modkit/tajaran = 6,/obj/item/device/modkit/soghun = 6,/obj/item/device/modkit/skrell = 6,/obj/item/device/modkit/vox = 6)
 
 
 /obj/machinery/vending/sustenance
@@ -1350,7 +1350,7 @@
 	name = "CritterCare"
 	desc = "A vending machine for pet supplies."
 	product_slogans = "Stop by for all your animal's needs!;Cuddly pets deserve a stylish collar!;Pets in space, what could be more adorable?;Freshest fish eggs in the system!;Rocks are the perfect pet, buy one today!"
-	product_ads = "House-training costs extra!;Now with 1000% more cat hair!;Allergies are a sign of weakness!;Dogs are man's best friend. Remember that Vulpkanin!; Heat lamps for Unathi!; Vox-y want a cracker?"
+	product_ads = "House-training costs extra!;Now with 1000% more cat hair!;Allergies are a sign of weakness!;Dogs are man's best friend. Remember that Vulpkanin!; Heat lamps for Soghun!; Vox-y want a cracker?"
 	vend_delay = 34
 	icon_state = "crittercare"
 	products = list(/obj/item/clothing/accessory/petcollar = 5, /obj/item/weapon/fish_net = 5, /obj/item/weapon/fishfood = 5,

@@ -254,25 +254,25 @@
 	name = "egg sac"
 	parent_organ = "groin"
 
-/obj/item/organ/xenos/plasmavessel
-	name = "plasma vessel"
+/obj/item/organ/xenos/phoronvessel
+	name = "phoron vessel"
 	parent_organ = "chest"
-	var/stored_plasma = 0
-	var/max_plasma = 500
+	var/stored_phoron = 0
+	var/max_phoron = 500
 
-/obj/item/organ/xenos/plasmavessel/queen
-	name = "bloated plasma vessel"
-	stored_plasma = 200
-	max_plasma = 500
+/obj/item/organ/xenos/phoronvessel/queen
+	name = "bloated phoron vessel"
+	stored_phoron = 200
+	max_phoron = 500
 
-/obj/item/organ/xenos/plasmavessel/sentinel
-	stored_plasma = 100
-	max_plasma = 250
+/obj/item/organ/xenos/phoronvessel/sentinel
+	stored_phoron = 100
+	max_phoron = 250
 
-/obj/item/organ/xenos/plasmavessel/hunter
-	name = "tiny plasma vessel"
-	stored_plasma = 100
-	max_plasma = 150
+/obj/item/organ/xenos/phoronvessel/hunter
+	name = "tiny phoron vessel"
+	stored_phoron = 100
+	max_phoron = 150
 
 /obj/item/organ/xenos/acidgland
 	name = "acid gland"
@@ -296,10 +296,10 @@
 	icon_state = "xgibmid1"
 	organ_tag = "egg sac"
 
-/obj/item/organ/xenos/plasmavessel
-	name = "plasma vessel"
+/obj/item/organ/xenos/phoronvessel
+	name = "phoron vessel"
 	icon_state = "xgibdown1"
-	organ_tag = "plasma vessel"
+	organ_tag = "phoron vessel"
 
 /obj/item/organ/xenos/acidgland
 	name = "acid gland"

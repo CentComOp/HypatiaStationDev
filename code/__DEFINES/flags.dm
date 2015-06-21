@@ -28,7 +28,7 @@
 
 #define BLOCK_GAS_SMOKE_EFFECT	8192	// blocks the effect that chemical clouds would have on a mob --glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
 #define ONESIZEFITSALL 			8192
-#define PLASMAGUARD 			16384	//Does not get contaminated by plasma.
+#define PHORONGUARD 			16384	//Does not get contaminated by phoron.
 
 #define	NOREACT					16384 	//Reagents dont' react inside this container.
 

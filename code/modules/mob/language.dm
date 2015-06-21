@@ -13,7 +13,7 @@
 	var/whisper_verb                 // Optional. When not specified speech_verb + quietly/softly is used instead.
 	var/signlang_verb = list()       // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/colour = "body"              // CSS style to use for strings in this language.
-	var/key = "x"                    // Character used to speak in language eg. :o for Unathi.
+	var/key = "x"                    // Character used to speak in language eg. :o for Soghun.
 	var/flags = 0                    // Various language flags.
 	var/native                       // If set, non-native speakers will have trouble speaking.
 	var/list/syllables               // Used when scrambling text for a non-speaker.
@@ -139,9 +139,9 @@
 	// if you make a loud noise (screams etc), you'll be heard from 4 tiles over instead of two
 	return (copytext(message, length(message)) == "!") ? 4 : 2
 
-/datum/language/unathi
-	name = "Sinta'unathi"
-	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
+/datum/language/soghun
+	name = "Sinta'soghun"
+	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Soghun."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "roars"
@@ -150,7 +150,7 @@
 	flags = WHITELISTED
 	syllables = list("ss","ss","ss","ss","skak","seeki","resh","las","esi","kor","sh")
 
-/datum/language/unathi/get_random_name()
+/datum/language/soghun/get_random_name()
 
 	var/new_name = ..()
 	while(findtextEx(new_name,"sss",1,null))
@@ -192,13 +192,13 @@
 
 	flags = WHITELISTED | NONVERBAL
 
-/datum/language/vulpkanin
+/datum/language/vulsarian
 	name = "Canilunzt"
 	desc = "The guttural language spoken and utilized by the inhabitants of Vazzend system, composed of growls, barks, yaps, and heavy utilization of ears and tail movements.Vulpkanin speak this language with ease."
 	speech_verb = "rawrs"
 	ask_verb = "rurs"
 	exclaim_verb = "barks"
-	colour = "vulpkanin"
+	colour = "vulsarian"
 	key = "7"
 	flags = WHITELISTED
 	syllables = list("rur","ya","cen","rawr","bar","kuk","tek","qat","uk","wu","vuh","tah","tch","schz","auch", \
@@ -639,7 +639,7 @@
 	desc = "Squik squik squik."
 	key = "ne"
 
-/datum/language/unathi/monkey
+/datum/language/soghun/monkey
 	name = "Stok"
 	desc = "Hiss hiss hiss."
 	key = "st"
@@ -649,7 +649,7 @@
 	desc = "Meow meow meow."
 	key = "fa"
 
-/datum/language/vulpkanin/monkey
+/datum/language/vulsarian/monkey
 	name = "Wolpin"
 	desc = "Bark bark bark."
 	key = "vu"

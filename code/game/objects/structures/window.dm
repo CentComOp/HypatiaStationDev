@@ -324,7 +324,7 @@ var/global/wcCommon = pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e", "#8f
 /obj/structure/window/New(Loc,re=0)
 	..()
 	ini_dir = dir
-	if(!color && !istype(src,/obj/structure/window/plasmabasic) && !istype(src,/obj/structure/window/plasmareinforced))
+	if(!color && !istype(src,/obj/structure/window/phoronbasic) && !istype(src,/obj/structure/window/phoronreinforced))
 		color = color_windows(src)
 	air_update_turf(1)
 	update_nearby_icons()
@@ -378,60 +378,60 @@ var/global/wcCommon = pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e", "#8f
 	desc = "It looks thin and flimsy. A few knocks with... anything, really should shatter it."
 	basestate = "window"
 
-/obj/structure/window/plasmabasic
-	name = "plasma window"
-	desc = "A plasma-glass alloy window. It looks insanely tough to break. It appears it's also insanely tough to burn through."
-	basestate = "plasmawindow"
-	icon_state = "plasmawindow"
-	shardtype = /obj/item/weapon/shard/plasma
-	glasstype = /obj/item/stack/sheet/plasmaglass
+/obj/structure/window/phoronbasic
+	name = "phoron window"
+	desc = "A phoron-glass alloy window. It looks insanely tough to break. It appears it's also insanely tough to burn through."
+	basestate = "phoronwindow"
+	icon_state = "phoronwindow"
+	shardtype = /obj/item/weapon/shard/phoron
+	glasstype = /obj/item/stack/sheet/phoronglass
 	health = 120
 
-/obj/structure/window/plasmabasic/New(Loc,re=0)
+/obj/structure/window/phoronbasic/New(Loc,re=0)
 	..()
 	ini_dir = dir
 	air_update_turf(1)
 	update_nearby_icons()
 	return
 
-/obj/structure/window/plasmabasic/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/window/phoronbasic/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > T0C + 32000)
 		hit(round(exposed_volume / 1000), 0)
 	..()
 
-/obj/structure/window/plasmabasic/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/window/phoronbasic/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > T0C + 32000)
 		hit(round(exposed_volume / 1000), 0)
 	..()
 
-/obj/structure/window/plasmabasic/BlockSuperconductivity()
+/obj/structure/window/phoronbasic/BlockSuperconductivity()
 	return 1
 
-/obj/structure/window/plasmareinforced
-	name = "reinforced plasma window"
-	desc = "A plasma-glass alloy window, with rods supporting it. It looks hopelessly tough to break. It also looks completely fireproof, considering how basic plasma windows are insanely fireproof."
-	basestate = "plasmarwindow"
-	icon_state = "plasmarwindow"
-	shardtype = /obj/item/weapon/shard/plasma
-	glasstype = /obj/item/stack/sheet/plasmaglass
+/obj/structure/window/phoronreinforced
+	name = "reinforced phoron window"
+	desc = "A phoron-glass alloy window, with rods supporting it. It looks hopelessly tough to break. It also looks completely fireproof, considering how basic phoron windows are insanely fireproof."
+	basestate = "phoronrwindow"
+	icon_state = "phoronrwindow"
+	shardtype = /obj/item/weapon/shard/phoron
+	glasstype = /obj/item/stack/sheet/phoronglass
 	reinf = 1
 	health = 160
 
 
-/obj/structure/window/plasmareinforced/New(Loc,re=0)
+/obj/structure/window/phoronreinforced/New(Loc,re=0)
 	..()
 	ini_dir = dir
 	air_update_turf(1)
 	update_nearby_icons()
 	return
 
-/obj/structure/window/plasmareinforced/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/window/phoronreinforced/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	return
 
-/obj/structure/window/plasmareinforced/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/window/phoronreinforced/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	return
 
-/obj/structure/window/plasmareinforced/BlockSuperconductivity()
+/obj/structure/window/phoronreinforced/BlockSuperconductivity()
 	return 1 //okay this SHOULD MAKE THE TOXINS CHAMBER WORK
 
 /obj/structure/window/reinforced

@@ -15,13 +15,13 @@
 	interests, rampant cyber and bio-augmentation and secretive factions make life on most human \
 	worlds tumultous at best."
 
-/datum/species/unathi
-	name = "Unathi"
+/datum/species/soghun
+	name = "Soghun"
 	icobase = 'icons/mob/human_races/r_lizard.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'
-	path = /mob/living/carbon/human/unathi
+	path = /mob/living/carbon/human/soghun
 	default_language = "Galactic Common"
-	language = "Sinta'unathi"
+	language = "Sinta'soghun"
 	tail = "sogtail"
 	unarmed_type = /datum/unarmed_attack/claws
 	primitive_form = "Stok"
@@ -29,11 +29,11 @@
 	darksight = 3
 	brute_mod = 0.8
 
-	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
+	blurb = "A heavily reptillian species, Soghun (or 'Sinta as they call themselves) hail from the \
 	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \
 	desert planet, they mostly hold ideals of honesty, virtue, martial combat and bravery above all \
 	else, frequently even their own lives. They prefer warmer temperatures than most species and \
-	their native tongue is a heavy hissing laungage called Sinta'Unathi."
+	their native tongue is a heavy hissing laungage called Sinta'Soghun."
 
 	flags = IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR
 	bodyflags = FEET_CLAWS | HAS_TAIL | HAS_SKIN_COLOR | TAIL_WAGGING
@@ -50,10 +50,10 @@
 
 	flesh_color = "#34AF10"
 
-	reagent_tag = IS_UNATHI
+	reagent_tag = IS_SOGHUN
 	base_color = "#066000"
 
-/datum/species/unathi/handle_death(var/mob/living/carbon/human/H)
+/datum/species/soghun/handle_death(var/mob/living/carbon/human/H)
 
 	H.stop_tail_wagging(1)
 
@@ -99,11 +99,11 @@
 
 	H.stop_tail_wagging(1)
 
-/datum/species/vulpkanin
+/datum/species/vulsarian
 	name = "Vulpkanin"
-	icobase = 'icons/mob/human_races/r_vulpkanin.dmi'
-	deform = 'icons/mob/human_races/r_vulpkanin.dmi'
-	path = /mob/living/carbon/human/vulpkanin
+	icobase = 'icons/mob/human_races/r_vulsarian.dmi'
+	deform = 'icons/mob/human_races/r_vulsarian.dmi'
+	path = /mob/living/carbon/human/vulsarian
 	default_language = "Galactic Common"
 	language = "Canilunzt"
 	primitive_form = "Wolpin"
@@ -124,7 +124,7 @@
 	flesh_color = "#966464"
 	base_color = "#BE8264"
 
-/datum/species/vulpkanin/handle_death(var/mob/living/carbon/human/H)
+/datum/species/vulsarian/handle_death(var/mob/living/carbon/human/H)
 
 	H.stop_tail_wagging(1)
 

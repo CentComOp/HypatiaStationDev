@@ -36,23 +36,23 @@
 	icon_state = "window"
 	basestate = "window"
 
-/obj/structure/window/full/plasmabasic
-	name = "plasma window"
-	desc = "A plasma-glass alloy window. It looks insanely tough to break. It appears it's also insanely tough to burn through."
-	basestate = "plasmawindow"
-	icon_state = "plasmawindow"
-	shardtype = /obj/item/weapon/shard/plasma
-	glasstype = /obj/item/stack/sheet/plasmaglass
+/obj/structure/window/full/phoronbasic
+	name = "phoron window"
+	desc = "A phoron-glass alloy window. It looks insanely tough to break. It appears it's also insanely tough to burn through."
+	basestate = "phoronwindow"
+	icon_state = "phoronwindow"
+	shardtype = /obj/item/weapon/shard/phoron
+	glasstype = /obj/item/stack/sheet/phoronglass
 	health = 120
 
 
-/obj/structure/window/full/plasmareinforced
-	name = "reinforced plasma window"
-	desc = "A plasma-glass alloy window, with rods supporting it. It looks hopelessly tough to break. It also looks completely fireproof, considering how basic plasma windows are insanely fireproof."
-	basestate = "plasmarwindow"
-	icon_state = "plasmarwindow"
-	shardtype = /obj/item/weapon/shard/plasma
-	glasstype = /obj/item/stack/sheet/plasmaglass
+/obj/structure/window/full/phoronreinforced
+	name = "reinforced phoron window"
+	desc = "A phoron-glass alloy window, with rods supporting it. It looks hopelessly tough to break. It also looks completely fireproof, considering how basic phoron windows are insanely fireproof."
+	basestate = "phoronrwindow"
+	icon_state = "phoronrwindow"
+	shardtype = /obj/item/weapon/shard/phoron
+	glasstype = /obj/item/stack/sheet/phoronglass
 	reinf = 1
 	health = 160
 

@@ -49,19 +49,19 @@
 #define FIRE_MINIMUM_TEMPERATURE_TO_EXIST	100+T0C
 #define FIRE_SPREAD_RADIOSITY_SCALE			0.85
 #define FIRE_CARBON_ENERGY_RELEASED			500000	//Amount of heat released per mole of burnt carbon into the tile
-#define FIRE_PLASMA_ENERGY_RELEASED			3000000	//Amount of heat released per mole of burnt plasma into the tile
+#define FIRE_PHORON_ENERGY_RELEASED			3000000	//Amount of heat released per mole of burnt phoron into the tile
 #define FIRE_GROWTH_RATE					40000	//For small fires
 #define CARBON_LIFEFORM_FIRE_RESISTANCE 	200+T0C	//Resistance to fire damage
 #define CARBON_LIFEFORM_FIRE_DAMAGE			4		//Fire damage
-	//Plasma fire properties
-#define PLASMA_MINIMUM_BURN_TEMPERATURE		100+T0C
-#define PLASMA_UPPER_TEMPERATURE			1370+T0C
-#define PLASMA_MINIMUM_OXYGEN_NEEDED		2
-#define PLASMA_MINIMUM_OXYGEN_PLASMA_RATIO	30
-#define PLASMA_OXYGEN_FULLBURN				10
-#define MIN_PLASMA_DAMAGE					1
-#define MAX_PLASMA_DAMAGE					10
-#define MOLES_PLASMA_VISIBLE				0.7		//Moles in a standard cell after which plasma is visible
+	//Phoron fire properties
+#define PHORON_MINIMUM_BURN_TEMPERATURE		100+T0C
+#define PHORON_UPPER_TEMPERATURE			1370+T0C
+#define PHORON_MINIMUM_OXYGEN_NEEDED		2
+#define PHORON_MINIMUM_OXYGEN_PHORON_RATIO	30
+#define PHORON_OXYGEN_FULLBURN				10
+#define MIN_PHORON_DAMAGE					1
+#define MAX_PHORON_DAMAGE					10
+#define MOLES_PHORON_VISIBLE				0.7		//Moles in a standard cell after which phoron is visible
 
 // Pressure limits.
 #define HAZARD_HIGH_PRESSURE				550		//This determins at what pressure the ultra-high pressure red icon is displayed. (This one is set as a constant)

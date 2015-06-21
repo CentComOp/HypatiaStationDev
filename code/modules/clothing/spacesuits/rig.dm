@@ -13,15 +13,15 @@
 	action_button_name = "Toggle Helmet Light"
 
 	//Species-specific stuff.
-	species_restricted = list("exclude","Unathi","Tajaran","Skrell","Diona","Vox","Wryn")
+	species_restricted = list("exclude","Soghun","Tajaran","Skrell","Diona","Vox","Wryn")
 	sprite_sheets = list(
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
+		"Soghun" = 'icons/mob/species/soghun/helmet.dmi',
 		"Tajaran" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
 		"Vox" = 'icons/mob/species/vox/helmet.dmi',
 		)
 	sprite_sheets_obj = list(
-		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
+		"Soghun" = 'icons/obj/clothing/species/soghun/hats.dmi',
 		"Tajaran" = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
 		"Vox" = 'icons/obj/clothing/species/vox/hats.dmi',
@@ -51,15 +51,15 @@
 	armor = list(melee = 10, bullet = 5, laser = 10, energy = 5, bomb = 10, bio = 100, rad = 75)
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/t_scanner, /obj/item/weapon/rcd)
 
-	species_restricted = list("exclude","Unathi","Tajaran","Skrell","Diona","Vox","Wryn")
+	species_restricted = list("exclude","Soghun","Tajaran","Skrell","Diona","Vox","Wryn")
 	sprite_sheets = list(
-		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
+		"Soghun" = 'icons/mob/species/soghun/suit.dmi',
 		"Tajaran" = 'icons/mob/species/tajaran/suit.dmi',
 		"Skrell" = 'icons/mob/species/skrell/suit.dmi',
 		"Vox" = 'icons/mob/species/vox/suit.dmi',
 		)
 	sprite_sheets_obj = list(
-		"Unathi" = 'icons/obj/clothing/species/unathi/suits.dmi',
+		"Soghun" = 'icons/obj/clothing/species/soghun/suits.dmi',
 		"Tajaran" = 'icons/obj/clothing/species/tajaran/suits.dmi',
 		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi',
 		"Vox" = 'icons/obj/clothing/species/vox/suits.dmi',

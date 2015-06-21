@@ -10,8 +10,8 @@
 	gender = NEUTER
 	dna = null
 
-	var/storedPlasma = 250
-	var/max_plasma = 500
+	var/storedPhoron = 250
+	var/max_phoron = 500
 
 	alien_talk_understand = 1
 
@@ -24,7 +24,7 @@
 
 	status_flags = CANPARALYSE|CANPUSH
 	var/heal_rate = 5
-	var/plasma_rate = 5
+	var/phoron_rate = 5
 
 	var/oxygen_alert = 0
 	var/toxins_alert = 0
@@ -43,8 +43,8 @@
 	..()
 
 /mob/living/carbon/alien/adjustToxLoss(amount)
-	storedPlasma = min(max(storedPlasma + amount,0),max_plasma) //upper limit of max_plasma, lower limit of 0
-	updatePlasmaDisplay()
+	storedPhoron = min(max(storedPhoron + amount,0),max_phoron) //upper limit of max_phoron, lower limit of 0
+	updatePhoronDisplay()
 	return
 
 /mob/living/carbon/alien/adjustFireLoss(amount) // Weak to Fire
@@ -54,8 +54,8 @@
 		..(amount)
 	return
 
-/mob/living/carbon/alien/proc/getPlasma()
-	return storedPlasma
+/mob/living/carbon/alien/proc/getPhoron()
+	return storedPhoron
 
 /mob/living/carbon/alien/eyecheck()
 	return 2
@@ -72,7 +72,7 @@
 	//If there are alien weeds on the ground then heal if needed or give some toxins
 	if(locate(/obj/structure/alien/weeds) in loc)
 		if(health >= maxHealth - getCloneLoss())
-			adjustToxLoss(plasma_rate)
+			adjustToxLoss(phoron_rate)
 		else
 			adjustBruteLoss(-heal_rate)
 			adjustFireLoss(-heal_rate)
@@ -173,7 +173,7 @@
 	..()
 
 	if (client.statpanel == "Status")
-		stat(null, "Plasma Stored: [getPlasma()]/[max_plasma]")
+		stat(null, "Phoron Stored: [getPhoron()]/[max_phoron]")
 
 	if(emergency_shuttle)
 		var/eta_status = emergency_shuttle.get_status_panel_eta()
@@ -272,11 +272,11 @@ Des: Removes all infected images from the alien.
 /mob/living/carbon/alien/canBeHandcuffed()
 	return 1
 
-/mob/living/carbon/alien/proc/updatePlasmaDisplay()
+/mob/living/carbon/alien/proc/updatePhoronDisplay()
 	if(hud_used) //clientless aliens
-		hud_used.alien_plasma_display.maptext = "<div align='center' valign='middle' style='position:relative; top:0px; left:6px'> <font color='magenta'>[storedPlasma]</font></div>"
+		hud_used.alien_phoron_display.maptext = "<div align='center' valign='middle' style='position:relative; top:0px; left:6px'> <font color='magenta'>[storedPhoron]</font></div>"
 
-/mob/living/carbon/alien/larva/updatePlasmaDisplay()
+/mob/living/carbon/alien/larva/updatePhoronDisplay()
 	return
 
 /mob/living/carbon/alien/can_use_vents()

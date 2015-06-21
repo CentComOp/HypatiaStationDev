@@ -117,7 +117,7 @@ datum/controller/air_system
 /datum/controller/air_system/proc/setup_overlays()
 	plmaster = new /obj/effect/overlay()
 	plmaster.icon = 'icons/effects/tile_effects.dmi'
-	plmaster.icon_state = "plasma"
+	plmaster.icon_state = "phoron"
 	plmaster.layer = FLY_LAYER
 	plmaster.mouse_opacity = 0
 
@@ -227,7 +227,7 @@ turf/CanPass(atom/movable/mover, turf/target, height=1.5,air_group=0)
 
 
 
-/atom/movable/proc/atmos_spawn_air(var/text, var/amount) //because a lot of people loves to copy paste awful code lets just make a easy proc to spawn your plasma fires
+/atom/movable/proc/atmos_spawn_air(var/text, var/amount) //because a lot of people loves to copy paste awful code lets just make a easy proc to spawn your phoron fires
 	var/turf/simulated/T = get_turf(src)
 	if(!istype(T))
 		return

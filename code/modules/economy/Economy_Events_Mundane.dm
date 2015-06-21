@@ -24,7 +24,7 @@
 		/*
 		switch(event_type)
 			if(RESEARCH_BREAKTHROUGH)
-				newMsg.body = "A major breakthough in the field of [pick("plasma research","super-compressed materials","nano-augmentation","bluespace research","volatile power manipulation")] \
+				newMsg.body = "A major breakthough in the field of [pick("phoron research","super-compressed materials","nano-augmentation","bluespace research","volatile power manipulation")] \
 				was announced [pick("yesterday","a few days ago","last week","earlier this month")] by a private firm on [affected_dest.name]. \
 				Nanotrasen declined to comment as to whether this could impinge on profits."
 
@@ -86,7 +86,7 @@
 			if(MOVIE_RELEASE)
 				newMsg.body += "From the [pick("desk","home town","homeworld","mind")] of [pick("acclaimed","award-winning","popular","stellar")] \
 				[pick("playwright","author","director","actor","TV star")] [random_name(pick(MALE,FEMALE))] comes the latest sensation: '\
-				[pick("Deadly","The last","Lost","Dead")] [pick("Starships","Warriors","outcasts","Tajarans","Unathi","Skrell")] \
+				[pick("Deadly","The last","Lost","Dead")] [pick("Starships","Warriors","outcasts","Tajarans","Soghun","Skrell")] \
 				[pick("of","from","raid","go hunting on","visit","ravage","pillage","destroy")] \
 				[pick("Moghes","Earth","Biesel","Ahdomai","S'randarr","the Void","the Edge of Space")]'.\
 				. Own it on webcast today, or visit the galactic premier on [affected_dest.name]!"

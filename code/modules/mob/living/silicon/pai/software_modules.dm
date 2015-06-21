@@ -431,16 +431,16 @@
 				var/co2[0]
 				co2["name"] = "Carbon Dioxide"
 				co2["percent"] = round((env.carbon_dioxide/t_moles)*100)
-				var/plasma[0]
-				plasma["name"] = "Plasma"
-				plasma["percent"] = round((env.toxins/t_moles)*100)
+				var/phoron[0]
+				phoron["name"] = "Phoron"
+				phoron["percent"] = round((env.toxins/t_moles)*100)
 				var/other[0]
 				other["name"] = "Other"
 				other["percent"] = round(1-((env.oxygen/t_moles)+(env.nitrogen/t_moles)+(env.carbon_dioxide/t_moles)+(env.toxins/t_moles)))
 				gases[++gases.len] = n2
 				gases[++gases.len] = o2
 				gases[++gases.len] = co2
-				gases[++gases.len] = plasma
+				gases[++gases.len] = phoron
 				gases[++gases.len] = other
 			data["gas"] = gases
 
@@ -482,7 +482,7 @@
 		// 	Galactic Common, Sol Common, Tradeband, Gutter and Trinary are added with New() and are therefore the current default, always active languages
 		user.translator_on = !user.translator_on
 		if(user.translator_on)
-			user.add_language("Sinta'unathi")
+			user.add_language("Sinta'soghun")
 			user.add_language("Siik'tajr")
 			user.add_language("Canilunzt")
 			user.add_language("Skrellian")
@@ -492,7 +492,7 @@
 			user.add_language("Bubblish")
 			user.add_language("Clownish")
 		else
-			user.remove_language("Sinta'unathi")
+			user.remove_language("Sinta'soghun")
 			user.remove_language("Siik'tajr")
 			user.remove_language("Canilunzt")
 			user.remove_language("Skrellian")

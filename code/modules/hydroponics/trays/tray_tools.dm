@@ -169,13 +169,13 @@
 	if(grown_seed.consume_gasses && grown_seed.consume_gasses.len)
 		for(var/gas in grown_seed.consume_gasses)
 			if(gas == "carbon_dioxide")	gas = "carbon dioxide"
-			if(gas == "toxins")	gas = "plasma"
+			if(gas == "toxins")	gas = "phoron"
 			dat += "<br>It requires an environment rich in [gas] gas to thrive."
 
 	if(grown_seed.exude_gasses && grown_seed.exude_gasses.len)
 		for(var/gas in grown_seed.exude_gasses)
 			if(gas == "carbon_dioxide")	gas = "carbon dioxide"
-			if(gas == "toxins")	gas = "plasma"
+			if(gas == "toxins")	gas = "phoron"
 			dat += "<br>It releases [gas] gas as a byproduct of it's growth."
 
 	if(grown_seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
@@ -286,11 +286,11 @@
 	attack_verb = list("chopped", "torn", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
-/obj/item/weapon/hatchet/unathiknife
+/obj/item/weapon/hatchet/soghunknife
 	name = "duelling knife"
 	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
 	icon = 'icons/obj/weapons.dmi'
-	icon_state = "unathiknife"
+	icon_state = "soghunknife"
 	attack_verb = list("ripped", "torn", "cut")
 
 /obj/item/weapon/hatchet/tacknife

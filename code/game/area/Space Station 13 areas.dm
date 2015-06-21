@@ -1191,9 +1191,9 @@ var/list/ghostteleportlocs = list()
 	name = "\improper Skrell Embassy"
 	icon_state = "skrell"
 
-/area/embassy/unathi
-	name = "\improper Unathi Embassy"
-	icon_state = "unathi"
+/area/embassy/soghun
+	name = "\improper Soghun Embassy"
+	icon_state = "soghun"
 
 /area/embassy/kidan
 	name = "\improper Kidan Embassy"
