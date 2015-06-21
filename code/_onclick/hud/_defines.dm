@@ -14,7 +14,7 @@
 */
 
 //Middle left indicators
-#define ui_alienplasmadisplay "EAST-1:28,CENTER-2:15"
+#define ui_alienphorondisplay "EAST-1:28,CENTER-2:15"
 
 //Lower left, persistant menu
 #define ui_inventory "WEST:6,SOUTH:5"

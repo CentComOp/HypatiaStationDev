@@ -8,7 +8,7 @@
 #define ATM_O2		3
 #define ATM_N2		4
 #define ATM_CO2		5
-#define ATM_P		6	//Phoron
+#define ATM_P		6	//phoron
 #define ATM_N2O		7
 
 //--------------------------------------------

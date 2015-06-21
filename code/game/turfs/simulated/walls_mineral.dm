@@ -80,39 +80,39 @@
 	radiate()
 	..()
 
-/turf/simulated/wall/mineral/plasma
-	name = "plasma wall"
-	desc = "A wall with plasma plating. This is definately a bad idea."
-	icon_state = "plasma0"
-	walltype = "plasma"
-	mineral = "plasma"
+/turf/simulated/wall/mineral/phoron
+	name = "phoron wall"
+	desc = "A wall with phoron plating. This is definately a bad idea."
+	icon_state = "phoron0"
+	walltype = "phoron"
+	mineral = "phoron"
 	thermal_conductivity = 0.04
 
-/turf/simulated/wall/mineral/plasma/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/simulated/wall/mineral/phoron/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(is_hot(W) > 300)//If the temperature of the object is over 300, then ignite
 		ignite(is_hot(W))
 		return
 	..()
 
-/turf/simulated/wall/mineral/plasma/proc/PlasmaBurn(temperature)
+/turf/simulated/wall/mineral/phoron/proc/PhoronBurn(temperature)
 	spawn(2)
 	new /obj/structure/girder(src)
 	src.ChangeTurf(/turf/simulated/floor)
 	atmos_spawn_air(SPAWN_HEAT | SPAWN_TOXINS, 400)
 
-/turf/simulated/wall/mineral/plasma/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)//Doesn't fucking work because walls don't interact with air :(
+/turf/simulated/wall/mineral/phoron/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)//Doesn't fucking work because walls don't interact with air :(
 	if(exposed_temperature > 300)
-		PlasmaBurn(exposed_temperature)
+		PhoronBurn(exposed_temperature)
 
-/turf/simulated/wall/mineral/plasma/proc/ignite(exposed_temperature)
+/turf/simulated/wall/mineral/phoron/proc/ignite(exposed_temperature)
 	if(exposed_temperature > 300)
-		PlasmaBurn(exposed_temperature)
+		PhoronBurn(exposed_temperature)
 
-/turf/simulated/wall/mineral/plasma/bullet_act(var/obj/item/projectile/Proj)
+/turf/simulated/wall/mineral/phoron/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj,/obj/item/projectile/beam))
-		PlasmaBurn(2500)
+		PhoronBurn(2500)
 	else if(istype(Proj,/obj/item/projectile/ion))
-		PlasmaBurn(500)
+		PhoronBurn(500)
 	..()
 
 /*
@@ -134,6 +134,6 @@
 /turf/simulated/wall/mineral/alien
 	name = "alien wall"
 	desc = "An strange-looking alien wall."
-	icon_state = "plasma0"
-	walltype = "plasma"
-	mineral = "plasma"
+	icon_state = "phoron0"
+	walltype = "phoron"
+	mineral = "phoron"

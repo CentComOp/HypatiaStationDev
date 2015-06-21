@@ -151,10 +151,10 @@
 	desc = "A flag proudly proclaiming the superior heritage of Tajaran."
 	icon_state = "tajflag"
 
-/obj/item/flag/species/unathi
-	name = "Unathi flag"
-	desc = "A flag proudly proclaiming the superior heritage of Unathi."
-	icon_state = "unathiflag"
+/obj/item/flag/species/soghun
+	name = "Soghun flag"
+	desc = "A flag proudly proclaiming the superior heritage of Soghun."
+	icon_state = "soghunflag"
 
 //Nation Flags (Able to spawn outside Nations gamemode)
 

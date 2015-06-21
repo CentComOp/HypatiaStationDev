@@ -6,8 +6,8 @@
 
 	maxHealth = 30
 	health = 30
-	storedPlasma = 50
-	max_plasma = 50
+	storedPhoron = 50
+	max_phoron = 50
 	density = 0
 
 	var/amount_grown = 0

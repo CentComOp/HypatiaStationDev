@@ -57,8 +57,8 @@
  + syndiflag_fire
  + tajflag
  + tajflag_fire
- + unathiflag
- + unathiflag_fire
+ + soghunflag
+ + soghunflag_fire
  + voxflag
  + voxflag_fire
  + wizflag
@@ -378,8 +378,8 @@
  + pie
  + pill
  + plantbgone
- + plasma
- + plasma-c
+ + phoron
+ + phoron-c
  + plasticbag
  + plasticx
  + pneumatic
@@ -539,7 +539,7 @@
  + toysword1
  + trashbag
  + ty_necklace
- + unathiknife
+ + soghunknife
  + upickaxe
  + vhammer
  + vhelmet
@@ -595,7 +595,7 @@
  - fireaxe1
  - katana
  - scythe0
- - unathiknife
+ - soghunknife
 --- Z:\Git\Space Station 13\Baystation12\icons\mob\in-hand\left\vox_civvie.dmi
 +++ Z:\Git\Space Station 13\Baystation12\icons\mob\in-hand\right\vox_civvie.dmi
  + vox-pressure-security
@@ -921,8 +921,8 @@
  + pill
  + pizzabox1
  + plantbgone
- + plasma
- + plasma-c
+ + phoron
+ + phoron-c
  + plasticbag
  + plasticx
  + pneumatic
@@ -1079,7 +1079,7 @@
  + toysword1
  + trashbag
  + ty_necklace
- + unathiknife
+ + soghunknife
  + upickaxe
  + vhammer
  + vhelmet

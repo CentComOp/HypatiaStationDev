@@ -153,10 +153,10 @@
 	typepath = /obj/item/flag/species/taj
 	cost = 1000
 
-/datum/storeitem/flag/unathi
-	name = "Unathi flag"
-	desc = "A flag proudly proclaiming the superior heritage of Unathi."
-	typepath = /obj/item/flag/species/unathi
+/datum/storeitem/flag/soghun
+	name = "Soghun flag"
+	desc = "A flag proudly proclaiming the superior heritage of Soghun."
+	typepath = /obj/item/flag/species/soghun
 	cost = 1000
 
 /datum/storeitem/flag/ian

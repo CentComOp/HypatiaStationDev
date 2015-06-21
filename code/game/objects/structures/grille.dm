@@ -154,7 +154,7 @@
 			return
 
 //window placing begin
-	else if( istype(W,/obj/item/stack/sheet/rglass) || istype(W,/obj/item/stack/sheet/glass) || istype(W,/obj/item/stack/sheet/plasmaglass) || istype(W,/obj/item/stack/sheet/plasmarglass) )
+	else if( istype(W,/obj/item/stack/sheet/rglass) || istype(W,/obj/item/stack/sheet/glass) || istype(W,/obj/item/stack/sheet/phoronglass) || istype(W,/obj/item/stack/sheet/phoronrglass) )
 		var/dir_to_set = 1
 		if(loc == user.loc)
 			dir_to_set = user.dir
@@ -189,10 +189,10 @@
 				WD = new/obj/structure/window/reinforced(loc) //reinforced window
 			else if(istype(W,/obj/item/stack/sheet/glass))
 				WD = new/obj/structure/window/basic(loc) //normal window
-			else if(istype(W,/obj/item/stack/sheet/plasmaglass))
-				WD = new/obj/structure/window/plasmabasic(loc) //basic plasma window
+			else if(istype(W,/obj/item/stack/sheet/phoronglass))
+				WD = new/obj/structure/window/phoronbasic(loc) //basic phoron window
 			else
-				WD = new/obj/structure/window/plasmareinforced(loc) //reinforced plasma window
+				WD = new/obj/structure/window/phoronreinforced(loc) //reinforced phoron window
 			WD.dir = dir_to_set
 			WD.ini_dir = dir_to_set
 			WD.anchored = 0

@@ -529,13 +529,13 @@
 	return
 
 /mob/living/carbon/slime/attackby(obj/item/W, mob/user, params)
-	if(istype(W,/obj/item/stack/sheet/mineral/plasma)) //Lets you feed slimes plasma.
+	if(istype(W,/obj/item/stack/sheet/mineral/phoron)) //Lets you feed slimes phoron.
 		if (user in Friends)
 			++Friends[user]
 		else
 			Friends[user] = 1
-		user << "You feed the slime the plasma. It chirps happily."
-		var/obj/item/stack/sheet/mineral/plasma/S = W
+		user << "You feed the slime the phoron. It chirps happily."
+		var/obj/item/stack/sheet/mineral/phoron/S = W
 		S.use(1)
 		return
 	else if(W.force > 0)

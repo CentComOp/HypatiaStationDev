@@ -19,7 +19,7 @@
 	var/hackedcheck = 0
 	var/list/dispensable_reagents = list("hydrogen","lithium","carbon","nitrogen","oxygen","fluorine",
 	"sodium","aluminum","silicon","phosphorus","sulfur","chlorine","potassium","iron",
-	"copper","mercury","plasma","radium","water","ethanol","sugar","tungsten","iodine","bromine","silver")
+	"copper","mercury","phoron","radium","water","ethanol","sugar","tungsten","iodine","bromine","silver")
 	var/list/hacked_reagents = list("toxin")
 	var/hack_message = "You disable the safety safeguards, enabling the \"Mad Scientist\" mode."
 	var/unhack_message = "You re-enable the safety safeguards, enabling the \"NT Standard\" mode."
@@ -263,7 +263,7 @@
 	ui_title = "Soda Dispens-o-matic"
 	energy = 100
 	max_energy = 100
-	dispensable_reagents = list("water","ice", "milk", "soymilk", "coffee","tea","hot_coco", "cola","spacemountainwind","dr_gibb","space_up","tonic","sodawater","lemon_lime", "grapejuice","sugar","orangejuice", "lemonjuice", "limejuice","tomatojuice", "banana", "watermelonjuice", "carrotjuice", "potato", "berryjuice")
+	dispensable_reagents = list("water","ice","milk","soymilk","coffee","tea","hot_coco","cola","spacemountainwind","dr_gibb","space_up","mangojuice","sodawater","lemon_lime","sugar","orangejuice", "lemonjuice", "limejuice","tomatojuice", "banana", "watermelonjuice", "carrotjuice", "potato", "berryjuice")
 	hack_message = "You change the mode from 'McNano' to 'Pizza King'."
 	unhack_message = "You change the mode from 'Pizza King' to 'McNano'."
 	hacked_reagents = list("thirteenloko")
@@ -275,7 +275,7 @@
 	energy = 100
 	max_energy = 100
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
-	dispensable_reagents = list("ice","cream", "cider", "beer","kahlua","whiskey","wine","vodka","gin","rum","tequilla","vermouth","cognac","ale","mead")
+	dispensable_reagents = list("sodiumchloride","ice","sugar","orangejuice","limejuice","sodawater","tonic","cream", "cider","beer","kahlua","whiskey","wine","vodka","gin","rum","tequilla","vermouth","cognac","ale","mead")
 	hack_message = "You disable the 'nanotrasen-are-cheap-bastards' lock, enabling hidden and very expensive boozes."
 	unhack_message = "You re-enable the 'nanotrasen-are-cheap-bastards' lock, disabling hidden and very expensive boozes."
 	hacked_reagents = list("goldschlager","patron", "absinthe", "ethanol", "nothing")
@@ -294,7 +294,7 @@
 	dispensable_reagents = list()
 	var/list/special_reagents = list(list("hydrogen", "oxygen", "silicon", "phosphorus", "sulfur", "carbon", "nitrogen", "tungsten", "water"),
 						 		list("lithium", "sugar", "copper", "mercury", "sodium","iodine","bromine"),
-								list("ethanol", "chlorine", "potassium", "aluminum","plasma", "radium", "fluorine", "iron", "silver"))
+								list("ethanol", "chlorine", "potassium", "aluminum","phoron", "radium", "fluorine", "iron", "silver"))
 
 /obj/machinery/chem_dispenser/constructable/New()
 	..()
@@ -997,7 +997,7 @@
 	var/list/blend_items = list (
 
 		//Sheets
-		/obj/item/stack/sheet/mineral/plasma = list("plasma" = 20),
+		/obj/item/stack/sheet/mineral/phoron = list("phoron" = 20),
 		/obj/item/stack/sheet/mineral/uranium = list("uranium" = 20),
 		/obj/item/stack/sheet/mineral/clown = list("banana" = 20),
 		/obj/item/stack/sheet/mineral/silver = list("silver" = 20),
@@ -1037,10 +1037,14 @@
 		"banana" = list("banana" = 0),
 		"potato" = list("potato" = 0),
 		"lemon" = list("lemonjuice" = 0),
+		"apple" = list("applejuice"=0),
 		"orange" = list("orangejuice" = 0),
+		"strawberry" = list("strawberryjuice" =0),
+		"ginger" = list("gingerguice" = 0),
 		"lime" = list("limejuice" = 0),
 		"poisonberries" = list("poisonberryjuice" = 0),
 		"grapes" = list("grapejuice" = 0),
+		"greengrapes" = list("greengrapejuice" = 0),
 		"corn" = list("cornoil" = 0),
 	)
 

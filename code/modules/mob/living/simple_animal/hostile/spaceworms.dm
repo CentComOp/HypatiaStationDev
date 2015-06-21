@@ -51,7 +51,7 @@
 	var/digestionProbability = 20
 
 	var/atom/currentlyEating //what the worm is currently eating
-	var/plasmaPoopPotential = 5 //this mainly exists for the name
+	var/phoronPoopPotential = 5 //this mainly exists for the name
 
 /mob/living/simple_animal/hostile/spaceWorm/Process_Spacemove(var/check_drift = 0)
 	return 1 //space worms can flyyyyyy
@@ -169,7 +169,7 @@
 		if(noms && Adjacent(noms) && (currentlyEating == noms))//It exists, were next to it, and it's still the thing were eating
 			if(W)
 				W.ChangeTurf(/turf/simulated/floor/plating)
-				new /obj/item/stack/sheet/metal(src, plasmaPoopPotential)
+				new /obj/item/stack/sheet/metal(src, phoronPoopPotential)
 				currentlyEating = null //ffs, unstore this
 				src.visible_message("<span class='userdanger'>\the [src] eats \the [noms]!</span>","<span class='notice'>You eat \the [noms]!</span>","<span class=userdanger'>You hear gnashing.</span>") //inform everyone what the fucking worm is doing.
 			else
@@ -302,11 +302,11 @@
 		myHead.totalWormSegments -= src
 
 
-//Process nom noms, things we've eaten have a chance to become plasma
+//Process nom noms, things we've eaten have a chance to become phoron
 /mob/living/simple_animal/hostile/spaceWorm/proc/ProcessStomach()
 	for(var/atom/movable/stomachContent in contents)
 		if(prob(digestionProbability))
-			new /obj/item/stack/sheet/mineral/plasma(src, plasmaPoopPotential)
+			new /obj/item/stack/sheet/mineral/phoron(src, phoronPoopPotential)
 			if(ismob(stomachContent))
 				var/mob/M = stomachContent
 				M.ghostize() //because qdelling an entire mob without ghosting it is BAD

@@ -12,7 +12,7 @@
 
 		//M.generate_name()
 
-	if( M.species.name=="Tajaran" || M.species.name=="Unathi" )
+	if( M.species.name=="Tajaran" || M.species.name=="Soghun" )
 		if(M.mind.assigned_role == "Cyborg" || M.mind.assigned_role == "Clown")
 			return //Cyborgs don't wear shoes.  Clown shoes are large.
 		M.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(M), slot_shoes)

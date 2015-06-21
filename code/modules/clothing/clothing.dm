@@ -45,7 +45,7 @@
 	//Set species_restricted list
 	switch(target_species)
 		if("Human", "Skrell")	//humanoid bodytypes
-			species_restricted = list("exclude","Unathi","Tajaran","Diona","Vox","Wryn")
+			species_restricted = list("exclude","Soghun","Tajaran","Diona","Vox","Wryn")
 		else
 			species_restricted = list(target_species)
 
@@ -161,7 +161,7 @@ BLIND     // can't see anything
 	var/transfer_prints = FALSE
 	var/pickpocket = 0 //Master pickpocket?
 	var/clipped = 0
-	species_restricted = list("exclude","Unathi","Tajaran","Wryn")
+	species_restricted = list("exclude","Soghun","Tajaran","Wryn")
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user, params)
 	if(istype(W, /obj/item/weapon/wirecutters))
@@ -172,7 +172,7 @@ BLIND     // can't see anything
 			if("exclude" in species_restricted)
 				name = "mangled [name]"
 				desc = "[desc] They have had the fingertips cut off of them."
-				species_restricted -= "Unathi"
+				species_restricted -= "Soghun"
 				species_restricted -= "Tajaran"
 		else if(clipped == 1)
 			user << "<span class='notice'>[src] have already been clipped!</span>"
@@ -298,7 +298,7 @@ BLIND     // can't see anything
 
 	permeability_coefficient = 0.50
 	slowdown = SHOES_SLOWDOWN
-	species_restricted = list("exclude","Unathi","Tajaran","Wryn")
+	species_restricted = list("exclude","Soghun","Tajaran","Wryn")
 
 /obj/item/proc/negates_gravity()
 	return 0

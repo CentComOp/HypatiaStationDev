@@ -128,7 +128,7 @@
 "cx" = (/obj/machinery/power/apc{dir = 4; name = "Mass Spectrometry APC"; pixel_x = 24; pixel_y = 0; pixel_x = 0},/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/turf/simulated/floor{dir = 4; icon_state = "whitegreen"},/area/research_outpost/spectro)
 "cy" = (/obj/machinery/light_switch{pixel_x = -23; pixel_y = 0},/obj/machinery/computer/reconstitutor,/turf/simulated/floor{icon_state = "white"},/area/research_outpost/sample)
 "cz" = (/obj/structure/stool,/turf/simulated/floor{icon_state = "white"},/area/research_outpost/sample)
-"cA" = (/obj/structure/table,/obj/item/stack/sheet/mineral/plasma,/turf/simulated/floor{icon_state = "white"},/area/research_outpost/sample)
+"cA" = (/obj/structure/table,/obj/item/stack/sheet/mineral/phoron,/turf/simulated/floor{icon_state = "white"},/area/research_outpost/sample)
 "cB" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/turf/simulated/floor{icon_state = "white"},/area/research_outpost/sample)
 "cC" = (/turf/simulated/floor{icon_state = "bot"; dir = 1},/area/research_outpost/sample)
 "cD" = (/obj/structure/disposaloutlet{dir = 8},/obj/structure/disposalpipe/trunk{dir = 2},/turf/simulated/wall/r_wall,/area/research_outpost/maintstore1)

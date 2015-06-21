@@ -1,4 +1,4 @@
-//Cat
+ //Cat
 /mob/living/simple_animal/pet/cat
 	name = "cat"
 	desc = "Kitty!!"
@@ -21,9 +21,9 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 
-//RUNTIME IS ALIVE! SQUEEEEEEEE~
-/mob/living/simple_animal/pet/cat/Runtime
-	name = "Runtime"
+//HappyKitten IS ALIVE! SQUEEEEEEEE~
+/mob/living/simple_animal/pet/cat/HappyKitten
+	name = "HappyKitten"
 	desc = "GCAT"
 	icon_state = "cat"
 	icon_living = "cat"
@@ -32,7 +32,7 @@
 	var/turns_since_scan = 0
 	var/mob/living/simple_animal/mouse/movement_target
 
-/mob/living/simple_animal/pet/cat/Runtime/Life()
+/mob/living/simple_animal/pet/cat/HappyKitten/Life()
 	//MICE!
 	if((src.loc) && isturf(src.loc))
 		if(!stat && !resting && !buckled)
