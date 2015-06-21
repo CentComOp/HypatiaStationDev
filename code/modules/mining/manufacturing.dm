@@ -103,7 +103,7 @@
 			if (istype(O,/obj/item/weapon/ore/gold)) AMTbohr++
 			if (istype(O,/obj/item/weapon/ore/coal)) AMTereb++
 			if (istype(O,/obj/item/weapon/ore/uranium)) AMTcere++
-			if (istype(O,/obj/item/weapon/ore/plasma)) AMTplas++
+			if (istype(O,/obj/item/weapon/ore/phoron)) AMTplas++
 			if (istype(O,/obj/item/weapon/ore/osmium)) AMTuqil++
 			if (istype(O,/obj/item/weapon/ore/hydrogen)) AMTtele++
 			if (istype(O,/obj/item/weapon/ore/fabric)) AMTfabr++
@@ -116,7 +116,7 @@
 		if (AMTbohr) dat += "<A href='?src=\ref[src];eject=5'><B>Gold:</B></A> [AMTbohr]<br>"
 		if (AMTereb) dat += "<A href='?src=\ref[src];eject=6'><B>Coal:</B></A> [AMTereb]<br>"
 		if (AMTcere) dat += "<A href='?src=\ref[src];eject=7'><B>Uranium:</B></A> [AMTcere]<br>"
-		if (AMTplas) dat += "<A href='?src=\ref[src];eject=8'><B>Plasma:</B></A> [AMTplas]<br>"
+		if (AMTplas) dat += "<A href='?src=\ref[src];eject=8'><B>Phoron:</B></A> [AMTplas]<br>"
 		if (AMTuqil) dat += "<A href='?src=\ref[src];eject=9'><B>Platinum:</B></A> [AMTuqil]<br>"
 		if (AMTtele) dat += "<A href='?src=\ref[src];eject=10'><B>Hydrogen:</B></A> [AMTtele]<br>"
 		if (AMTfabr) dat += "<A href='?src=\ref[src];eject=11'><B>Fabric:</B></A> [AMTfabr]<br>"
@@ -227,7 +227,7 @@
 					if(5) ejecting = /obj/item/weapon/ore/gold
 					if(6) ejecting = /obj/item/weapon/ore/coal
 					if(7) ejecting = /obj/item/weapon/ore/uranium
-					if(8) ejecting = /obj/item/weapon/ore/plasma
+					if(8) ejecting = /obj/item/weapon/ore/phoron
 					if(9) ejecting = /obj/item/weapon/ore/osmium
 					if(10) ejecting = /obj/item/weapon/ore/hydrogen
 					if(11) ejecting = /obj/item/weapon/ore/fabric
@@ -306,7 +306,7 @@
 			if(istype(STACK, /obj/item/stack/sheet/plasteel))
 				for (var/amt = STACK.amount, amt > 0, amt--)
 					new /obj/item/weapon/ore/iron(src)
-					new /obj/item/weapon/ore/plasma(src)
+					new /obj/item/weapon/ore/phoron(src)
 			if(istype(STACK, /obj/item/stack/sheet/glass))
 				for (var/amt = STACK.amount, amt > 0, amt--) new /obj/item/weapon/ore/glass(src)
 			if(istype(STACK, /obj/item/stack/sheet/rglass))
@@ -646,8 +646,8 @@
 	cost1 = /obj/item/weapon/ore/iron
 	cname1 = "Iron"
 	amount1 = 1
-	cost2 = /obj/item/weapon/ore/plasma
-	cname2 = "Plasma"
+	cost2 = /obj/item/weapon/ore/phoron
+	cname2 = "Phoron"
 	amount2 = 1
 	time = 6
 	create = 1

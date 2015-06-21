@@ -6,9 +6,9 @@
 	icon_state = "alienq_s"
 	status_flags = CANPARALYSE
 	heal_rate = 5
-	plasma_rate = 20
+	phoron_rate = 20
 	move_delay_add = 3
-	max_plasma = 1000
+	max_phoron = 1000
 	large = 1
 	ventcrawler = 0
 

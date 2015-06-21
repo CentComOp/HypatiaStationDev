@@ -201,7 +201,7 @@ You've gained <b>[totalkarma]</b> total karma in your time here.<br>"}
 			<a href='?src=\ref[src];karmashop=shop;KarmaBuy2=3'>Unlock Grey -- 30KP</a><br>
 			<a href='?src=\ref[src];karmashop=shop;KarmaBuy2=4'>Unlock Vox -- 45KP</a><br>
 			<a href='?src=\ref[src];karmashop=shop;KarmaBuy2=5'>Unlock Slime People -- 45KP</a><br>
-			<a href='?src=\ref[src];karmashop=shop;KarmaBuy2=6'>Unlock Plasmaman -- 100KP</a><br>
+			<a href='?src=\ref[src];karmashop=shop;KarmaBuy2=6'>Unlock Phoronman -- 100KP</a><br>
 			"}
 
 		if (2) // Karma Refunds
@@ -210,9 +210,9 @@ You've gained <b>[totalkarma]</b> total karma in your time here.<br>"}
 			if("Tajaran Ambassador" in purchased)
 				refundable += "Tajaran Ambassador"
 				dat += "<a href='?src=\ref[src];karmashop=shop;KarmaRefund=Tajaran Ambassador;KarmaRefundType=job;KarmaRefundCost=30'>Refund Tajaran Ambassador -- 30KP</a><br>"
-			if("Unathi Ambassador" in purchased)
-				refundable += "Unathi Ambassador"
-				dat += "<a href='?src=\ref[src];karmashop=shop;KarmaRefund=Unathi Ambassador;KarmaRefundType=job;KarmaRefundCost=30'>Refund Unathi Ambassador -- 30KP</a><br>"
+			if("Soghun Ambassador" in purchased)
+				refundable += "Soghun Ambassador"
+				dat += "<a href='?src=\ref[src];karmashop=shop;KarmaRefund=Soghun Ambassador;KarmaRefundType=job;KarmaRefundCost=30'>Refund Soghun Ambassador -- 30KP</a><br>"
 			if("Skrell Ambassador" in purchased)
 				refundable += "Skrell Ambassador"
 				dat += "<a href='?src=\ref[src];karmashop=shop;KarmaRefund=Skrell Ambassador;KarmaRefundType=job;KarmaRefundCost=30'>Refund Skrell Ambassador -- 30KP</a><br>"
@@ -353,7 +353,7 @@ You've gained <b>[totalkarma]</b> total karma in your time here.<br>"}
 /client/proc/karmarefund(var/type,var/name,var/cost)
 	if(name == "Tajaran Ambassador")
 		cost = 30
-	else if(name == "Unathi Ambassador")
+	else if(name == "Soghun Ambassador")
 		cost = 30
 	else if(name == "Skrell Ambassador")
 		cost = 30

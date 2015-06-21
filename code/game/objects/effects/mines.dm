@@ -50,7 +50,7 @@
 	spawn(0)
 		del(src)
 
-/obj/effect/mine/proc/triggerplasma(obj)
+/obj/effect/mine/proc/triggerphoron(obj)
 	atmos_spawn_air(SPAWN_HEAT | SPAWN_TOXINS, 360)
 	spawn(0)
 		del(src)
@@ -73,10 +73,10 @@
 	icon_state = "uglymine"
 	triggerproc = "triggerrad"
 
-/obj/effect/mine/plasma
-	name = "Plasma Mine"
+/obj/effect/mine/phoron
+	name = "Phoron Mine"
 	icon_state = "uglymine"
-	triggerproc = "triggerplasma"
+	triggerproc = "triggerphoron"
 
 /obj/effect/mine/kick
 	name = "Kick Mine"

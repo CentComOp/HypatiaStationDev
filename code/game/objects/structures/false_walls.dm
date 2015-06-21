@@ -120,7 +120,7 @@
 	else
 		user << "<span class='warning'>You can't reach, close it first!</span>"
 
-	if(istype(W, /obj/item/weapon/pickaxe/plasmacutter) || istype(W, /obj/item/weapon/pickaxe/diamonddrill) || istype(W, /obj/item/weapon/melee/energy/blade))
+	if(istype(W, /obj/item/weapon/pickaxe/phoroncutter) || istype(W, /obj/item/weapon/pickaxe/diamonddrill) || istype(W, /obj/item/weapon/melee/energy/blade))
 		dismantle(user)
 
 /obj/structure/falsewall/proc/dismantle(mob/user)
@@ -215,20 +215,20 @@
 	mineral = "diamond"
 	walltype = "diamond"
 
-/obj/structure/falsewall/plasma
-	name = "plasma wall"
-	desc = "A wall with plasma plating. This is definately a bad idea."
+/obj/structure/falsewall/phoron
+	name = "phoron wall"
+	desc = "A wall with phoron plating. This is definately a bad idea."
 	icon_state = ""
-	mineral = "plasma"
-	walltype = "plasma"
+	mineral = "phoron"
+	walltype = "phoron"
 
-/obj/structure/falsewall/plasma/proc/burnbabyburn(user)
+/obj/structure/falsewall/phoron/proc/burnbabyburn(user)
 	playsound(src, 'sound/items/Welder.ogg', 100, 1)
 	atmos_spawn_air(SPAWN_HEAT | SPAWN_TOXINS, 400)
 	new /obj/structure/girder/displaced(loc)
 	qdel(src)
 
-/obj/structure/falsewall/plasma/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/falsewall/phoron/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
 		burnbabyburn()
 

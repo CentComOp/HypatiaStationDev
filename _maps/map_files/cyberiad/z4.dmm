@@ -117,7 +117,7 @@
 "cq" = (/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/machinery/power/apc{dir = 2; name = "Engineering Outpost APC"; pixel_y = -24},/turf/simulated/floor{icon_state = "dark"},/area/engiestation)
 "cr" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/sign/securearea{desc = "A warning sign which reads 'HIGH VOLTAGE'"; icon_state = "shock"; name = "HIGH VOLTAGE"; pixel_x = 0; pixel_y = -32},/turf/simulated/floor{icon_state = "dark"},/area/engiestation)
 "cs" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/machinery/light_switch{pixel_y = -28},/turf/simulated/floor{icon_state = "dark"},/area/engiestation)
-"ct" = (/obj/structure/table,/obj/item/stack/sheet/mineral/plasma{amount = 30},/obj/item/weapon/storage/toolbox/mechanical{pixel_x = -2; pixel_y = -1},/obj/item/device/multitool,/turf/simulated/floor{icon_state = "dark"},/area/engiestation)
+"ct" = (/obj/structure/table,/obj/item/stack/sheet/mineral/phoron{amount = 30},/obj/item/weapon/storage/toolbox/mechanical{pixel_x = -2; pixel_y = -1},/obj/item/device/multitool,/turf/simulated/floor{icon_state = "dark"},/area/engiestation)
 "cu" = (/obj/machinery/vending/tool,/turf/simulated/floor{icon_state = "bot"; dir = 1},/area/engiestation)
 "cv" = (/obj/machinery/driver_button{id_tag = "constructiondriver2"; name = "Construction Driver #2"; pixel_x = 25},/turf/simulated/floor,/area/engiestation)
 "cw" = (/obj/structure/lattice,/turf/space,/area/constructionsite/maintenance)

@@ -75,7 +75,7 @@ datum
 			name = "Unstable mutagen"
 			id = "mutagen"
 			result = "mutagen"
-			required_reagents = list("radium" = 1, "plasma" = 1, "chlorine" = 1)
+			required_reagents = list("radium" = 1, "phoron" = 1, "chlorine" = 1)
 			result_amount = 3
 			mix_message = "The substance turns neon green and bubbles unnervingly."
 
@@ -113,7 +113,7 @@ datum
 			name = "mitocholide"
 			id = "mitocholide"
 			result = "mitocholide"
-			required_reagents = list("synthflesh" = 1, "cryoxadone" = 1, "plasma" = 1)
+			required_reagents = list("synthflesh" = 1, "cryoxadone" = 1, "phoron" = 1)
 			result_amount = 3
 
 		holy_water
@@ -128,7 +128,7 @@ datum
 			name = "Cryoxadone"
 			id = "cryoxadone"
 			result = "cryoxadone"
-			required_reagents = list("cryostylane" = 1, "plasma" = 1, "acetone" = 1, "mutagen" = 1)
+			required_reagents = list("cryostylane" = 1, "phoron" = 1, "acetone" = 1, "mutagen" = 1)
 			result_amount = 4
 			mix_message = "The solution bubbles softly."
 
@@ -253,7 +253,7 @@ datum
 			id = "condensedcapsaicin"
 			result = "condensedcapsaicin"
 			required_reagents = list("capsaicin" = 2)
-			required_catalysts = list("plasma" = 5)
+			required_catalysts = list("phoron" = 5)
 			result_amount = 1
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -406,13 +406,13 @@ datum
 			name = "Slime Spawn"
 			id = "m_spawn"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/grey
 			required_other = 1
 			on_reaction(var/datum/reagents/holder)
 				for(var/mob/O in viewers(get_turf(holder.my_atom), null))
-					O.show_message(text("\red Infused with plasma, the core begins to quiver and grow, and soon a new baby slime emerges from it!"), 1)
+					O.show_message(text("\red Infused with phoron, the core begins to quiver and grow, and soon a new baby slime emerges from it!"), 1)
 				var/mob/living/carbon/slime/S = new /mob/living/carbon/slime
 				S.loc = get_turf(holder.my_atom)
 
@@ -447,7 +447,7 @@ datum
 			name = "Mutation Toxin"
 			id = "mutationtoxin"
 			result = "mutationtoxin"
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_other = 1
 			required_container = /obj/item/slime_extract/green
@@ -457,7 +457,7 @@ datum
 			name = "Slime Metal"
 			id = "m_metal"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/metal
 			required_other = 1
@@ -474,7 +474,7 @@ datum
 			name = "Slime Crit"
 			id = "m_tele"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/gold
 			required_other = 1
@@ -538,7 +538,7 @@ datum
 			name = "Slime Bork"
 			id = "m_tele2"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/silver
 			required_other = 1
@@ -595,7 +595,7 @@ datum
 			name = "Slime Frost Oil"
 			id = "m_frostoil"
 			result = "frostoil"
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 10
 			required_container = /obj/item/slime_extract/blue
 			required_other = 1
@@ -604,7 +604,7 @@ datum
 			name = "Slime Freeze"
 			id = "m_freeze"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/darkblue
 			required_other = 1
@@ -631,7 +631,7 @@ datum
 			name = "Slime fire"
 			id = "m_fire"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/orange
 			required_other = 1
@@ -661,7 +661,7 @@ datum
 			name = "Slime Powercell"
 			id = "m_cell"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/yellow
 			required_other = 1
@@ -689,7 +689,7 @@ datum
 			name = "Slime Steroid"
 			id = "m_steroid"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/purple
 			required_other = 1
@@ -710,16 +710,16 @@ datum
 
 
 //Dark Purple
-		slimeplasma
-			name = "Slime Plasma"
-			id = "m_plasma"
+		slimephoron
+			name = "Slime Phoron"
+			id = "m_phoron"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/darkpurple
 			required_other = 1
 			on_reaction(var/datum/reagents/holder)
-				var/obj/item/stack/sheet/mineral/plasma/P = new /obj/item/stack/sheet/mineral/plasma
+				var/obj/item/stack/sheet/mineral/phoron/P = new /obj/item/stack/sheet/mineral/phoron
 				P.amount = 10
 				P.loc = get_turf(holder.my_atom)
 
@@ -728,7 +728,7 @@ datum
 			name = "Slime Glycerol"
 			id = "m_glycerol"
 			result = "glycerol"
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 8
 			required_container = /obj/item/slime_extract/red
 			required_other = 1
@@ -753,7 +753,7 @@ datum
 			name = "Slime Potion"
 			id = "m_potion"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/pink
 			required_other = 1
@@ -767,7 +767,7 @@ datum
 			name = "Advanced Mutation Toxin"
 			id = "mutationtoxin2"
 			result = "amutationtoxin"
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_other = 1
 			required_container = /obj/item/slime_extract/black
@@ -777,7 +777,7 @@ datum
 			name = "Slime Explosion"
 			id = "m_explosion"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/oil
 			required_other = 1
@@ -793,7 +793,7 @@ datum
 			result = null
 			result_amount = 1
 			required_container = /obj/item/slime_extract/lightpink
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			required_other = 1
 			on_reaction(var/datum/reagents/holder)
 				var/obj/item/weapon/slimepotion2/P = new /obj/item/weapon/slimepotion2
@@ -803,7 +803,7 @@ datum
 			name = "Slime Golem"
 			id = "m_golem"
 			result = null
-			required_reagents = list("plasma" = 5)
+			required_reagents = list("phoron" = 5)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/adamantine
 			required_other = 1
@@ -831,7 +831,7 @@ datum
 			name = "Slime Steroid 2"
 			id = "m_steroid2"
 			result = null
-			required_reagents = list("plasma" = 1)
+			required_reagents = list("phoron" = 1)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/cerulean
 			required_other = 1
@@ -844,7 +844,7 @@ datum
 			name = "Slime Camera"
 			id = "m_camera"
 			result = null
-			required_reagents = list("plasma" = 1)
+			required_reagents = list("phoron" = 1)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/sepia
 			required_other = 1
@@ -871,7 +871,7 @@ datum
 			name = "Slime Paint"
 			id = "s_paint"
 			result = null
-			required_reagents = list("plasma" = 1)
+			required_reagents = list("phoron" = 1)
 			result_amount = 1
 			required_container = /obj/item/slime_extract/pyrite
 			required_other = 1
@@ -1132,6 +1132,13 @@ datum
 			required_reagents = list("gin" = 2, "vermouth" = 1)
 			result_amount = 3
 
+		appletini
+			name = "Appletini"
+			id = "appletini"
+			result = "appletini"
+			required_reagents = list("martini" = 2, "applejuice" = 1)
+			result_amount = 3
+
 		vodkamartini
 			name = "Vodka Martini"
 			id = "vodkamartini"
@@ -1192,7 +1199,7 @@ datum
 			name = "Toxins Special"
 			id = "toxinsspecial"
 			result = "toxinsspecial"
-			required_reagents = list("rum" = 2, "vermouth" = 1, "plasma" = 2)
+			required_reagents = list("rum" = 2, "vermouth" = 1, "phoron" = 2)
 			result_amount = 5
 
 		beepsky_smash
@@ -1221,6 +1228,48 @@ datum
 			id = "manlydorf"
 			result = "manlydorf"
 			required_reagents = list ("beer" = 1, "ale" = 2)
+			result_amount = 3
+
+		spritzer
+			name = "Whitewine Spritzer"
+			id = "spritzer"
+			result = "spritzer"
+			required_reagents = list ("whitewine" = 1, "sodawater" = 2)
+			result_amount = 3
+
+		crows_nest
+			name = "The Crows Nest"
+			id = "crowsnest"
+			result = "crowsnest"
+			required_reagents = list ("mangojuice" = 1, "whiskey" = 2)
+			result_amount = 3
+
+		australian_beer
+			name = "Australian Beer"
+			id = "australianbeer"
+			result = "australianbeer"
+			required_reagents = list ("water" = 1, "beer" = 1)
+			result_amount = 1
+
+		strawberry_daiquiri
+			name = "Strawberry_Daiquiri"
+			id = "strawberrydaiquiri"
+			result = "strawberrydaiquiri"
+			required_reagents = list("strawberryjuice" = 2, "rum" = 2)
+			result_amount = 4
+
+		ginger_beer
+			name = "Ginger Beer"
+			id = "gingerbeer"
+			result = "gingerbeer"
+			required_reagents = list("gingerjuice" = 2, "beer" = 1)
+			result_amount = 3
+
+		ginger_ale
+			name = "Ginger Ale"
+			id = "gingerale"
+			result = "gingerale"
+			required_reagents = list("gingerjuice" = 2, "ale" = 1)
 			result_amount = 3
 
 		suicider
@@ -1257,6 +1306,13 @@ datum
 			id = "margarita"
 			result = "margarita"
 			required_reagents = list("tequilla" = 2, "limejuice" = 1)
+			result_amount = 3
+
+		watermelon_vodka
+			name = "Watermelon Vodka"
+			id = "watermelonvodka"
+			result = "watermelonvodka"
+			required_reagents = list("vodka" = 2, "watermelonjuice" = 1)
 			result_amount = 3
 
 		longislandicedtea
@@ -1321,6 +1377,13 @@ datum
 			result = "bahama_mama"
 			required_reagents = list("rum" = 2, "orangejuice" = 2, "limejuice" = 1, "ice" = 1)
 			result_amount = 6
+
+		spacepunch
+			name = "Punch"
+			id = "spacepunch"
+			result = "spacepunch"
+			required_reagents = list("grenadine" = 1, "space-up"= 2)
+			result_amount = 3
 
 		singulo
 			name = "Singulo"
@@ -1430,6 +1493,13 @@ datum
 			result = "acidspit"
 			required_reagents = list("sacid" = 1, "wine" = 5)
 			result_amount = 6
+
+		fireballwhiskey
+			name = "Fireball Whiskey"
+			id = "fireballwhiskey"
+			result = "fireballwhiskey"
+			required_reagents = list("whiskey" = 3, "capsaicin" = 1)
+			result_amount = 3
 
 		amasec
 			name = "Amasec"
@@ -1556,6 +1626,97 @@ datum
 			result = "milkshake"
 			required_reagents = list("cream" = 1, "ice" = 2, "milk" = 2)
 			result_amount = 5
+
+		strawberrymilkshake
+			name = "Strawberry Milkshake"
+			id = "strawberrymilkshake"
+			result = "strawberrymilkshake"
+			required_reagents = list("strawberryjuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		bananamilkshake
+			name = "Banana Milkshake"
+			id = "bananamilkshake"
+			result = "bananamilkshake"
+			required_reagents = list("bananajuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		orangemilkshake
+			name = "Orange Milkshake"
+			id = "orangemilkshake"
+			result = "orangemilkshake"
+			required_reagents = list("orangejuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		limemilkshake
+			name = "Lime Milkshake"
+			id = "limemilkshake"
+			result = "limemilkshake"
+			required_reagents = list("limejuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		watermelonmilkshake
+			name = "Watermelon Milkshake"
+			id = "watermelonmilkshake"
+			result = "watermelonmilkshake"
+			required_reagents = list("watermelonjuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		tomatomilkshake
+			name = "Tomato Milkshake"
+			id = "tomatomilkshake"
+			result = "tomatomilkshake"
+			required_reagents = list("tomatojuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		lemonmilkshake
+			name = "Lemon Milkshake"
+			id = "lemonmilkshake"
+			result = "lemonmilkshake"
+			required_reagents = list("lemonjuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		mangomilkshake
+			name = "Mango Milkshake"
+			id = "mangomilkshake"
+			result = "mangomilkshake"
+			required_reagents = list("mangojuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		gingermilkshake
+			name = "Ginger Milkshake"
+			id = "gingermilkshake"
+			result = "gingermilkshake"
+			required_reagents = list("gingerjuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		berrymilkshake
+			name = "Berry Milkshake"
+			id = "berrymilkshake"
+			result = "berrymilkshake"
+			required_reagents = list("berryjuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		grapemilkshake
+			name = "Grape Milkshake"
+			id = "grapemilkshake"
+			result = "grapemilkshake"
+			required_reagents = list("grapejuice" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		grenadinemilkshake
+			name = "Grenadine Milkshake"
+			id = "grenadinemilkshake"
+			result = "grenadinemilkshake"
+			required_reagents = list("grenadine" = 1, "milkshake" = 2)
+			result_amount = 3
+
+		potatomilkshake
+			name = "Potato Milkshake"
+			id = "potatomilkshake"
+			result = "potatomilkshake"
+			required_reagents = list("potatojuice" = 1, "milkshake" = 2)
+			result_amount = 3
 
 		rewriter
 			name = "Rewriter"

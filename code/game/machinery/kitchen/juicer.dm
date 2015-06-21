@@ -11,7 +11,22 @@
 	active_power_usage = 100
 	var/obj/item/weapon/reagent_containers/beaker = null
 	var/global/list/allowed_items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/grown/tomato  = "tomatojuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/carrot  = "carrotjuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/berries = "berryjuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/banana  = "banana",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/potato = "potato",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/lemon = "lemonjuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/apple = "applejuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/orange = "orangejuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/lime = "limejuice",
 		/obj/item/weapon/reagent_containers/food/snacks/watermelonslice = "watermelonjuice",
+		/obj/item/weapon/reagent_containers/food/snacks/watermelonslice = "watermelonjuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/grapes = "grapejuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/ginger = "gingerjuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/greengrapes = "greengrapejuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/strawberry = "strawberryjuice",
+		/obj/item/weapon/reagent_containers/food/snacks/grown/poisonberries = "poisonberryjuice",
 		/obj/item/weapon/reagent_containers/food/snacks/grown = "water",
 	)
 
@@ -25,6 +40,9 @@
 		"orange" = "orangejuice",
 		"lime" = "limejuice",
 		"poisonberries" = "poisonberryjuice",
+		"apple" = "applejuice",
+		"ginger" = "gingerjuice",
+		"strawberry" = "strawberryjuice",
 	)
 
 /obj/machinery/juicer/New()

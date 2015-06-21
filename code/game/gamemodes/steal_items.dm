@@ -155,14 +155,14 @@ datum/theft_objective/ai/check_special_completion(var/obj/item/device/aicard/C)
 /datum/theft_objective/number/proc/getAmountStolen(var/obj/item/I)
 	return I:amount
 
-/datum/theft_objective/number/plasma_gas
-	name = "moles of plasma (full tank)"
+/datum/theft_objective/number/phoron_gas
+	name = "moles of phoron (full tank)"
 	typepath = /obj/item/weapon/tank
 	min=28
 	max=28
 	protected_jobs = list("Chief Engineer", "Station Engineer", "Scientist", "Research Director", "Life Support Specialist")
 
-/datum/theft_objective/number/plasma_gas/getAmountStolen(var/obj/item/I)
+/datum/theft_objective/number/phoron_gas/getAmountStolen(var/obj/item/I)
 	return I:air_contents:toxins
 
 /datum/theft_objective/number/coins

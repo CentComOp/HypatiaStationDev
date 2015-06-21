@@ -3,10 +3,10 @@
 	caste = "h"
 	maxHealth = 125
 	health = 125
-	storedPlasma = 100
-	max_plasma = 150
+	storedPhoron = 100
+	max_phoron = 150
 	icon_state = "alienh_s"
-	plasma_rate = 5
+	phoron_rate = 5
 
 /mob/living/carbon/alien/humanoid/hunter/New()
 	var/datum/reagents/R = new/datum/reagents(100)
@@ -80,7 +80,7 @@
 	if(lying)
 		return
 
-	else //Maybe uses plasma in the future, although that wouldn't make any sense...
+	else //Maybe uses phoron in the future, although that wouldn't make any sense...
 		leaping = 1
 		update_icons()
 		throw_at(A,MAX_ALIEN_LEAP_DIST,1)

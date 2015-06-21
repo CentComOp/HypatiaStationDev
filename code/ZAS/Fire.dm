@@ -3,8 +3,8 @@
 Making Bombs with ZAS:
 Make burny fire with lots of burning
 Draw off 5000K gas from burny fire
-Separate gas into oxygen and plasma components
-Obtain plasma and oxygen tanks filled up about 50-75% with normal-temp gas
+Separate gas into oxygen and phoron components
+Obtain phoron and oxygen tanks filled up about 50-75% with normal-temp gas
 Fill rest with super hot gas from separated canisters, they should be about 125C now.
 Attach to transfer valve and open. BOOM.
 
@@ -41,7 +41,7 @@ turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
 	if(locate(/obj/fire) in src)
 		return 1
 	var/datum/gas_mixture/air_contents = return_air()
-	if(!air_contents || exposed_temperature < PLASMA_MINIMUM_BURN_TEMPERATURE)
+	if(!air_contents || exposed_temperature < PHORON_MINIMUM_BURN_TEMPERATURE)
 		return 0
 
 	var/igniting = 0
@@ -249,7 +249,7 @@ turf/simulated/apply_fire_protection()
 datum/gas_mixture/proc/zburn(obj/effect/decal/cleanable/liquid_fuel/liquid, force_burn)
 	var/value = 0
 
-	if((temperature > PLASMA_MINIMUM_BURN_TEMPERATURE || force_burn) && check_recombustability(liquid))
+	if((temperature > PHORON_MINIMUM_BURN_TEMPERATURE || force_burn) && check_recombustability(liquid))
 		var/total_fuel = 0
 		var/datum/gas/volatile_fuel/fuel = locate() in trace_gases
 

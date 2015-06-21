@@ -3,8 +3,8 @@
  *		Glass sheets
  *		Reinforced glass sheets
  *		Glass shards - TODO: Move this into code/game/object/item/weapons
- *		Plasma Glass Sheets
- *		Reinforced Plasma Glass Sheets (AKA Holy fuck strong windows)
+ *		Phoron Glass Sheets
+ *		Reinforced Phoron Glass Sheets (AKA Holy fuck strong windows)
 
  Todo: Create a unified construct_window(sheet, user, created_window, full_window)
 
@@ -267,25 +267,25 @@
 	return 0
 
 
-/obj/item/stack/sheet/plasmaglass
-	name = "plasma glass"
-	desc = "A very strong and very resistant sheet of a plasma-glass alloy."
+/obj/item/stack/sheet/phoronglass
+	name = "phoron glass"
+	desc = "A very strong and very resistant sheet of a phoron-glass alloy."
 	singular_name = "glass sheet"
-	icon_state = "sheet-plasmaglass"
+	icon_state = "sheet-phoronglass"
 	g_amt = MINERAL_MATERIAL_AMOUNT * 2
-	origin_tech = "materials=3;plasma=2"
-	var/created_window = /obj/structure/window/plasmabasic
-	var/full_window = /obj/structure/window/full/plasmabasic
+	origin_tech = "materials=3;phoron=2"
+	var/created_window = /obj/structure/window/phoronbasic
+	var/full_window = /obj/structure/window/full/phoronbasic
 
 
-/obj/item/stack/sheet/plasmaglass/attack_self(mob/user as mob)
+/obj/item/stack/sheet/phoronglass/attack_self(mob/user as mob)
 	construct_window(user)
 
-/obj/item/stack/sheet/plasmaglass/attackby(obj/item/W, mob/user, params)
+/obj/item/stack/sheet/phoronglass/attackby(obj/item/W, mob/user, params)
 	..()
 	if( istype(W, /obj/item/stack/rods) )
 		var/obj/item/stack/rods/V  = W
-		var/obj/item/stack/sheet/plasmarglass/RG = new (user.loc)
+		var/obj/item/stack/sheet/phoronrglass/RG = new (user.loc)
 		RG.add_fingerprint(user)
 		RG.add_to_stacks(user)
 		V.use(1)
@@ -298,13 +298,13 @@
 	else
 		return ..()
 
-/obj/item/stack/sheet/plasmaglass/proc/construct_window(mob/user as mob)
+/obj/item/stack/sheet/phoronglass/proc/construct_window(mob/user as mob)
 	if(!user || !src)  return 0
 	if(!istype(user.loc,/turf)) return 0
 	if(!user.IsAdvancedToolUser())
 		user << "<span class='danger'> You don't have the dexterity to do this!"
 		return 0
-	var/title = "Plasma-glass alloy"
+	var/title = "Phoron-glass alloy"
 	title += " ([src.amount] sheet\s left)"
 	switch(alert(title, "Would you like full tile glass or one direction?", "One Direction", "Full Window", "Cancel", null))
 		if("One Direction")
@@ -332,7 +332,7 @@
 					dir_to_set = direction
 					break
 			var/obj/structure/window/W
-			W = new /obj/structure/window/plasmabasic( user.loc, 0 )
+			W = new /obj/structure/window/phoronbasic( user.loc, 0 )
 			W.dir = dir_to_set
 			W.ini_dir = W.dir
 			W.state = 0
@@ -354,30 +354,30 @@
 	return 0
 
 /*
- * Reinforced plasma glass sheets
+ * Reinforced phoron glass sheets
  */
-/obj/item/stack/sheet/plasmarglass
-	name = "reinforced plasma glass"
-	desc = "Plasma glass which seems to have rods or something stuck in them."
-	singular_name = "reinforced plasma glass sheet"
-	icon_state = "sheet-plasmarglass"
+/obj/item/stack/sheet/phoronrglass
+	name = "reinforced phoron glass"
+	desc = "Phoron glass which seems to have rods or something stuck in them."
+	singular_name = "reinforced phoron glass sheet"
+	icon_state = "sheet-phoronrglass"
 	g_amt = MINERAL_MATERIAL_AMOUNT * 2
 	m_amt = MINERAL_MATERIAL_AMOUNT / 2
-	origin_tech = "materials=3;plasma=2"
-	var/created_window = /obj/structure/window/plasmareinforced
-	var/full_window = /obj/structure/window/full/plasmareinforced
+	origin_tech = "materials=3;phoron=2"
+	var/created_window = /obj/structure/window/phoronreinforced
+	var/full_window = /obj/structure/window/full/phoronreinforced
 
 
-/obj/item/stack/sheet/plasmarglass/attack_self(mob/user as mob)
+/obj/item/stack/sheet/phoronrglass/attack_self(mob/user as mob)
 	construct_window(user)
 
-/obj/item/stack/sheet/plasmarglass/proc/construct_window(mob/user as mob)
+/obj/item/stack/sheet/phoronrglass/proc/construct_window(mob/user as mob)
 	if(!user || !src)  return 0
 	if(!istype(user.loc,/turf)) return 0
 	if(!user.IsAdvancedToolUser())
 		user << "<span class='danger'>You don't have the dexterity to do this!</span>"
 		return 0
-	var/title = "Reinforced plasma-glass alloy"
+	var/title = "Reinforced phoron-glass alloy"
 	title += " ([src.amount] sheet\s left)"
 	switch(alert(title, "Would you like full tile glass or one direction?", "One Direction", "Full Window", "Cancel", null))
 		if("One Direction")
@@ -405,7 +405,7 @@
 					dir_to_set = direction
 					break
 			var/obj/structure/window/W
-			W = new /obj/structure/window/plasmareinforced( user.loc, 0 )
+			W = new /obj/structure/window/phoronreinforced( user.loc, 0 )
 			W.dir = dir_to_set
 			W.ini_dir = W.dir
 			W.state = 0

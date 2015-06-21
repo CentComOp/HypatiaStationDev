@@ -17,7 +17,7 @@ What are the archived variables for?
 /hook/startup/proc/createGasOverlays()
 	plmaster = new /obj/effect/overlay()
 	plmaster.icon = 'icons/effects/tile_effects.dmi'
-	plmaster.icon_state = "plasma"
+	plmaster.icon_state = "phoron"
 	plmaster.layer = FLY_LAYER
 	plmaster.mouse_opacity = 0
 
@@ -206,7 +206,7 @@ What are the archived variables for?
 	//Outputs: 1 if graphic changed, 0 if unchanged
 
 	graphic = 0
-	if(toxins > MOLES_PLASMA_VISIBLE)
+	if(toxins > MOLES_PHORON_VISIBLE)
 		graphic = 1
 	else if(length(trace_gases))
 		var/datum/gas/sleeping_agent = locate(/datum/gas/sleeping_agent) in trace_gases
@@ -258,30 +258,30 @@ What are the archived variables for?
 		carbon_dioxide += burned_fuel
 		fuel_burnt += burned_fuel
 
-	//Handle plasma burning
+	//Handle phoron burning
 	if(toxins > MINIMUM_HEAT_CAPACITY)
-		var/plasma_burn_rate = 0
+		var/phoron_burn_rate = 0
 		var/oxygen_burn_rate = 0
-		//more plasma released at higher temperatures
+		//more phoron released at higher temperatures
 		var/temperature_scale
-		if(temperature > PLASMA_UPPER_TEMPERATURE)
+		if(temperature > PHORON_UPPER_TEMPERATURE)
 			temperature_scale = 1
 		else
-			temperature_scale = (temperature-PLASMA_MINIMUM_BURN_TEMPERATURE)/(PLASMA_UPPER_TEMPERATURE-PLASMA_MINIMUM_BURN_TEMPERATURE)
+			temperature_scale = (temperature-PHORON_MINIMUM_BURN_TEMPERATURE)/(PHORON_UPPER_TEMPERATURE-PHORON_MINIMUM_BURN_TEMPERATURE)
 		if(temperature_scale > 0)
 			oxygen_burn_rate = 1.4 - temperature_scale
-			if(oxygen > toxins*PLASMA_OXYGEN_FULLBURN)
-				plasma_burn_rate = (toxins*temperature_scale)/4
+			if(oxygen > toxins*PHORON_OXYGEN_FULLBURN)
+				phoron_burn_rate = (toxins*temperature_scale)/4
 			else
-				plasma_burn_rate = (temperature_scale*(oxygen/PLASMA_OXYGEN_FULLBURN))/4
-			if(plasma_burn_rate > MINIMUM_HEAT_CAPACITY)
-				toxins -= plasma_burn_rate
-				oxygen -= plasma_burn_rate*oxygen_burn_rate
-				carbon_dioxide += plasma_burn_rate
+				phoron_burn_rate = (temperature_scale*(oxygen/PHORON_OXYGEN_FULLBURN))/4
+			if(phoron_burn_rate > MINIMUM_HEAT_CAPACITY)
+				toxins -= phoron_burn_rate
+				oxygen -= phoron_burn_rate*oxygen_burn_rate
+				carbon_dioxide += phoron_burn_rate
 
-				energy_released += FIRE_PLASMA_ENERGY_RELEASED * (plasma_burn_rate)
+				energy_released += FIRE_PHORON_ENERGY_RELEASED * (phoron_burn_rate)
 
-				fuel_burnt += (plasma_burn_rate)*(1+oxygen_burn_rate)
+				fuel_burnt += (phoron_burn_rate)*(1+oxygen_burn_rate)
 
 	if(energy_released > 0)
 		var/new_heat_capacity = heat_capacity()
