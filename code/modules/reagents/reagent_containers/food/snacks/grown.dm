@@ -8,6 +8,8 @@
 //Grown foods
 //Subclass so we can pass on values
 /obj/item/weapon/reagent_containers/food/snacks/grown/
+	var/plantname
+	var/potency = -1
 	icon = 'icons/obj/harvest.dmi'
 	New(newloc,newpotency)
 		if (!isnull(newpotency))
@@ -27,7 +29,7 @@
 			if(!S || !S.chems)
 				return
 
-
+			potency = S.potency
 
 			for(var/rid in S.chems)
 				var/list/reagent_data = S.chems[rid]
@@ -123,22 +125,6 @@
 	potency = 25
 	filling_color = "#A2B5A1"
 	plantname = "cabbage"
-
-/obj/item/weapon/reagent_containers/food/snacks/grown/strawberry
-    name = "strawberry"
-    desc = "Reminds you of summer."
-    icon_state = "strawberry"
-    potency = 25
-    filling_color = "#A2B5A1"
-    plantname = "strawberry"
-
-/obj/item/weapon/reagent_containers/food/snacks/grown/ginger
-    name = "ginger"
-    desc = "The most knobbly of spices."
-    icon_state = "ginger"
-    potency = 25
-    filling_color = "#A2B5A1"
-    plantname = "ginger"
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/berries
 	name = "bunch of berries"

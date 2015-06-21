@@ -101,12 +101,6 @@ var/global/list/plant_seed_sprites = list()
 /obj/item/seeds/cabbageseed
 	seed_type = "cabbage"
 
-/obj/item/seeds/strawberryseed
-	seed_type = "strawberry"
-
-/obj/item/seeds/gingerseed
-	seed_type = "gingerseed"
-
 /obj/item/seeds/shandseed
 	seed_type = "shand"
 

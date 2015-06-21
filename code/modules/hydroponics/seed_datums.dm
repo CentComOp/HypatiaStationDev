@@ -1,5 +1,3 @@
-var/global/list/seed_types = list()       // A list of all seed data. Note by Rohane: THIS MAY BREAK SHIT IN THE FUTURE!
-
 // Chili plants/variants.
 /datum/seed/chili
 	name = "chili"
@@ -715,40 +713,6 @@ var/global/list/seed_types = list()       // A list of all seed data. Note by Ro
 	set_trait(TRAIT_PRODUCT_COLOUR,"#84BD82")
 	set_trait(TRAIT_PLANT_COLOUR,"#6D9C6B")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
-
-/datum/seed/ginger
-	name = "ginger"
-	seed_name = "ginger"
-	display_name = "ginger roots"
-	chems = list("plantmatter" = list(1,10))
-
-/datum/seed/ginger/New()
-	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"ginger")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#F9A239")
-	set_trait(TRAIT_PLANT_ICON,"ginger")
-
-/datum/seed/strawberry
-	name = "strawberry"
-	seed_name = "strawberry"
-	display_name = "strawberries"
-	chems = list("plantmatter" = list(1,10), "sugar" = list(1,5))
-
-/datum/seed/strawberry/New()
-	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"strawberry")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#C90000")
-	set_trait(TRAIT_PLANT_ICON,"strawberry")
 
 /datum/seed/banana
 	name = "banana"
