@@ -1044,6 +1044,7 @@
 		"lime" = list("limejuice" = 0),
 		"poisonberries" = list("poisonberryjuice" = 0),
 		"grapes" = list("grapejuice" = 0),
+		"greengrapes" = list("greengrapejuice" = 0),
 		"corn" = list("cornoil" = 0),
 	)
 
