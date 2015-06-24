@@ -64,7 +64,7 @@
 
 /mob/living/carbon/human/vulsarian/New(var/new_loc)
 	h_style = "Bald"
-	..(new_loc, "Vulpkanin")
+	..(new_loc, "Vulsarian")
 
 /mob/living/carbon/human/soghun/New(var/new_loc)
 	h_style = "Soghun Horns"
