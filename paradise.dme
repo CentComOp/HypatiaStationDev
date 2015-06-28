@@ -89,8 +89,8 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include "_maps\metastation.dm"
-#include "_maps\map_files\MetaStation\MetaStation.v41A.II.dmm"
+#include "_maps\MarinaApartmentStation.dm"
+#include "_maps\map_files\MetaStation\MarinaStationV1.dmm"
 #include "_maps\map_files\MetaStation\z2.dmm"
 #include "_maps\map_files\MetaStation\z3.dmm"
 #include "_maps\map_files\MetaStation\z4.dmm"
