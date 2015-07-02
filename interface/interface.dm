@@ -5,7 +5,7 @@
 	set hidden = 1
 	if(config.wikiurl)
 		if(query)
-			var/output = config.wikiurl + "/index.php?title=Special%3ASearch&profile=default&search=" + query
+			var/output = config.wikiurl + "/index.php?search=&go=Go&title=Special%3ASearch" + query
 			src << link(output)
 		else
 			src << link(config.wikiurl)
@@ -13,7 +13,7 @@
 		src << "<span class='danger'>The wiki URL is not set in the server configuration.</span>"
 	return
 
-#define CHANGELOG "https://github.com/ParadiseSS13/Paradise/pulls?q=is%3Apr+is%3Amerged+sort%3Aupdated-desc"
+#define CHANGELOG "https://github.com/HypatiaStation/HypatiaStationDev/commits/Live"
 /client/verb/changes()
 	set name = "Changelog"
 	set desc = "Visit Github to check out the commits."
@@ -45,6 +45,7 @@
 	src << browse(file(RULES_FILE), "window=rules;size=480x320")
 #undef RULES_FILE
 
+/* // Unmark this when we have a donation link again
 #define DONATE "http://nanotrasen.se/phpBB3/donate.php"
 /client/verb/donate()
 	set name = "Donate"
@@ -56,6 +57,7 @@
 	src << link(DONATE)
 	return
 #undef DONATE
+*/
 
 /client/verb/hotkeys_help()
 	set name = "Hotkeys Help"
