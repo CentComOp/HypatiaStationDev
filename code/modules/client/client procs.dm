@@ -60,7 +60,7 @@
 	//Logs all hrefs
 	if(config && config.log_hrefs && href_logfile)
 		href_logfile << "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>"
-
+/* // Re-enable this when the chucklefucks that be in the UAC decide what to do with it.
 	switch(href_list["karmashop"])
 		if("tab")
 			karma_tab = text2num(href_list["tab"])
@@ -170,7 +170,7 @@
 				var/cost = href_list["KarmaRefundCost"]
 				src.karmarefund(type,job,cost)
 				return
-
+*/
 	switch(href_list["_src_"])
 		if("holder")	hsrc = holder
 		if("usr")		hsrc = mob

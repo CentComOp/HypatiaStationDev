@@ -1,3 +1,5 @@
+// When re-enabling the karma shop, make sure to go back into code/modules/client/client procs.dm and pull off the comments from lines 67 - 172
+
 proc/sql_report_karma(var/mob/spender, var/mob/receiver)
 	var/sqlspendername = sanitizeSQL(spender.name)
 	var/sqlspenderkey = spender.key
@@ -64,7 +66,7 @@ var/list/karma_spenders = list()
 	var/list/karma_list = list("Cancel")
 	for(var/mob/M in player_list) if(M.client && M.mind)
 		var/special_role = M.mind.special_role
-		if (special_role == "Wizard" || special_role == "Ninja" || special_role == "Syndicate" || special_role == "Syndicate Commando" || special_role == "Vox Raider" || special_role == "Alien") // Don't include special roles, because players use it to meta
+		if (special_role == "Ninja" || special_role == "Syndicate" || special_role == "Syndicate Commando" || special_role == "Vox Raider" || special_role == "Alien") // Don't include special roles, because players use it to meta
 			continue
 		karma_list += M
 
