@@ -175,7 +175,7 @@ GUEST_BAN
 # FORUMURL http://example.com
 
 ## Wiki address
-# WIKIURL http://example.com
+# WIKIURL http://wiki.hypatiastation.net/old/
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 # BANAPPEALS http://example.com
