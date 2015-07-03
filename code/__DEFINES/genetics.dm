@@ -70,12 +70,10 @@
 
 // Goon muts
 #define OBESITY       200		// Decreased metabolism
-#define TOXIC_FARTS   201		// Duh
 #define STRONG        202		// (Nothing)
 #define SOBER         203		// Increased alcohol metabolism
 #define PSY_RESIST    204		// Block remoteview
-#define SUPER_FART    205		// Duh
-#define EMPATH		206		//Read minds
+#define EMPATH			206		//Read minds
 #define COMIC			207		//Comic Sans
 
 // /vg/ muts

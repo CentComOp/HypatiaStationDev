@@ -36,7 +36,7 @@
 				on_CD = handle_emote_CD()			//proc located in code\modules\mob\emote.dm
 			else								//Everyone else fails, skip the emote attempt
 				return
-		if("scream", "fart", "flip", "snap")
+		if("scream", "flip", "snap")
 			on_CD = handle_emote_CD()				//proc located in code\modules\mob\emote.dm
 		//Everything else, including typos of the above emotes
 		else
@@ -742,67 +742,6 @@
 			else
 				message = "<span class='danger'><b>[src]</b> snaps \his fingers right off!</span>"
 				playsound(src.loc, 'sound/effects/snap.ogg', 50, 1)
-
-
-		// Needed for M_TOXIC_FART
-		if("fart")
-			if(reagents.has_reagent("simethicone"))
-				return
-//			playsound(src.loc, 'sound/effects/fart.ogg', 50, 1, -3) //Admins still vote no to fun
-			if(locate(/obj/item/weapon/storage/bible) in get_turf(src))
-				viewers(src) << "<span class='warning'><b>[src] farts on the Bible!</b></span>"
-				viewers(src) << "<span class='notice'><b>A mysterious force smites [src]!</b></span>"
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(3, 1, src)
-				s.start()
-				src.gib()
-			else if(TOXIC_FARTS in mutations)
-				message = "<b>[src]</b> unleashes a [pick("horrible","terrible","foul","disgusting","awful")] fart."
-			else
-				message = "<b>[src]</b> [pick("passes wind","farts")]."
-			m_type = 2
-
-			var/turf/location = get_turf(src)
-			var/aoe_range=2 // Default
-			if(SUPER_FART in mutations)
-				aoe_range+=3 //Was 5
-
-			// Process toxic farts first.
-			if(TOXIC_FARTS in mutations)
-				for(var/mob/M in range(location,aoe_range))
-					if (M.internal != null && M.wear_mask && (M.wear_mask.flags & MASKINTERNALS))
-						continue
-					if(!airborne_can_reach(location,M,aoe_range))
-						continue
-					// Now, we don't have this:
-					//new /obj/effects/fart_cloud(T,L)
-					// But:
-					// <[REDACTED]> so, what it does is...imagine a 3x3 grid with the person in the center. When someone uses the emote *fart (it's not a spell style ability and has no cooldown), then anyone in the 8 tiles AROUND the person who uses it
-					// <[REDACTED]> gets between 1 and 10 units of jenkem added to them...we obviously don't have Jenkem, but Space Drugs do literally the same exact thing as Jenkem
-					// <[REDACTED]> the user, of course, isn't impacted because it's not an actual smoke cloud
-					// So, let's give 'em space drugs.
-					if (M == src)
-						continue
-					M.reagents.add_reagent("space_drugs",rand(1,10))
-
-			if(SUPER_FART in mutations)
-				visible_message("\red <b>[name]</b> hunches down and grits their teeth!")
-				if(do_after(usr,30))
-					visible_message("\red <b>[name]</b> unleashes a [pick("tremendous","gigantic","colossal")] fart!","You hear a [pick("tremendous","gigantic","colossal")] fart.")
-					//playsound(L.loc, 'superfart.ogg', 50, 0)
-					for(var/mob/living/V in range(location,aoe_range))
-						shake_camera(V,10,5)
-						if (V == src)
-							continue
-						if(!airborne_can_reach(get_turf(src), get_turf(V)))
-							continue
-						V << "\red You are sent flying!"
-						V.Weaken(5) // why the hell was this set to 12 christ
-						step_away(V,location,15)
-						step_away(V,location,15)
-						step_away(V,location,15)
-				else
-					usr << "\red You were interrupted and couldn't fart! Rude!"
 
 
 		if ("help")
