@@ -270,7 +270,6 @@ Ccomp's first proc.
 		return ghosts
 	else
 		return mobs
-/*
 
 /client/proc/allow_character_respawn()
 	set category = "Special Verbs"
@@ -300,7 +299,7 @@ Ccomp's first proc.
 	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the 30 minute respawn limit")
 	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit", 1)
 
-
+/*
 /client/proc/toggle_antagHUD_use()
 	set category = "Server"
 	set name = "Toggle antagHUD usage"
