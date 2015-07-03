@@ -258,7 +258,7 @@
 				valid = 1
 
 			if(/obj/item/clothing/head/kitty, /obj/item/clothing/head/collectable/kitty)
-				name = "Runtime"
+				name = "Happy Kitten"
 				emote_see = list("coughs up a furball", "stretches")
 				emote_hear = list("purrs")
 				speak = list("Purrr", "Meow!", "MAOOOOOW!", "HISSSSS", "MEEEEEEW")

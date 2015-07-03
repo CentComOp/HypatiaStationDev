@@ -91,7 +91,7 @@ LINEN BINS
 
 /obj/item/weapon/bedsheet/cmo
 	name = "chief medical officer's bedsheet"
-	desc = "It's a sterilized blanket that has a cross emblem.  There's some cat fur on it, likely from Runtime."
+	desc = "It's a sterilized blanket that has a cross emblem.  There's some cat fur on it, likely from Happy Kitten."
 	icon_state = "sheetcmo"
 	_color = "cmo"
 
