@@ -595,17 +595,3 @@
 		return
 
 ////////////////////////////////////////////////////////////////////////
-
-// WAS: /datum/bioEffect/superfart
-/datum/dna/gene/basic/superfart
-	name = "High-Pressure Intestines"
-	desc = "Vastly increases the gas capacity of the subject's digestive tract."
-	activation_messages = list("You feel bloated and gassy.")
-	deactivation_messages = list("You no longer feel gassy. What a relief!")
-	instability=1
-
-	mutation = SUPER_FART
-
-	New()
-		..()
-		block = SUPERFARTBLOCK

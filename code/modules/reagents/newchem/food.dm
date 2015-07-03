@@ -20,13 +20,6 @@ datum/reagent/egg
 	reagent_state = LIQUID
 	color = "#F0C814"
 
-datum/reagent/egg/on_mob_life(var/mob/living/M as mob)
-	if(!M) M = holder.my_atom
-	if(prob(5))
-		M.emote("fart")
-	..()
-	return
-
 datum/reagent/triple_citrus
 	name = "Triple Citrus"
 	id = "triple_citrus"
@@ -281,13 +274,6 @@ datum/reagent/beans
 	description = "A dish made of mashed beans cooked with lard."
 	reagent_state = LIQUID
 	color = "#684435"
-
-datum/reagent/beans/on_mob_life(var/mob/living/M as mob)
-	if(!M) M = holder.my_atom
-	if(prob(8))
-		M.emote("fart")
-	..()
-	return
 
 /datum/reagent/bread
 	name = "Bread"

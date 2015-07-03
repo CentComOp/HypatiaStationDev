@@ -78,8 +78,6 @@
 
 	var/check_mutations=0 // Check mutations on next life tick
 
-	var/lastFart = 0 // Toxic fart cooldown.
-
 	var/frozen = 0 //used for preventing attacks on admin-frozen people
 
 	var/fire_dmi = 'icons/mob/OnFire.dmi'
