@@ -2356,6 +2356,13 @@ datum
 						..()
 						return
 
+				grapesoda
+					name = "Grape Soda"
+					id = "grapesoda"
+					description = "Grapes made into a fine drank."
+					color = "#421C52" // rgb: 98, 57, 53
+					adj_drowsy 	= 	-3
+
 				spacemountainwind
 					name = "Space Mountain Wind"
 					id = "spacemountainwind"
@@ -3153,6 +3160,14 @@ datum
 				description = "An premium alchoholic beverage made from distilled grape juice."
 				color = "#7E4043" // rgb: 126, 64, 67
 				dizzy_adj = 2
+				slur_start = 65			//amount absorbed after which mob starts slurring
+				confused_start = 145	//amount absorbed after which mob starts confusing directions
+
+			whitewine
+				name = "White Wine"
+				id = "whitewine"
+				description = "An premium alchoholic beverage made from distilled grape juice."
+				color = "#7E4043" // rgb: 126, 64, 67
 				slur_start = 65			//amount absorbed after which mob starts slurring
 				confused_start = 145	//amount absorbed after which mob starts confusing directions
 

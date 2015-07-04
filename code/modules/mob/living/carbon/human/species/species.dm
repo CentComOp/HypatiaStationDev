@@ -110,10 +110,10 @@
 		"l_foot" = list("path" = /obj/item/organ/external/foot),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right)
 		)
-
+/* // Removing until I can figure out what's going horribly wrong proper.
 /datum/species/New()
 	unarmed = new unarmed_type()
-
+*/
 /datum/species/proc/get_random_name(var/gender)
 	var/datum/language/species_language = all_languages[language]
 	return species_language.get_random_name(gender)

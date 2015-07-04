@@ -45,7 +45,7 @@
 	//Set species_restricted list
 	switch(target_species)
 		if("Human", "Skrell")	//humanoid bodytypes
-			species_restricted = list("exclude","Soghun","Tajaran","Diona","Vox","Wryn")
+			species_restricted = list("exclude","Soghun","Tajaran","Diona","Vox","Wryn","Obsedai")
 		else
 			species_restricted = list(target_species)
 

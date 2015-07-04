@@ -59,6 +59,7 @@
 #define IS_VOX 2
 #define IS_SKRELL 3
 #define IS_SOGHUN 4
+#define IS_OBSEDAI 5
 
 #define HUMAN_STRIP_DELAY 40 //takes 40ds = 4s to strip someone.
 #define ALIEN_SELECT_AFK_BUFFER 1 // How many minutes that a person can be AFK before not being allowed to be an alien.

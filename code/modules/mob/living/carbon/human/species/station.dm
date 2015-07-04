@@ -45,7 +45,7 @@
 
 	heat_level_1 = 420 //Default 360 - Higher is better
 	heat_level_2 = 480 //Default 400
-	heat_level_3 = 1100 //Default 460
+	heat_level_3 = 540 //Default 460
 	heat_level_3_breathe = 1100 //Default 1000
 
 	flesh_color = "#34AF10"
@@ -66,7 +66,7 @@
 	language = "Siik'tajr"
 	tail = "tajtail"
 	unarmed_type = /datum/unarmed_attack/claws
-	darksight = 12
+	darksight = 8
 	total_health = 110
 	slowdown = 0.8
 	burn_mod = 1.5
@@ -100,7 +100,7 @@
 	H.stop_tail_wagging(1)
 
 /datum/species/vulsarian
-	name = "Vulpkanin"
+	name = "Vulsarian"
 	icobase = 'icons/mob/human_races/r_vulsarian.dmi'
 	deform = 'icons/mob/human_races/r_vulsarian.dmi'
 	path = /mob/living/carbon/human/vulsarian
@@ -148,10 +148,6 @@
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 240 //Default 200
 	cold_level_3 = 150 //Default 120
-
-	heat_level_1 = 360 //Default 360 - Higher is better
-	heat_level_2 = 400 //Default 400
-	heat_level_3 = 1000 //Default 1000
 
 	warning_high_pressure = 555
 	hazard_high_pressure = 750
@@ -388,7 +384,7 @@
 	heat_level_1 = 500
 	heat_level_2 = 1000
 	heat_level_3 = 2000
-	heat_level_3_breathe = 700
+	heat_level_3_breathe = 4000
 
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
