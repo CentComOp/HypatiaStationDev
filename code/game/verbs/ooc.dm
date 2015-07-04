@@ -17,6 +17,24 @@ var/global/normal_ooc_colour = "#002eb8"
 		src << "\red You have OOC muted."
 		return
 
+	if(!holder || holder.rank == "Donor") // This is ugly, but I Can't figure out any easy way without duplicating code to confirm the user is not a donor while being a holder using rights.
+		if(!ooc_allowed)
+			src << "<span class='danger'>OOC is globally muted.</span>"
+			return
+		if(!dooc_allowed && (mob.stat == DEAD))
+			usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
+			return
+		if(prefs.muted & MUTE_OOC)
+			src << "<span class='danger'>You cannot use OOC (muted).</span>"
+			return
+		if(handle_spam_prevention(msg,MUTE_OOC))
+			return
+		if(findtext(msg, "byond://"))
+			src << "<B>Advertising other servers is not allowed.</B>"
+			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
+			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
+			return
+
 	if(!(holder && holder.rights && (holder.rights & R_MOD)))
 		if(!ooc_allowed)
 			src << "\red OOC is globally muted"

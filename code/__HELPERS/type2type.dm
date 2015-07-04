@@ -348,6 +348,7 @@ proc/tg_text2list(text, glue=",", assocglue=";")
 	if(rights & R_SPAWN)		. += "[seperator]+SPAWN"
 	if(rights & R_MOD)			. += "[seperator]+MODERATOR"
 	if(rights & R_MENTOR)		. += "[seperator]+MENTOR"
+	if(rights & R_DONOR)		. += "[seperator]+DONOR"
 	return .
 
 /proc/ui_style2icon(ui_style)
