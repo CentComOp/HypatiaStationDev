@@ -22,7 +22,7 @@
 
 	heat_level_1 = 2000
 	heat_level_2 = 3000
-	heat_level_3 = 4000
+	heat_level_3_breathe = 4000
 
 	blood_color = "#515573"
 	flesh_color = "#137E8F"

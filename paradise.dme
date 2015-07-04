@@ -1407,6 +1407,7 @@
 #include "code\modules\mob\living\carbon\human\species\golem.dm"
 #include "code\modules\mob\living\carbon\human\species\monkey.dm"
 #include "code\modules\mob\living\carbon\human\species\obsedai.dm"
+#include "code\modules\mob\living\carbon\human\species\plasmaman.dm"
 #include "code\modules\mob\living\carbon\human\species\shadow.dm"
 #include "code\modules\mob\living\carbon\human\species\species.dm"
 #include "code\modules\mob\living\carbon\human\species\station.dm"
