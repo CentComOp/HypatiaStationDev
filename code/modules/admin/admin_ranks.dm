@@ -42,6 +42,7 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 				if("spawn","create")			rights |= R_SPAWN
 				if("mod")						rights |= R_MOD
 				if("mentor")					rights |= R_MENTOR
+				if("donor")						rights |= R_DONOR
 
 		admin_ranks[rank] = rights
 		previous_rights = rights

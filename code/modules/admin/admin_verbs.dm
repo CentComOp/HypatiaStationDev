@@ -185,6 +185,15 @@ var/list/admin_verbs_mentor = list(
 	/client/proc/cmd_admin_pm_by_key_panel	/*admin-pm list by key*/
 )
 
+var/list/admin_verbs_donor = list(
+	/datum/admins/proc/view_txt_log,	/*shows the server log (diary) for today*/
+	/datum/admins/proc/view_atk_log,	/*shows the server combat-log, doesn't do anything presently*/
+	/client/proc/cmd_admin_say,
+	/client/proc/cmd_mod_say,
+	/client/proc/dsay,
+	/client/proc/admin_ghost
+)
+
 /client/proc/add_admin_verbs()
 	if(holder)
 		verbs += admin_verbs_default
@@ -202,6 +211,7 @@ var/list/admin_verbs_mentor = list(
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
 		if(holder.rights & R_MENTOR)		verbs += admin_verbs_mentor
+		if(holder.rights & R_DONOR)			verbs += admin_verbs_donor
 
 /client/proc/admin_ghost()
 	set category = "Admin"
