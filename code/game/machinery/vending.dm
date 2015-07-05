@@ -1350,7 +1350,7 @@
 	name = "CritterCare"
 	desc = "A vending machine for pet supplies."
 	product_slogans = "Stop by for all your animal's needs!;Cuddly pets deserve a stylish collar!;Pets in space, what could be more adorable?;Freshest fish eggs in the system!;Rocks are the perfect pet, buy one today!"
-	product_ads = "House-training costs extra!;Now with 1000% more cat hair!;Allergies are a sign of weakness!;Dogs are man's best friend. Remember that Vulpkanin!; Heat lamps for Soghun!; Vox-y want a cracker?"
+	product_ads = "House-training costs extra!;Now with 1000% more cat hair!;Allergies are a sign of weakness!;Dogs are man's best friend. Remember that Vulsarian!; Heat lamps for Soghun!; Vox-y want a cracker?"
 	vend_delay = 34
 	icon_state = "crittercare"
 	products = list(/obj/item/clothing/accessory/petcollar = 5, /obj/item/weapon/fish_net = 5, /obj/item/weapon/fishfood = 5,
