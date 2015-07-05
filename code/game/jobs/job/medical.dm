@@ -14,7 +14,7 @@
 	minimal_access = list(access_eva, access_medical, access_morgue, access_genetics, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_maint_tunnels, access_paramedic)
-	minimal_player_age = 21
+	minimal_player_age = 14
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -111,7 +111,7 @@
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_chemistry, access_maint_tunnels)
 	alt_titles = list("Pharmacist","Pharmacologist")
-	minimal_player_age = 7
+	minimal_player_age = 4
 
 
 	equip(var/mob/living/carbon/human/H)
@@ -170,7 +170,7 @@
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_virology, access_maint_tunnels)
 	alt_titles = list("Pathologist","Microbiologist")
-	minimal_player_age = 7
+	minimal_player_age = 4
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0

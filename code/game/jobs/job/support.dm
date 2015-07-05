@@ -104,16 +104,19 @@
 
 
 //Cargo
+
 /datum/job/qm
 	title = "Quartermaster"
 	flag = QUARTERMASTER
 	department_flag = SUPPORT
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "The Captain"
 	selection_color = "#dddddd"
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mint, access_mining, access_mining_station)
-	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mint, access_mining, access_mining_station)
+	req_admin_notify = 1
+	minimal_player_age = 14
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_heads, access_keycard_auth, access_qm, access_mint, access_mining, access_mining_station)
+	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_heads, access_keycard_auth, access_qm, access_mint, access_mining, access_mining_station)
 
 
 	equip(var/mob/living/carbon/human/H)
@@ -133,8 +136,6 @@
 		else
 			H.equip_or_collect(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		return 1
-
-
 
 /datum/job/cargo_tech
 	title = "Cargo Technician"
@@ -207,8 +208,8 @@
 	title = "Clown"
 	flag = CLOWN
 	department_flag = SUPPORT
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "the head of personnel"
 	selection_color = "#dddddd"
 	access = list(access_clown, access_theatre, access_maint_tunnels)
