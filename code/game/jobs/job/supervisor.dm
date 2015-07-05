@@ -11,7 +11,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	req_admin_notify = 1
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
-	minimal_player_age = 30
+	minimal_player_age = 14
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
 		H.equip_or_collect(new /obj/item/device/radio/headset/heads/captain/alt(H), slot_l_ear)
@@ -60,7 +60,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#ddddff"
 	idtype = /obj/item/weapon/card/id/silver
 	req_admin_notify = 1
-	minimal_player_age = 21
+	minimal_player_age = 14
 	access = list(access_security, access_sec_doors, access_brig, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
@@ -99,8 +99,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	title = "Nanotrasen Representative"
 	flag = NANO
 	department_flag = KARMA
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "the command staff"
 	selection_color = "#ddddff"
 	idtype = /obj/item/weapon/card/id
@@ -145,8 +145,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	title = "Blueshield"
 	flag = BLUESHIELD
 	department_flag = KARMA
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "the nanotrasen representative"
 	selection_color = "#ddddff"
 	idtype = /obj/item/weapon/card/id
@@ -192,8 +192,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	title = "Magistrate"
 	flag = JUDGE
 	department_flag = KARMA
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "the Nanotrasen Supreme Court"
 	selection_color = "#ddddff"
 	idtype = /obj/item/weapon/card/id
@@ -236,12 +236,12 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	department_flag = SUPPORT
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the magistrate"
+	supervisors = "Central Command Internal Affairs"
 	selection_color = "#ddddff"
 	access = list(access_lawyer, access_court, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_lawyer, access_court, access_sec_doors, access_maint_tunnels)
 	alt_titles = list("Lawyer","Public Defender")
-	minimal_player_age = 21
+	minimal_player_age = 0
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
