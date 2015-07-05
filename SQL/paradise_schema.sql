@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `paradise` /*!40100 DEFAULT CHARACTER SET utf8 */
 USE `paradise`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
 --
--- Host: nanotrasen.se    Database: paradise
+-- Host: localhost    Database: paradise
 -- ------------------------------------------------------
 -- Server version	5.6.15-log
 
