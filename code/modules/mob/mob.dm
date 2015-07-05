@@ -620,7 +620,7 @@ var/list/slot_equipment_priority = list( \
 
 	var/newPlayerType = /mob/new_player
 
-/*
+
 /mob/verb/abandon_mob()
 	set name = "Respawn"
 	set category = "OOC"
@@ -672,7 +672,7 @@ var/list/slot_equipment_priority = list( \
 
 	newPlayer.key = key
 	return
-*/
+
 /mob/verb/observe()
 	set name = "Observe"
 	set category = "OOC"
