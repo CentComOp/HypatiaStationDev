@@ -68,7 +68,7 @@ datum/species/monkey/get_random_name(var/gender)
 	icobase = 'icons/mob/human_races/monkeys/r_wolpin.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_wolpin.dmi'
 
-	greater_form = "Vulpkanin"
+	greater_form = "Vulsarian"
 	default_language = "Wolpin"
 	flesh_color = "#966464"
 	base_color = "#BE8264"
