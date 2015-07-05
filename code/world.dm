@@ -370,7 +370,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	if (!enter_allowed)
 		features += "closed"
 
-//	features += abandon_allowed ? "respawn" : "no respawn"
+	features += abandon_allowed ? "respawn" : "no respawn"
 
 	if (config && config.allow_vote_mode)
 		features += "vote"
