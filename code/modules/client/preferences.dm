@@ -65,7 +65,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		return max(0, days - C.player_age)
 	return 0
 
-var/const/MAX_SAVE_SLOTS = 10
+var/const/MAX_SAVE_SLOTS = 30
 
 //used for alternate_option
 #define GET_RANDOM_JOB 0
