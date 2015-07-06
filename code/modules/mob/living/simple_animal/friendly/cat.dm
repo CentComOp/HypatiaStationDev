@@ -24,7 +24,7 @@
 //HappyKitten IS ALIVE! SQUEEEEEEEE~
 /mob/living/simple_animal/pet/cat/HappyKitten
 	name = "HappyKitten"
-	desc = "GCAT"
+	desc = "Her fur has the look and feel of velvet, and her tail quivers occasionally."
 	icon_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat2_dead"
