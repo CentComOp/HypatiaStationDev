@@ -370,7 +370,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 /client/proc/respawn_character()
 	set category = "Admin"
-	set name = "Respawn Character"
+	set name = "Respawn Ckey"
 	set desc = "Respawn a person that has been gibbed/dusted/killed. They must be a ghost for this to work and preferably should not have a body to go back into."
 	if(!holder)
 		src << "Only administrators may use this command."

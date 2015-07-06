@@ -4,7 +4,7 @@
 	deform = 'icons/mob/human_races/r_obsedai.dmi'
 
 	language = "Sol Common" //todo?
-	unarmed_type = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
+	unarmed_type = /datum/unarmed_attack/obsedai
 	flags = IS_WHITELISTED | NO_BREATHE | NO_PAIN | NO_BLOOD | IS_SYNTHETIC | NO_SCAN
 
 	brute_mod = 0.5
