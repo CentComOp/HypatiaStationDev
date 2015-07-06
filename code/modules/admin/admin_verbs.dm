@@ -8,7 +8,8 @@ var/list/admin_verbs_default = list(
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/check_antagonists,		/*shows all antags*/
-	/datum/admins/proc/show_player_panel,
+	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
+	/datum/admins/proc/show_player_panel,	/*shows player panel for a specific player.*/
 	/client/proc/player_panel,			/*shows an interface for all players, with links to various panels (old style)*/
 	/client/proc/player_panel_new,		/*shows an interface for all players, with links to various panels*/
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
