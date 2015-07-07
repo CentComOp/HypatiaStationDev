@@ -2,7 +2,7 @@ var/datum/configuration/config = null
 
 var/host = null
 var/join_motd = null
-var/station_name = "N.T.T.S. Hypatia"
+var/station_name = "N.H.S. MarinaStation"
 var/game_version = "Custom ParaCode"
 var/changelog_hash = ""
 var/game_year = (text2num(time2text(world.realtime, "YYYY")) + 544)
