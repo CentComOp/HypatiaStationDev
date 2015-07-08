@@ -203,7 +203,7 @@
 
 
 //Griff //BS12 EDIT
-
+/*
 /datum/job/clown
 	title = "Clown"
 	flag = CLOWN
@@ -240,7 +240,7 @@
 		H.dna.SetSEState(COMICBLOCK,1,1)
 		genemutcheck(H,COMICBLOCK,null,MUTCHK_FORCED)
 		return 1
-
+*/
 
 
 /datum/job/mime

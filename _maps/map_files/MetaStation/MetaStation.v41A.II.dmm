@@ -507,7 +507,7 @@
 "ajM" = (/obj/structure/closet/bombcloset,/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4; initialize_directions = 11},/turf/simulated/floor{icon_state = "bot"},/area/security/warden)
 "ajN" = (/obj/effect/spawner/window/reinforced{useFull = 1; tag = "fullReinWin"},/obj/structure/cable/yellow{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/security/warden)
 "ajO" = (/obj/structure/extinguisher_cabinet{pixel_x = 0; pixel_y = 30},/obj/structure/closet/secure_closet/security,/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
-"ajP" = (/obj/machinery/alarm{pixel_y = 28},/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
+"ajP" = (/obj/machinery/alarm{pixel_y = 28},/obj/structure/closet/secure_closet/secpara,/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
 "ajQ" = (/obj/structure/closet/secure_closet/security,/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
 "ajR" = (/obj/machinery/computer/secure_data,/obj/structure/cable/yellow{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor{tag = "icon-vault"; icon_state = "vault"},/area/security/main)
 "ajS" = (/obj/machinery/computer/security,/obj/machinery/computer/security/telescreen{desc = "Used for watching Prison Wing holding areas."; name = "Prison Monitor"; network = list("Prison"); pixel_x = 0; pixel_y = 30},/turf/simulated/floor{tag = "icon-vault"; icon_state = "vault"},/area/security/main)

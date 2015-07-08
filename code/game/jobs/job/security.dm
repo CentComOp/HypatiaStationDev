@@ -195,19 +195,19 @@
 		return 1
 
 /datum/job/brigdoc
-	title = "Brig Physician"
+	title = "Security Paramedic"
 	flag = BRIGDOC
-	department_flag = KARMA
+	department_flag = ENGSEC
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of security"
+	supervisors = "the chief medical officer and the head of security"
 	selection_color = "#ffeeee"
-	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
-	minimal_access = list(access_medical, access_morgue, access_surgery, access_security, access_sec_doors, access_brig, access_court, access_maint_tunnels)
+	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_security, access_sec_doors, access_brig, access_court, access_maint_tunnels)
+	minimal_access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_security, access_sec_doors, access_brig, access_court, access_maint_tunnels)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
-		H.equip_or_collect(new /obj/item/device/radio/headset/headset_sec/alt(H), slot_l_ear)
+		H.equip_or_collect(new /obj/item/device/radio/headset/headset_sec/para(H), slot_l_ear)
 		switch(H.backbag)
 			if(2) H.equip_or_collect(new /obj/item/weapon/storage/backpack/medic(H), slot_back)
 			if(3) H.equip_or_collect(new /obj/item/weapon/storage/backpack/satchel_med(H), slot_back)
@@ -230,7 +230,7 @@
 		affected.implants += L
 		L.part = affected
 		return 1
-
+/*
 /datum/job/pilot
 	title = "Security Pod Pilot"
 	flag = PILOT
@@ -269,3 +269,4 @@
 		affected.implants += L
 		L.part = affected
 		return 1
+*/ // Disabled until we figure out what to do with this damned thing.

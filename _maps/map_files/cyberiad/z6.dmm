@@ -670,7 +670,7 @@
 "nc" = (/obj/item/weapon/shard{icon_state = "small"},/turf/simulated/floor/plating/airless/asteroid,/area/space)
 "nd" = (/obj/item/weapon/ore/clown,/turf/simulated/floor/airless,/area/space)
 "ne" = (/obj/structure/shuttle/engine/propulsion{tag = "icon-propulsion_l (WEST)"; icon_state = "propulsion_l"; dir = 8},/turf/space,/area/space)
-"nf" = (/obj/structure/computerframe/HONKputer,/turf/simulated/floor/airless,/area/space)
+"nf" = (/obj/structure/computerframe,/turf/simulated/floor/airless,/area/space)
 "ng" = (/obj/item/weapon/shard{icon_state = "medium"},/obj/structure/stool/bed/chair{dir = 8},/turf/simulated/floor/plating/airless/asteroid,/area/space)
 "nh" = (/obj/effect/landmark/corpse/clown{name = "Clown Pilot"},/turf/simulated/floor/airless,/area/space)
 "ni" = (/obj/item/weapon/paper/clownship,/turf/simulated/floor/airless,/area/space)

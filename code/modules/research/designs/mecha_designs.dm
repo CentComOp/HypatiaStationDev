@@ -137,6 +137,7 @@
 	category = list("Exosuit Modules")
 
 // H.O.N.K.
+/*
 /datum/design/honker_main
 	name = "Exosuit Board (\"H.O.N.K\" Central Control module)"
 	desc = "Allows for the construction of a \"H.O.N.K\" Central Control module."
@@ -166,3 +167,4 @@
 	materials = list("$glass" = 1000, "sacid" = 20)
 	build_path = /obj/item/weapon/circuitboard/mecha/honker/targeting
 	category = list("Exosuit Modules")
+*/

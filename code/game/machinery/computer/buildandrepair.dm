@@ -242,6 +242,7 @@
 	name = "Circuit board (Atmospheric Tank Control)"
 	build_path = "/obj/machinery/computer/general_air_control/large_tank_control"
 
+/* // -- Removed from the code by Rohane on 7/7/15. Reason: More stupid shit that we don't need, and will honestly never use.
 /obj/item/weapon/circuitboard/HONKputer
 	name = "Circuit board (HONKputer)"
 	build_path = "/obj/machinery/computer/HONKputer"
@@ -249,7 +250,7 @@
 	icon = 'icons/obj/machines/HONKputer.dmi'
 	icon_state = "bananium_board"
 	board_type = "honkcomputer"
-
+*/
 
 /obj/item/weapon/circuitboard/supplycomp/attackby(obj/item/I as obj, mob/user as mob, params)
 	if(istype(I,/obj/item/device/multitool))
@@ -392,7 +393,7 @@
 				del(src)
 
 
-
+/* // -- Removal by Rohane on 7/7/15. Reason: More shit that we will never use.
 /obj/structure/computerframe/HONKputer
 	name = "Bananium Computer-frame"
 	icon = 'icons/obj/machines/HONKputer.dmi'
@@ -497,3 +498,4 @@
 				if(circuit.records) B:records = circuit.records
 				if(circuit.frequency) B:frequency = circuit.frequency
 				del(src)
+*/
