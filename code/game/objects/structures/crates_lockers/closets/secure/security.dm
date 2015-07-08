@@ -192,8 +192,8 @@
 		new /obj/item/taperoll/police(src)
 		return
 
-/obj/structure/closet/secure_closet/brigdoc
-	name = "Brig Physician's Locker"
+/obj/structure/closet/secure_closet/secpara
+	name = "Security Paramedic Locker"
 	req_access = list(access_security)
 	icon_state = "securemed1"
 	icon_closed = "securemed"
@@ -219,7 +219,7 @@
 		new /obj/item/clothing/suit/storage/brigdoc(src)
 		new /obj/item/clothing/under/rank/security/brigphys(src)
 		new /obj/item/clothing/shoes/white(src)
-		new /obj/item/device/radio/headset/headset_sec/alt(src)
+		new /obj/item/device/radio/headset/headset_sec/para(src)
 		return
 
 /obj/structure/closet/secure_closet/blueshield
