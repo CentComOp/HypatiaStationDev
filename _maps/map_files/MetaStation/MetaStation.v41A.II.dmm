@@ -174,7 +174,6 @@
 "adr" = (/turf/simulated/floor/plating,/obj/structure/shuttle/engine/propulsion/burst{dir = 4},/turf/simulated/shuttle/wall{icon_state = "swall_f6"; dir = 2},/area/shuttle/escape_pod3/station)
 "ads" = (/turf/simulated/shuttle/wall{icon_state = "swall12"; dir = 2},/area/shuttle/escape_pod3/station)
 "adt" = (/turf/simulated/shuttle/wall{icon_state = "swall_s10"; dir = 2},/area/shuttle/escape_pod3/station)
-<<<<<<< HEAD
 "adu" = (/obj/structure/lattice,/obj/structure/grille,/turf/space,/area/space)
 "adv" = (/obj/structure/grille,/turf/simulated/floor/plating/airless,/area/space)
 "adw" = (/obj/item/device/radio/intercom{freerange = 0; frequency = 1459; name = "Station Intercom (General)"; pixel_x = -28; pixel_y = 0},/obj/structure/table,/obj/item/device/radio/electropack,/obj/item/device/assembly/signaler{pixel_x = -3; pixel_y = 2},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/turf/simulated/floor{dir = 2; icon_state = "darkred"; tag = "icon-darkblue"; temperature = 273.15},/area/prison/solitary{name = "Prisoner Education Chamber"})
@@ -8221,7 +8220,6 @@
 "dcd" = (/obj/structure/disposalpipe/segment,/turf/simulated/floor/plating/airless,/area/space)
 "dce" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/structure/disposaloutlet,/turf/simulated/floor/plating/airless,/area/space)
 "dcf" = (/turf/space,/area/syndicate_station/south)
-=======
 "adu" = (/obj/item/device/radio/intercom{freerange = 0; frequency = 1459; name = "Station Intercom (General)"; pixel_x = -28; pixel_y = 0},/obj/structure/table,/obj/item/device/radio/electropack,/obj/item/device/assembly/signaler{pixel_x = -3; pixel_y = 2},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/turf/simulated/floor{dir = 2; icon_state = "darkred"; tag = "icon-darkblue"; temperature = 273.15},/area/prison/solitary{name = "Prisoner Education Chamber"})
 "adv" = (/obj/machinery/atmospherics/unary/vent_pump{dir = 8; on = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/turf/simulated/floor{dir = 2; icon_state = "darkred"; tag = "icon-darkblue"; temperature = 273.15},/area/prison/solitary{name = "Prisoner Education Chamber"})
 "adw" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor{dir = 2; icon_state = "darkred"; tag = "icon-darkblue"; temperature = 273.15},/area/prison/solitary{name = "Prisoner Education Chamber"})
@@ -16069,7 +16067,6 @@
 "cYm" = (/obj/structure/disposalpipe/segment,/turf/simulated/floor/plating/airless,/area/space)
 "cYn" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/structure/disposaloutlet,/turf/simulated/floor/plating/airless,/area/space)
 "cYo" = (/turf/space,/area/syndicate_station/south)
->>>>>>> d965e83fdb409c34895ceae2d72a5b457d2c2517
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
