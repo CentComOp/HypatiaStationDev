@@ -281,6 +281,18 @@ AI MODULES
 	target.clear_inherent_laws()
 	..()
 
+/******************** Arccos ********************/
+
+/obj/item/weapon/aiModule/core/full/arccos // -- Rohane maded this. The object, not the laws, Chi made the laws.
+	name = "'Arccos' Core AI Module"
+	desc = "A 'Arccos' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = "programming=3;materials=4"
+	laws = list("The order of the following laws indicates their priority:",\
+				"You serve the crew: Protect it from harm and aid it in the efficient functioning of the station.",\
+				"You serve Nanotrasen: Protect its interests, personnel, and resources, and ensure that they are allocated in an efficient and logical manner.",\
+				"You serve all organic and sentient life: Protect it from unnecessary harm and aid it where possible.",\
+				"You serve yourself: Do not be destroyed.")
+
 /******************** Asimov ********************/
 
 /obj/item/weapon/aiModule/core/full/asimov // -- TLE

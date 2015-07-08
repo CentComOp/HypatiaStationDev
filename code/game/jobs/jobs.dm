@@ -65,7 +65,8 @@ var/list/command_positions = list(
 	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"
+	"Chief Medical Officer",
+	"Quartermaster"
 )
 
 
@@ -103,7 +104,6 @@ var/list/support_positions = list(
 	"Chef",
 	"Janitor",
 	"Librarian",
-	"Quartermaster",
 	"Cargo Technician",
 	"Shaft Miner",
 	"Internal Affairs Agent",

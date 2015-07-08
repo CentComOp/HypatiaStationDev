@@ -85,6 +85,13 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_sec
 
+/obj/item/device/radio/headset/headset_sec/para
+	name = "security paramedic radio headset"
+	desc = "This is used by your elite security medic force."
+	icon_state = "sec_headset"
+	item_state = "headset"
+	ks2type = /obj/item/device/encryptionkey/headset_medsec
+
 /obj/item/device/radio/headset/headset_sec/alt
 	name = "security bowman headset"
 	desc = "This is used by your elite security force. Protects ears from flashbangs."

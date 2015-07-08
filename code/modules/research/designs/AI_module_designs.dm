@@ -2,6 +2,16 @@
 //////////AI Module Disks//////////
 ///////////////////////////////////
 
+/datum/design/arccos_module
+	name = "AI Module (Arccos)"
+	desc = "Allows for the construction of an Arccos AI Module"
+	id = "arccos_module"
+	req_tech = list("programming" = 3, "materials" = 4)
+	build_type = IMPRINTER
+	materials = list("$glass" = 1000, "sacid" = 20, "$gold" = 100)
+	build_path = /obj/item/weapon/aiModule/core/full/arccos
+	category = list("AI Modules")
+
 /datum/design/freeform_module
 	name = "AI Module (Freeform)"
 	desc = "Allows for the construction of a Freeform AI Module."
@@ -11,7 +21,7 @@
 	materials = list("$glass" = 1000, "sacid" = 20, "$gold" = 100)
 	build_path = /obj/item/weapon/aiModule/supplied/freeform
 	category = list("AI Modules")
-	
+
 /datum/design/onehuman_module
 	name = "AI Module (OneHuman)"
 	desc = "Allows for the construction of a OneHuman AI Module."
@@ -21,7 +31,7 @@
 	materials = list("$glass" = 1000, "sacid" = 20, "$diamond" = 100)
 	build_path = /obj/item/weapon/aiModule/zeroth/oneHuman
 	category = list("AI Modules")
-	
+
 /datum/design/oxygen_module
 	name = "AI Module (OxygenIsToxicToHumans)"
 	desc = "Allows for the construction of a Safeguard AI Module."
@@ -40,7 +50,7 @@
 	build_type = IMPRINTER
 	materials = list("$glass" = 1000, "sacid" = 20, "$gold" = 100)
 	build_path = /obj/item/weapon/aiModule/supplied/protectStation
-	category = list("AI Modules")	
+	category = list("AI Modules")
 
 /datum/design/purge_module
 	name = "AI Module (Purge)"
@@ -61,7 +71,7 @@
 	materials = list("$glass" = 1000, "sacid" = 20, "$gold" = 100)
 	build_path = /obj/item/weapon/aiModule/zeroth/quarantine
 	category = list("AI Modules")
-	
+
 /datum/design/reset_module
 	name = "AI Module (Reset)"
 	desc = "Allows for the construction of a Reset AI Module."
@@ -71,7 +81,7 @@
 	materials = list("$glass" = 1000, "sacid" = 20, "$gold" = 100)
 	build_path = /obj/item/weapon/aiModule/reset
 	category = list("AI Modules")
-	
+
 /datum/design/safeguard_module
 	name = "AI Module (Safeguard)"
 	desc = "Allows for the construction of a Safeguard AI Module."
@@ -90,8 +100,8 @@
 	build_type = IMPRINTER
 	materials = list("$glass" = 1000, "sacid" = 20, "$diamond" = 100)
 	build_path = /obj/item/weapon/aiModule/core/full/antimov
-	category = list("AI Modules")	
-	
+	category = list("AI Modules")
+
 /datum/design/asimov
 	name = "Core AI Module (Asimov)"
 	desc = "Allows for the construction of a Asimov AI Core Module."
@@ -100,8 +110,8 @@
 	build_type = IMPRINTER
 	materials = list("$glass" = 1000, "sacid" = 20, "$diamond" = 100)
 	build_path = /obj/item/weapon/aiModule/core/full/asimov
-	category = list("AI Modules")	
-	
+	category = list("AI Modules")
+
 /datum/design/corporate_module
 	name = "Core AI Module (Corporate)"
 	desc = "Allows for the construction of a Corporate AI Core Module."
@@ -111,7 +121,7 @@
 	materials = list("$glass" = 1000, "sacid" = 20, "$diamond" = 100)
 	build_path = /obj/item/weapon/aiModule/core/full/corp
 	category = list("AI Modules")
-	
+
 /datum/design/custom_module
 	name = "Core AI Module (Custom)"
 	desc = "Allows for the construction of a Custom AI Core Module."
@@ -121,7 +131,7 @@
 	materials = list("$glass" = 1000, "sacid" = 20, "$diamond" = 100)
 	build_path = /obj/item/weapon/aiModule/core/full/custom
 	category = list("AI Modules")
-	
+
 /datum/design/freeformcore_module
 	name = "Core AI Module (Freeform)"
 	desc = "Allows for the construction of a Freeform AI Core Module."

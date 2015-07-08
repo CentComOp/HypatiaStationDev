@@ -395,7 +395,8 @@
 	construction_time = 600
 	category = list("Durand")
 
-//H.O.N.K
+//H.O.N.K -- Note by Rohane 7/7/15, HONK mech is removed.
+/*
 /datum/design/honk_chassis
 	name = "Exosuit Chassis (\"H.O.N.K\")"
 	id = "honk_chassis"
@@ -458,6 +459,7 @@
 	materials = list("$metal"=20000,"$bananium"=5000)
 	construction_time = 200
 	category = list("H.O.N.K")
+*/
 
 //Phazon
 /datum/design/phazon_chassis

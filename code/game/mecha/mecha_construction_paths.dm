@@ -778,7 +778,7 @@
 	return
 
 
-
+/* // Removed by Rohane on 7/7/15. More shit that we will never use.
 /datum/construction/mecha/honker_chassis
 	steps = list(list("key"=/obj/item/mecha_parts/part/honker_torso),//1
 					 list("key"=/obj/item/mecha_parts/part/honker_left_arm),//2
@@ -854,6 +854,7 @@
 	..()
 	feedback_inc("mecha_honker_created",1)
 	return
+*/
 
 /datum/construction/mecha/durand_chassis
 	steps = list(list("key"=/obj/item/mecha_parts/part/durand_torso),//1

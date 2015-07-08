@@ -111,7 +111,7 @@ datum/ai_laws/tyrant //This probably shouldn't be a default lawset.
 
 
 /datum/ai_laws/custom //Defined in silicon_laws.txt
-	name = "Default Silicon Laws"
+	name = "Arccos Lawset"
 
 /* Initializers */
 
