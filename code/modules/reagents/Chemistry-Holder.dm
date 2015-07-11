@@ -127,32 +127,6 @@ datum
 				if (!target.reagents || src.total_volume<=0)
 					return
 
-				/*var/datum/reagents/R = target.reagents
-
-				var/obj/item/weapon/reagent_containers/glass/beaker/noreact/B = new /obj/item/weapon/reagent_containers/glass/beaker/noreact //temporary holder
-
-				amount = min(min(amount, src.total_volume), R.maximum_volume-R.total_volume)
-				var/part = amount / src.total_volume
-				var/trans_data = null
-				for (var/datum/reagent/current_reagent in src.reagent_list)
-					if (!current_reagent)
-						continue
-					//if (current_reagent.id == "blood" && ishuman(target))
-					//	var/mob/living/carbon/human/H = target
-					//	H.inject_blood(my_atom, amount)
-					//	continue
-					var/current_reagent_transfer = current_reagent.volume * part
-					if(preserve_data)
-						trans_data = current_reagent.data
-
-					B.add_reagent(current_reagent.id, (current_reagent_transfer * multiplier), trans_data, safety = 1)	//safety checks on these so all chemicals are transferred
-					src.remove_reagent(current_reagent.id, current_reagent_transfer, safety = 1)							// to the target container before handling reactions
-
-				src.update_total()
-				B.update_total()
-				B.handle_reactions()
-				src.handle_reactions()*/
-
 				var/obj/item/weapon/reagent_containers/glass/beaker/noreact/B = new /obj/item/weapon/reagent_containers/glass/beaker/noreact //temporary holder
 				B.volume = 1000
 
@@ -163,9 +137,13 @@ datum
 
 				src.trans_to(B, amount)
 
-				spawn(100)
+				spawn(-1)
+					src = null // Survive through deletion of the reagent holder
+					sleep(100)
+					if(!target)
+						return
 					BR.trans_to(target, BR.total_volume)
-					del(B)
+					qdel(B)
 
 				return amount
 
@@ -279,7 +257,8 @@ datum
 							var/matching_container = 0
 							var/matching_other = 0
 							var/list/multipliers = new/list()
-							var/required_temp = C.required_temp
+							var/min_temp = C.min_temp			//Minimum temperature required for the reaction to occur (heat to/above this)
+							var/max_temp = C.max_temp			//Maximum temperature allowed for the reaction to occur (cool to/below this)
 							for(var/B in C.required_reagents)
 								if(!has_reagent(B, C.required_reagents[B]))	break
 								total_matching_reagents++
@@ -310,10 +289,10 @@ datum
 									if(M.Uses > 0) // added a limit to slime cores -- Muskets requested this
 										matching_other = 1
 
-							if(required_temp == 0)
-								required_temp = chem_temp
+							if(min_temp == 0)
+								min_temp = chem_temp
 
-							if(total_matching_reagents == total_required_reagents && total_matching_catalysts == total_required_catalysts && matching_container && matching_other && chem_temp >= required_temp)
+							if(total_matching_reagents == total_required_reagents && total_matching_catalysts == total_required_catalysts && matching_container && matching_other && chem_temp <= max_temp && chem_temp >= min_temp)
 								var/multiplier = min(multipliers)
 								var/preserved_data = null
 								for(var/B in C.required_reagents)
@@ -378,7 +357,7 @@ datum
 							var/mob/living/M = my_atom
 							R.reagent_deleted(M)
 						reagent_list -= A
-						del(A)
+						qdel(A)
 						update_total()
 						my_atom.on_reagent_change()
 						check_ignoreslow(my_atom)
@@ -404,6 +383,27 @@ datum
 					del_reagent(R.id)
 				return 0
 
+			reaction_check(var/mob/M, var/datum/reagent/R)
+				var/can_process = 0
+				if(!istype(M, /mob/living))		//Non-living mobs can't metabolize reagents, so don't bother trying (runtime safety check)
+					return can_process
+				if(ishuman(M))
+					var/mob/living/carbon/human/H = M
+					//Check if this mob's species is set and can process this type of reagent
+					if(H.species && H.species.reagent_tag)
+						if((R.process_flags & SYNTHETIC) && (H.species.reagent_tag & PROCESS_SYN))		//SYNTHETIC-oriented reagents require PROCESS_SYN
+							can_process = 1
+						if((R.process_flags & ORGANIC) && (H.species.reagent_tag & PROCESS_ORG))		//ORGANIC-oriented reagents require PROCESS_ORG
+							can_process = 1
+						//Species with PROCESS_DUO are only affected by reagents that affect both organics and synthetics, like acid and hellwater
+						if((R.process_flags & ORGANIC) && (R.process_flags & SYNTHETIC) && (H.species.reagent_tag & PROCESS_DUO))
+							can_process = 1
+				//We'll assume that non-human mobs lack the ability to process synthetic-oriented reagents (adjust this if we need to change that assumption)
+				else
+					if(R.process_flags != SYNTHETIC)
+						can_process = 1
+				return can_process
+
 			reaction(var/atom/A, var/method=TOUCH, var/volume_modifier=0)
 
 				switch(method)
@@ -412,7 +412,11 @@ datum
 							if(ismob(A))
 								spawn(0)
 									if(!R) return
-									else R.reaction_mob(A, TOUCH, R.volume+volume_modifier)
+									var/check = reaction_check(A, R)
+									if(!check)
+										continue
+									else
+										R.reaction_mob(A, TOUCH, R.volume+volume_modifier)
 							if(isturf(A))
 								spawn(0)
 									if(!R) return
@@ -426,7 +430,11 @@ datum
 							if(ismob(A) && R)
 								spawn(0)
 									if(!R) return
-									else R.reaction_mob(A, INGEST, R.volume+volume_modifier)
+									var/check = reaction_check(A, R)
+									if(!check)
+										continue
+									else
+										R.reaction_mob(A, INGEST, R.volume+volume_modifier)
 							if(isturf(A) && R)
 								spawn(0)
 									if(!R) return
@@ -594,12 +602,6 @@ datum
 						//world << "reagent data set ([reagent_id])"
 						D.data = new_data
 
-			delete()
-				for(var/datum/reagent/R in reagent_list)
-					R.holder = null
-				if(my_atom)
-					my_atom.reagents = null
-
 			copy_data(var/datum/reagent/current_reagent)
 				if (!current_reagent || !current_reagent.data) return null
 				if (!istype(current_reagent.data, /list)) return current_reagent.data
@@ -629,8 +631,11 @@ atom/proc/create_reagents(var/max_vol)
 	reagents.my_atom = src
 
 /datum/reagents/Destroy()
-	for(var/datum/reagent/reagent in reagent_list)
-		reagent.Destroy()
-
-	if(my_atom)
-		my_atom = null
+	processing_objects.Remove(src)
+	for(var/datum/reagent/R in reagent_list)
+		qdel(R)
+	reagent_list.Cut()
+	reagent_list = null
+	if(my_atom && my_atom.reagents == src)
+		my_atom.reagents = null
+	return ..()

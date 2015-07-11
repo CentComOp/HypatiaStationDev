@@ -5,7 +5,7 @@
 
 /obj/structure/blob_act()
 	if(prob(50))
-		del(src)
+		qdel(src)
 
 /obj/structure/ex_act(severity)
 	switch(severity)
@@ -19,14 +19,10 @@
 		if(3.0)
 			return
 
-/obj/structure/meteorhit(obj/O as obj)
-	del(src)
-
-
 /obj/structure/Destroy()
 	if(hascall(src, "unbuckle"))
 		src:unbuckle()
-	..()
+	return ..()
 
 /obj/structure/mech_melee_attack(obj/mecha/M)
 	if(M.damtype == "brute")

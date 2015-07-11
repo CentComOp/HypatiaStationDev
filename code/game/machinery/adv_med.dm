@@ -82,7 +82,7 @@
 		src.icon_state = "body_scanner_1"
 		src.add_fingerprint(user)
 		//G = null
-		del(G)
+		qdel(G)
 		return
 
 /obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
@@ -178,7 +178,7 @@
 	src.icon_state = "bodyscanner"
 	for(var/obj/O in src)
 		//O = null
-		del(O)
+		qdel(O)
 		//Foreach goto(124)
 	src.add_fingerprint(usr)
 	return
@@ -229,7 +229,7 @@
 	if(prob(50))
 		for(var/atom/movable/A as mob|obj in src)
 			A.loc = src.loc
-		del(src)
+		qdel(src)
 
 /obj/machinery/body_scanconsole
 	var/obj/machinery/bodyscanner/connected
@@ -286,7 +286,7 @@
 
 /obj/machinery/body_scanconsole/blob_act()
 	if(prob(50))
-		del(src)
+		qdel(src)
 
 /obj/machinery/body_scanconsole/proc/findscanner()
 	spawn( 5 )
@@ -410,7 +410,7 @@
 							dat += text("[]\tBlood Level %: [] ([] units)</FONT><BR>", (blood_volume > 448 ?"<font color='blue'>" : "<font color='red'>"), blood_percent, blood_volume)
 						if(occupant.reagents)
 							dat += text("Epinephrine units: [] units<BR>", occupant.reagents.get_reagent_amount("Epinephrine"))
-							dat += text("Morphine: [] units<BR>", occupant.reagents.get_reagent_amount("morphine"))
+							dat += text("Ether: [] units<BR>", occupant.reagents.get_reagent_amount("ether"))
 							dat += text("[]\tSilver Sulfadiazine: [] units</FONT><BR>", (occupant.reagents.get_reagent_amount("silver_sulfadiazine") < 30 ? "<font color='black'>" : "<font color='red'>"), occupant.reagents.get_reagent_amount("silver_sulfadiazine"))
 							dat += text("[]\tStyptic Powder: [] units<BR>", (occupant.reagents.get_reagent_amount("styptic_powder") < 30 ? "<font color='black'>" : "<font color='red'>"), occupant.reagents.get_reagent_amount("styptic_powder"))
 							dat += text("[]\tsalbutamol: [] units<BR>", (occupant.reagents.get_reagent_amount("salbutamol") < 30 ? "<font color='black'>" : "<font color='red'>"), occupant.reagents.get_reagent_amount("salbutamol"))

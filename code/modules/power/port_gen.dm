@@ -125,7 +125,7 @@ display round(lastgen) and phorontank amount
 
 /obj/machinery/power/port_gen/pacman/Destroy()
 	DropFuel()
-	..()
+	return ..()
 
 /obj/machinery/power/port_gen/pacman/RefreshParts()
 	var/temp_rating = 0
@@ -188,7 +188,7 @@ display round(lastgen) and phorontank amount
 
 	if (heat > 300)
 		overheat()
-		del(src)
+		qdel(src)
 	return
 
 /obj/machinery/power/port_gen/pacman/handleInactive()

@@ -73,7 +73,7 @@
 
 /obj/spacepod/Destroy()
 	spacepods_list -= src
-	..()
+	return ..()
 
 /obj/spacepod/process()
 	if(src.empcounter > 0)
@@ -179,8 +179,8 @@
 				H2.forceMove(get_turf(src))
 				H2.ex_act(severity + 1)
 				H2 << "<span class='warning'>You are forcefully thrown from \the [src]!</span>"
-			del(ion_trail)
-			del(src)
+			qdel(ion_trail)
+			qdel(src)
 		if(2)
 			deal_damage(100)
 		if(3)
@@ -731,7 +731,7 @@ obj/spacepod/verb/toggleLights()
 					if(t_air)
 						t_air.merge(removed)
 					else //just delete the cabin gas, we're in space or some shit
-						del(removed)
+						qdel(removed)
 		else
 			return stop()
 		return

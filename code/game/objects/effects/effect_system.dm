@@ -40,11 +40,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	var/amount = 8.0
 
 /obj/effect/proc/delete()
-	loc = null
-	if(reagents)
-		reagents.my_atom = null
-		reagents.delete()
-	return
+	qdel(src)
 
 
 /obj/effect/effect/water/New()
@@ -62,8 +58,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	//if (istype(T, /turf))
 	//	T.firelevel = 0 //TODO: FIX
 	src.delete()
-	..()
-	return
+	return ..()
 
 /obj/effect/effect/water/Move(turf/newloc)
 	//var/turf/T = src.loc
@@ -177,14 +172,13 @@ steam.start() -- spawns the effect
 	if (istype(T, /turf))
 		T.hotspot_expose(1000, 100)
 	spawn (100)
-		delete()
+		qdel(src)
 
 /obj/effect/effect/sparks/Destroy()
 	var/turf/T = src.loc
 	if (istype(T, /turf))
 		T.hotspot_expose(1000,100)
-	..()
-	return
+	return ..()
 
 /obj/effect/effect/sparks/Move()
 	..()
@@ -225,8 +219,7 @@ steam.start() -- spawns the effect
 					sleep(5)
 					step(sparks,direction)
 				spawn(20)
-					if(sparks)
-						sparks.delete()
+					qdel(sparks)
 					src.total_sparks--
 
 /////////////////////////////////////////////
@@ -659,7 +652,7 @@ steam.start() -- spawns the effect
 /obj/effect/effect/mustard_gas/New()
 	..()
 	spawn (100)
-		del(src)
+		qdel(src)
 	return
 
 /obj/effect/effect/mustard_gas/Move()
@@ -726,7 +719,7 @@ steam.start() -- spawns the effect
 					sleep(10)
 					step(smoke,direction)
 				spawn(100)
-					del(smoke)
+					qdel(smoke)
 					src.total_smoke--
 
 
@@ -931,7 +924,7 @@ steam.start() -- spawns the effect
 			if(A == src)
 				continue
 			reagents.reaction(A, 1, 1)
-	..()
+	return ..()
 
 /obj/effect/effect/foam/process()
 	if(--amount < 0)
@@ -1052,10 +1045,9 @@ steam.start() -- spawns the effect
 		air_update_turf(1)
 
 	Destroy()
-
 		density = 0
 		air_update_turf(1)
-		..()
+		return ..()
 
 	Move()
 		var/turf/T = loc
@@ -1073,11 +1065,11 @@ steam.start() -- spawns the effect
 		qdel(src)
 
 	blob_act()
-		del(src)
+		qdel(src)
 
 	bullet_act()
 		if(metal==1 || prob(50))
-			del(src)
+			qdel(src)
 
 	attack_hand(var/mob/user)
 		if ((HULK in user.mutations) || (prob(75 - metal*25)))
@@ -1086,7 +1078,7 @@ steam.start() -- spawns the effect
 				if ((O.client && !( O.blinded )))
 					O << "\red [user] smashes through the foamed metal."
 
-			del(src)
+			qdel(src)
 		else
 			user << "\blue You hit the metal foam but bounce off it."
 		return
@@ -1100,8 +1092,8 @@ steam.start() -- spawns the effect
 			for(var/mob/O in viewers(src))
 				if (O.client)
 					O << "\red [G.assailant] smashes [G.affecting] through the foamed metal wall."
-			del(I)
-			del(src)
+			qdel(I)
+			qdel(src)
 			return
 
 		if(prob(I.force*20 - metal*25))
@@ -1109,7 +1101,7 @@ steam.start() -- spawns the effect
 			for(var/mob/O in oviewers(user))
 				if ((O.client && !( O.blinded )))
 					O << "\red [user] smashes through the foamed metal."
-			del(src)
+			qdel(src)
 		else
 			user << "\blue You hit the metal foam to no effect."
 
@@ -1213,15 +1205,15 @@ steam.start() -- spawns the effect
 	if (istype(T, /turf))
 		T.hotspot_expose(3000,100)
 	spawn (100)
-		del(src)
+		qdel(src)
 	return
 
 /obj/effects/sparkels/Destroy()
 	var/turf/T = src.loc
 	if (istype(T, /turf))
 		T.hotspot_expose(3000,100)
-	..()
-	return
+	return ..()
+
 /obj/effects/sparkels/Move()
 	..()
 	var/turf/T = src.loc
@@ -1269,5 +1261,5 @@ steam.start() -- spawns the effect
 				sleep(5)
 				step(sparks,direction)
 			spawn(20)
-				del(sparks)
+				qdel(sparks)
 				src.total_sparks--

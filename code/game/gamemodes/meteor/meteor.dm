@@ -17,7 +17,6 @@
 
 
 /datum/game_mode/meteor/post_setup()
-	defer_powernet_rebuild = 2//Might help with the lag
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
 	spawn(initialmeteordelay)
@@ -37,7 +36,7 @@
 		var/waitduration = rand(3000,9000)
 		while(waveduration - world.time > 0)
 			sleep(20)
-			spawn() spawn_meteors(6)
+			spawn() spawn_meteors(6, meteors_normal)
 		sleep(waitduration)
 		nometeors = 0
 

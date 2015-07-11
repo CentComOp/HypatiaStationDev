@@ -38,7 +38,7 @@ obj/item/weapon/gun/energy/laser/retro
 
 /obj/item/weapon/gun/energy/laser/captain/Destroy()
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 /obj/item/weapon/gun/energy/laser/captain/process()
 	charge_tick++
@@ -135,7 +135,7 @@ obj/item/weapon/gun/energy/laser/retro
 
 	Destroy()
 		processing_objects.Remove(src)
-		..()
+		return ..()
 
 
 	process()
@@ -172,7 +172,7 @@ obj/item/weapon/gun/energy/laser/retro
 
 	Destroy()
 		processing_objects.Remove(src)
-		..()
+		return ..()
 
 
 	process()

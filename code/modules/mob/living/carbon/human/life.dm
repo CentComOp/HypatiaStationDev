@@ -118,8 +118,6 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 
 		handle_pain()
 
-		handle_medical_side_effects()
-
 		handle_heartbeat()
 
 		handle_heartattack()
@@ -744,11 +742,8 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 
 	proc/handle_chemicals_in_body()
 
-		if(reagents) //Synths don't process reagents. // fuck you they do now - Iamgoofball
-			var/alien = 0
-			if(species && species.reagent_tag)
-				alien = species.reagent_tag
-			reagents.metabolize(src,alien)
+		if(reagents)
+			reagents.metabolize(src)
 
 		if(status_flags & GODMODE)	return 0	//godmode
 
@@ -927,16 +922,13 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 				else
 					hallucination -= 2
 
-			else
-				for(var/atom/a in hallucinations)
-					del a
 
-				if(halloss > 100)
-					src << "<span class='notice'>You're in too much pain to keep going...</span>"
-					for(var/mob/O in oviewers(src, null))
-						O.show_message("<B>[src]</B> slumps to the ground, too weak to continue fighting.", 1)
-					Paralyse(10)
-					setHalLoss(99)
+			if(halloss > 100)
+				src << "<span class='notice'>You're in too much pain to keep going...</span>"
+				for(var/mob/O in oviewers(src, null))
+					O.show_message("<B>[src]</B> slumps to the ground, too weak to continue fighting.", 1)
+				Paralyse(10)
+				setHalLoss(99)
 
 			if(paralysis)
 				AdjustParalysis(-1)
@@ -950,7 +942,7 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 				adjustStaminaLoss(-10)
 				adjustHalLoss(-3)
 				if (mind)
-					//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of morphine or similar.
+					//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of ether or similar.
 					if(player_logged)
 						sleeping = max(sleeping-1, 2)
 					else
@@ -1151,6 +1143,8 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 					if(85 to INFINITY)
 						damageoverlay.overlays += brutefireloss_overlays["6"]//image("icon" = 'icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay6")
 				//damageoverlay.overlays += I
+
+		see_invisible = SEE_INVISIBLE_LIVING
 		if( stat == DEAD )
 			sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 			see_in_dark = 8
@@ -1186,6 +1180,8 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 						see_in_dark = (G.darkness_view ? see_in_dark + G.darkness_view : species.darksight) // Otherwise we keep our darkness view with togglable nightvision.
 						if(G.vision_flags)		// MESONS
 							sight |= G.vision_flags
+							if(!druggy)
+								see_invisible = SEE_INVISIBLE_MINIMUM
 						if(!G.see_darkness)
 							see_invisible = SEE_INVISIBLE_MINIMUM
 		/* HUD shit goes here, as long as it doesn't modify sight flags */
@@ -1204,6 +1200,8 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 					if(istype(H))
 						if(H.vision_flags)		// MESONS
 							sight |= H.vision_flags
+							if(!druggy)
+								see_invisible = SEE_INVISIBLE_MINIMUM
 						if(!H.see_darkness)
 							see_invisible = SEE_INVISIBLE_MINIMUM
 		/* HUD shit goes here, as long as it doesn't modify sight flags */
@@ -1473,7 +1471,7 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 					if(M.stat == 2)
 						M.death(1)
 						stomach_contents.Remove(M)
-						del(M)
+						qdel(M)
 						continue
 					if(mob_master.current_cycle%3==1)
 						if(!(M.status_flags & GODMODE))

@@ -35,7 +35,7 @@
 		M << "\blue You swallow some of contents of the [src]."
 		if(reagents.total_volume)
 			reagents.reaction(M, INGEST)
-			spawn(5)
+			spawn(0)
 				reagents.trans_to_ingest(M, 10)
 
 		playsound(M.loc,'sound/items/drink.ogg', rand(10,50), 1)
@@ -59,7 +59,7 @@
 
 		if(reagents.total_volume)
 			reagents.reaction(M, INGEST)
-			spawn(5)
+			spawn(0)
 				reagents.trans_to(M, 10)
 
 		playsound(M.loc,'sound/items/drink.ogg', rand(10,50), 1)
@@ -190,16 +190,16 @@
 	if(istype(target, /obj/item/weapon/reagent_containers/food/snacks))
 		if(!reagents.total_volume)
 			user << "<span class='warning'>You tear open [src], but there's nothing in it.</span>"
-			Destroy()
+			qdel(src)
 			return
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
 			user << "<span class='warning'>You tear open [src], but [target] is stacked so high that it just drips off!</span>" //Not sure if food can ever be full, but better safe than sorry.
-			Destroy()
+			qdel(src)
 			return
 		else
 			user << "<span class='notice'>You tear open [src] above [target] and the condiments drip onto it.</span>"
 			src.reagents.trans_to(target, amount_per_transfer_from_this)
-			Destroy()
+			qdel(src)
 
 /obj/item/weapon/reagent_containers/food/condiment/pack/on_reagent_change()
 	if(reagents.reagent_list.len > 0)

@@ -19,7 +19,7 @@
 			if(istype(W, /obj/item/weapon/crowbar))
 				new /obj/machinery/constructable_frame/machine_frame(T)
 				new /obj/item/stack/sheet/glass(T)
-				del(src)
+				qdel(src)
 				playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
 				return
 
@@ -33,7 +33,7 @@
 					C.req_access = circuit.conf_access
 					C.req_one_access = null
 				playsound(get_turf(src), 'sound/items/Screwdriver.ogg', 50, 1)
-				del(src)
+				qdel(src)
 				return
 			if(istype(W, /obj/item/weapon/crowbar))
 				circuit.loc=T
@@ -98,10 +98,10 @@
 /obj/structure/displaycase/ex_act(severity)
 	switch(severity)
 		if (1)
-			getFromPool(/obj/item/weapon/shard, loc)
+			PoolOrNew(/obj/item/weapon/shard, loc)
 			if (occupant)
 				dump()
-			del(src)
+			qdel(src)
 		if (2)
 			if (prob(50))
 				src.health -= 15
@@ -121,23 +121,16 @@
 
 /obj/structure/displaycase/blob_act()
 	if (prob(75))
-		getFromPool(/obj/item/weapon/shard, loc)
+		PoolOrNew(/obj/item/weapon/shard, loc)
 		if(occupant) dump()
-		del(src)
-
-
-/obj/structure/displaycase/meteorhit(obj/O as obj)
-		getFromPool(/obj/item/weapon/shard, loc)
-		if(occupant) dump()
-		del(src)
-
+		qdel(src)
 
 /obj/structure/displaycase/proc/healthcheck()
 	if (src.health <= 0)
 		if (!( src.destroyed ))
 			src.density = 0
 			src.destroyed = 1
-			getFromPool(/obj/item/weapon/shard, loc)
+			PoolOrNew(/obj/item/weapon/shard, loc)
 			playsound(get_turf(src), "shatter", 70, 1)
 			update_icon()
 	else
@@ -201,7 +194,7 @@
 			C.loc=T
 			circuit=null
 			new /obj/machinery/constructable_frame/machine_frame(T)
-		del(src)
+		qdel(src)
 	if(user.a_intent == "harm")
 		src.health -= W.force
 		src.healthcheck()

@@ -155,7 +155,7 @@
 		cartridge.darts--
 		src.update_icon()
 		S.reagents.trans_to(D, S.reagents.total_volume)
-		del(S)
+		qdel(S)
 		D.icon_state = "syringeproj"
 		D.name = "syringe"
 		D.flags |= NOREACT
@@ -194,16 +194,16 @@
 						D.reagents.trans_to(M, 15)
 					M << "<span class='danger'>You feel a slight prick.</span>"
 
-					del(D)
+					qdel(D)
 					break
 			if(D)
 				for(var/atom/A in D.loc)
 					if(A == user) continue
-					if(A.density) del(D)
+					if(A.density) qdel(D)
 
 			sleep(1)
 
-		if (D) spawn(10) del(D)
+		if (D) spawn(10) qdel(D)
 
 		return
 
@@ -297,7 +297,7 @@
 	starting_chems = list("silver_sulfadiazine","styptic_powder","charcoal")
 
 /obj/item/weapon/gun/dartgun/vox/raider
-	starting_chems = list("space_drugs","morphine","haloperidol")
+	starting_chems = list("space_drugs","ether","haloperidol")
 
 /obj/effect/syringe_gun_dummy //moved this shitty thing here
 	name = ""

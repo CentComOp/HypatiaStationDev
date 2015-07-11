@@ -36,7 +36,8 @@ var/shuttle_call/shuttle_calls[0]
 /obj/machinery/computer/communications
 	name = "Communications Console"
 	desc = "This can be used for various important functions. Still under developement."
-	icon_state = "comm"
+	icon_keyboard = "tech_key"
+	icon_screen = "comm"
 	req_access = list(access_heads)
 	circuit = "/obj/item/weapon/circuitboard/communications"
 	var/prints_intercept = 1
@@ -490,7 +491,7 @@ var/shuttle_call/shuttle_calls[0]
 	log_game("All the AIs, comm consoles and boards are destroyed. Shuttle called.")
 	message_admins("All the AIs, comm consoles and boards are destroyed. Shuttle called.", 1)
 
-	..()
+	return ..()
 
 /obj/item/weapon/circuitboard/communications/Destroy()
 
@@ -513,4 +514,4 @@ var/shuttle_call/shuttle_calls[0]
 	log_game("All the AIs, comm consoles and boards are destroyed. Shuttle called.")
 	message_admins("All the AIs, comm consoles and boards are destroyed. Shuttle called.", 1)
 
-	..()
+	return ..()

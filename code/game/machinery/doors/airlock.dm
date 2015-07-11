@@ -97,6 +97,7 @@
 	icon = 'icons/obj/doors/vault.dmi'
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity //Until somebody makes better sprites.
+	explosion_block = 2
 
 /obj/machinery/door/airlock/freezer
 	name = "Freezer Airlock"
@@ -249,7 +250,7 @@
 /obj/machinery/door/airlock/phoron/proc/PhoronBurn(temperature)
 	atmos_spawn_air(SPAWN_HEAT | SPAWN_TOXINS, 500)
 	new/obj/structure/door_assembly( src.loc )
-	del (src)
+	qdel(src)
 
 /obj/machinery/door/airlock/phoron/BlockSuperconductivity() //we don't stop the heat~
 	return 0
@@ -826,7 +827,7 @@ About the new airlock wires panel:
 					ae.icon_state = "door_electronics_smoked"
 					operating = 0
 
-				del(src)
+				qdel(src)
 				return
 		else if(arePowerSystemsOn())
 			user << "\blue The airlock's motors resist your efforts to force it."

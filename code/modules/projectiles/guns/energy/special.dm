@@ -48,9 +48,9 @@
 	..()
 	processing_objects.Add(src)
 
-/obj/item/weapon/gun/energy/floragun/Del()
+/obj/item/weapon/gun/energy/floragun/Destroy()
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 /obj/item/weapon/gun/energy/floragun/process()
 	charge_tick++
@@ -109,7 +109,7 @@
 
 	Destroy()
 		processing_objects.Remove(src)
-		..()
+		return ..()
 
 	process()
 		charge_tick++
@@ -312,7 +312,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/weapon/gun/energy/disabler/cyborg/Destroy()
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 /obj/item/weapon/gun/energy/disabler/cyborg/process() //Every [recharge_time] ticks, recharge a shot for the cyborg
 	if(power_supply.charge == power_supply.maxcharge)
@@ -369,7 +369,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/weapon/gun/energy/printer/Destroy()
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 /obj/item/weapon/gun/energy/printer/process()
 	if(power_supply.charge == power_supply.maxcharge)

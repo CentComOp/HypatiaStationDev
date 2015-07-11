@@ -187,8 +187,10 @@
 	if(adminlog)
 		message_admins(adminlog)
 		log_game(adminlog)
-	explosion(get_turf(src),2,5,11)
-	del(src)
+	explosion(get_turf(src),2,5,11, flame_range = 11)
+	if(src.loc && istype(src.loc,/obj/machinery/syndicatebomb/))
+		qdel(src.loc)
+	qdel(src)
 
 /obj/item/weapon/bombcore/proc/defuse()
 //Note: 	Because of how var/defused is used you shouldn't override this UNLESS you intend to set the var to 0 or
@@ -220,7 +222,7 @@
 		holder.loc.visible_message("<span class='danger'>\icon[holder] Alert: Bomb has detonated. Your score is now [defusals] for [attempts]. Resetting wires...</span>")
 		reset()
 	else
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/bombcore/training/defuse()
 	var/obj/machinery/syndicatebomb/holder = src.loc
@@ -239,8 +241,8 @@
 
 /obj/item/weapon/bombcore/badmin/defuse() //because we wouldn't want them being harvested by players
 	var/obj/machinery/syndicatebomb/B = src.loc
-	del(B)
-	del(src)
+	qdel(B)
+	qdel(src)
 
 /obj/item/weapon/bombcore/badmin/summon/
 	var/summon_path = /obj/item/weapon/reagent_containers/food/snacks/cookie
@@ -254,8 +256,8 @@
 		if(prob(50))
 			for(var/j = 1, j <= rand(1, 3), j++)
 				step(X, pick(NORTH,SOUTH,EAST,WEST))
-	del(B)
-	del(src)
+	qdel(B)
+	qdel(src)
 
 /obj/item/weapon/bombcore/badmin/summon/clown
 	summon_path = /mob/living/simple_animal/hostile/retaliate/clown
@@ -269,16 +271,17 @@
 	var/HeavyExplosion = 2
 	var/MediumExplosion = 5
 	var/LightExplosion = 11
+	var/Flames = 11
 
 /obj/item/weapon/bombcore/badmin/explosion/detonate()
-	explosion(get_turf(src),HeavyExplosion,MediumExplosion,LightExplosion)
+	explosion(get_turf(src),HeavyExplosion,MediumExplosion,LightExplosion, flame_range = Flames)
 
 /obj/item/weapon/bombcore/miniature
 	name = "small bomb core"
 	w_class = 2
 
 /obj/item/weapon/bombcore/miniature/detonate()
-	explosion(src.loc,1,2,4) //Identical to a minibomb
+	explosion(src.loc,1,2,4,flame_range = 2) //Identical to a minibomb
 	qdel(src)
 
 ///Syndicate Detonator (aka the big red button)///

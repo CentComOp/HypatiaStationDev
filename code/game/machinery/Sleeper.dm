@@ -206,9 +206,9 @@
 	dir = 8
 	var/orient = "LEFT" // "RIGHT" changes the dir suffix to "-r"
 	var/mob/living/carbon/human/occupant = null
-	var/possible_chems = list(list("epinephrine", "morphine", "salbutamol", "styptic_powder"),
-								   list("epinephrine", "morphine", "salbutamol", "styptic_powder", "oculine"),
-								   list("epinephrine", "morphine", "salbutamol", "styptic_powder", "oculine", "charcoal", "mutadone", "mannitol"))
+	var/possible_chems = list(list("epinephrine", "ether", "salbutamol", "styptic_powder"),
+								   list("epinephrine", "ether", "salbutamol", "styptic_powder", "oculine"),
+								   list("epinephrine", "ether", "salbutamol", "styptic_powder", "oculine", "charcoal", "mutadone", "mannitol"))
 	var/amounts = list(5, 10)
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/filtering = 0
@@ -285,7 +285,7 @@
 		for(var/atom/movable/A as mob|obj in src)
 			A.loc = src.loc
 			A.blob_act()
-		del(src)
+		qdel(src)
 	return
 
 
@@ -360,7 +360,7 @@
 			M << "\blue <b>You feel cool air surround you. You go numb as your senses turn inward.</b>"
 
 			src.add_fingerprint(user)
-			del(G)
+			qdel(G)
 		return
 	return
 
@@ -601,7 +601,7 @@
 		src.icon_state = "sleeper"
 
 		for(var/obj/O in src)
-			del(O)
+			qdel(O)
 		src.add_fingerprint(usr)
 		return
 	return

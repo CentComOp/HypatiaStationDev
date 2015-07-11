@@ -48,7 +48,8 @@
 /obj/Destroy()
 	machines -= src
 	processing_objects -= src
-	..()
+	return ..()
+
 /obj/item/proc/is_used_on(obj/O, mob/user)
 
 /obj/proc/process()
@@ -248,7 +249,7 @@ a {
 
 /obj/singularity_act()
 	ex_act(1.0)
-	if(src && isnull(gc_destroyed))
+	if(src && isnull(gcDestroyed))
 		qdel(src)
 	return 2
 
