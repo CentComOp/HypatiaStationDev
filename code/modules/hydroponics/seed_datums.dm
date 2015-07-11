@@ -1226,7 +1226,7 @@ var/global/list/seed_types = list()       // A list of all seed data. Note by Ro
 	name = "gelthi"
 	seed_name = "gelthi"
 	display_name = "gelthi plant"
-	chems = list("morphine" = list(1,5),"capsaicin" = list(1,5),"plantmatter" = list(1,5))
+	chems = list("ether" = list(1,5),"capsaicin" = list(1,5),"plantmatter" = list(1,5))
 
 /datum/seed/gelthi/New()
 	..()

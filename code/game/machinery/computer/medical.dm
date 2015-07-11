@@ -3,7 +3,8 @@
 /obj/machinery/computer/med_data//TODO:SANITY
 	name = "Medical Records"
 	desc = "This can be used to check medical records."
-	icon_state = "medcomp"
+	icon_keyboard = "med_key"
+	icon_screen = "medcomp"
 	req_one_access = list(access_medical, access_forensics_lockers)
 	circuit = "/obj/item/weapon/circuitboard/med_data"
 	var/obj/item/weapon/card/id/scan = null
@@ -384,7 +385,7 @@
 			if (href_list["del_r2"])
 				if (src.active2)
 					//src.active2 = null
-					del(src.active2)
+					qdel(src.active2)
 
 			if (href_list["d_rec"])
 				var/datum/data/record/R = locate(href_list["d_rec"])
@@ -509,7 +510,7 @@
 			continue
 
 		else if(prob(1))
-			del(R)
+			qdel(R)
 			continue
 
 	..(severity)
@@ -518,4 +519,6 @@
 /obj/machinery/computer/med_data/laptop
 	name = "Medical Laptop"
 	desc = "Cheap Nanotrasen Laptop."
-	icon_state = "medlaptop"
+	icon_state = "laptop"
+	icon_keyboard = "laptop_key"
+	icon_screen = "medlaptop"

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var/kill_air = 0
 
 var/global/datum/controller/air_system/air_master
@@ -127,6 +128,8 @@ datum/controller/air_system
 	slmaster.layer = FLY_LAYER
 	slmaster.mouse_opacity = 0
 
+=======
+>>>>>>> d46aa69852da39aa917a50ab0dddf54093ab958e
 /turf/proc/CanAtmosPass(var/turf/T)
 	if(!istype(T))	return 0
 	var/R

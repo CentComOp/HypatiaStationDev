@@ -18,19 +18,27 @@
 	"It's mesmerizing to behold.")
 
 /obj/structure/crystal/Destroy()
-	src.visible_message("\red<b>[src] shatters!</b>")
+	src.visible_message("<span class='danger'>\The [src] shatters!</span>")
 	if(prob(75))
+<<<<<<< HEAD
 		getFromPool(/obj/item/weapon/shard/phoron, loc)
 	if(prob(50))
 		getFromPool(/obj/item/weapon/shard/phoron, loc)
 	if(prob(25))
 		getFromPool(/obj/item/weapon/shard/phoron, loc)
-	if(prob(75))
-		getFromPool(/obj/item/weapon/shard, loc)
+=======
+		PoolOrNew(/obj/item/weapon/shard/plasma, loc)
 	if(prob(50))
-		getFromPool(/obj/item/weapon/shard, loc)
+		PoolOrNew(/obj/item/weapon/shard/plasma, loc)
 	if(prob(25))
-		getFromPool(/obj/item/weapon/shard, loc)
-	..()
+		PoolOrNew(/obj/item/weapon/shard/plasma, loc)
+>>>>>>> d46aa69852da39aa917a50ab0dddf54093ab958e
+	if(prob(75))
+		PoolOrNew(/obj/item/weapon/shard, loc)
+	if(prob(50))
+		PoolOrNew(/obj/item/weapon/shard, loc)
+	if(prob(25))
+		PoolOrNew(/obj/item/weapon/shard, loc)
+	return ..()
 
 //todo: laser_act

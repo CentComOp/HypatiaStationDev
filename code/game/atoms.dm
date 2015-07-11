@@ -1,6 +1,3 @@
-var/global/list/del_profiling = list()
-var/global/list/gdel_profiling = list()
-var/global/list/ghdel_profiling = list()
 /atom
 	layer = 2
 	var/level = 2
@@ -30,21 +27,15 @@ var/global/list/ghdel_profiling = list()
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
 
-	// Garbage collection
-	var/gc_destroyed=null
-
 	var/allow_spin = 1 //Set this to 1 for a _target_ that is being thrown at; if an atom has this set to 1 then atoms thrown AT it will not spin; currently used for the singularity. -Fox
 
 /atom/Destroy()
-	set_opacity(0)
-
-
 	if(reagents)
-		reagents.Destroy()
+		qdel(reagents)
 		reagents = null
-
-	// Idea by ChuckTheSheep to make the object even more unreferencable.
+	set_opacity(0)
 	invisibility = 101
+	return ..()
 
 /atom/proc/CheckParts()
 	return
@@ -88,8 +79,6 @@ var/global/list/ghdel_profiling = list()
 */
 
 
-/atom/proc/meteorhit(obj/meteor as obj)
-	return
 
 /atom/proc/allow_drop()
 	return 1
@@ -171,7 +160,7 @@ its easier to just keep the beam vertical.
 
 		for(var/obj/effect/overlay/beam/O in orange(10,src))	//This section erases the previously drawn beam because I found it was easier to
 			if(O.BeamSource==src)				//just draw another instance of the beam instead of trying to manipulate all the
-				del O							//pieces to a new orientation.
+				qdel(O)							//pieces to a new orientation.
 		var/Angle=round(Get_Angle(src,BeamTarget))
 		var/icon/I=new(icon,icon_state)
 		I.Turn(Angle)
@@ -212,7 +201,7 @@ its easier to just keep the beam vertical.
 			X.pixel_y=Pixel_y
 			var/turf/TT = get_turf(X.loc)
 			if(TT.density)
-				del(X)
+				qdel(X)
 				break
 			for(var/obj/O in TT)
 				if(!O.CanPass(light))
@@ -222,11 +211,11 @@ its easier to just keep the beam vertical.
 					broken = 1
 					break
 			if(broken)
-				del(X)
+				qdel(X)
 				break
 		sleep(3)	//Changing this to a lower value will cause the beam to follow more smoothly with movement, but it will also be more laggy.
 					//I've found that 3 ticks provided a nice balance for my use.
-	for(var/obj/effect/overlay/beam/O in orange(10,src)) if(O.BeamSource==src) del O
+	for(var/obj/effect/overlay/beam/O in orange(10,src)) if(O.BeamSource==src) qdel(O)
 
 
 //All atoms
@@ -413,7 +402,7 @@ its easier to just keep the beam vertical.
 /atom/proc/clean_blood()
 	src.germ_level = 0
 	if(istype(blood_DNA, /list))
-		del(blood_DNA)
+		qdel(blood_DNA)
 		return 1
 
 /atom/proc/add_vomit_floor(mob/living/carbon/M as mob, var/toxvomit = 0)

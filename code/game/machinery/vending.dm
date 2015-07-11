@@ -22,7 +22,7 @@
 	if(!name)
 		var/atom/tmp = new path
 		src.product_name = initial(tmp.name)
-		del(tmp)
+		qdel(tmp)
 	else
 		src.product_name = name
 
@@ -146,12 +146,12 @@
 			src.product_records.Add(product)
 
 /obj/machinery/vending/Destroy()
-	del(wires) // qdel
+	qdel(wires) // qdel
 	wires = null
 	if(coin)
-		del(coin) // qdel
+		qdel(coin) // qdel
 		coin = null
-	..()
+	return ..()
 
 /obj/machinery/vending/ex_act(severity)
 	switch(severity)
@@ -176,7 +176,7 @@
 	if(prob(75))
 		malfunction()
 	else
-		del(src)
+		qdel(src)
 
 /obj/machinery/vending/proc/refill_inventory(obj/item/weapon/vending_refill/refill, datum/data/vending_product/machine, mob/user)
 	var/total = 0
@@ -306,7 +306,7 @@
 	visible_message("<span class='info'>[usr] inserts a credit chip into [src].</span>")
 	var/left = cashmoney.worth - currently_vending.price
 	usr.unEquip(cashmoney)
-	del(cashmoney)
+	qdel(cashmoney)
 
 	if(left)
 		dispense_cash(left, src.loc, user)
@@ -560,10 +560,10 @@
 				user << "\blue You successfully pull the coin out before the [src] could swallow it."
 			else
 				user << "\blue You weren't able to pull the coin out fast enough, the machine ate it, string and all."
-				del(coin)
+				qdel(coin)
 				categories &= ~CAT_COIN
 		else
-			del(coin)
+			qdel(coin)
 			categories &= ~CAT_COIN
 
 	R.amount--
@@ -888,7 +888,7 @@
 	icon_deny = "med-deny"
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
 	req_access_txt = "5"
-	products = list(/obj/item/weapon/reagent_containers/glass/bottle/charcoal = 4,/obj/item/weapon/reagent_containers/glass/bottle/morphine = 4,/obj/item/weapon/reagent_containers/glass/bottle/epinephrine = 4,
+	products = list(/obj/item/weapon/reagent_containers/glass/bottle/charcoal = 4,/obj/item/weapon/reagent_containers/glass/bottle/morphine = 4,/obj/item/weapon/reagent_containers/glass/bottle/ether = 4,/obj/item/weapon/reagent_containers/glass/bottle/epinephrine = 4,
 					/obj/item/weapon/reagent_containers/glass/bottle/toxin = 4,/obj/item/weapon/reagent_containers/syringe/antiviral = 4,/obj/item/weapon/reagent_containers/syringe/insulin = 4,
 					/obj/item/weapon/reagent_containers/syringe = 12,/obj/item/device/healthanalyzer = 5,/obj/item/device/healthupgrade = 5,/obj/item/weapon/reagent_containers/glass/beaker = 4,
 					/obj/item/weapon/reagent_containers/dropper = 2,/obj/item/stack/medical/advanced/bruise_pack = 3, /obj/item/stack/medical/advanced/ointment = 3,

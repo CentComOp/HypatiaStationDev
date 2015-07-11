@@ -35,9 +35,9 @@
 			update_icon()
 
 	Destroy()
-		del(air_contents)
+		qdel(air_contents)
 
-		..()
+		return ..()
 
 	update_icon()
 		return null
@@ -91,7 +91,6 @@
 			return 1
 
 /obj/machinery/portable_atmospherics/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob, params)
-	var/obj/icon = src
 	if ((istype(W, /obj/item/weapon/tank) && !( src.destroyed )))
 		if (src.holding)
 			return
@@ -123,6 +122,7 @@
 				return
 
 	else if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
+<<<<<<< HEAD
 		visible_message("\red [user] has used [W] on \icon[icon]")
 		if(air_contents)
 			var/pressure = air_contents.return_pressure()
@@ -150,5 +150,8 @@
 		else
 			user << "\blue Tank is empty!"
 		return
+=======
+		atmosanalyzer_scan(air_contents, user)
+>>>>>>> d46aa69852da39aa917a50ab0dddf54093ab958e
 
 	return

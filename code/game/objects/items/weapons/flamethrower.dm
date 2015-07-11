@@ -29,7 +29,7 @@
 		qdel(igniter)
 	if(ptank)
 		qdel(ptank)
-	..()
+	return ..()
 
 
 /obj/item/weapon/flamethrower/process()
@@ -112,6 +112,7 @@
 		return
 
 	if(istype(W, /obj/item/device/analyzer) && ptank)
+<<<<<<< HEAD
 		var/obj/item/weapon/icon = src
 		user.visible_message("<span class='notice'>[user] has used the analyzer on \icon[icon]</span>")
 		var/pressure = ptank.air_contents.return_pressure()
@@ -137,6 +138,9 @@
 		else
 			user << "\blue Tank is empty!"
 		return
+=======
+		atmosanalyzer_scan(ptank.air_contents, user)
+>>>>>>> d46aa69852da39aa917a50ab0dddf54093ab958e
 	..()
 	return
 

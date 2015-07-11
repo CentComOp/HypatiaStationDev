@@ -22,9 +22,9 @@
 	return
 
 /obj/item/stack/Destroy()
-	if (src && usr && usr.machine==src)
+	if (usr && usr.machine==src)
 		usr << browse(null, "window=stack")
-	..()
+	return ..()
 
 /obj/item/stack/examine()
 	set src in view(1)

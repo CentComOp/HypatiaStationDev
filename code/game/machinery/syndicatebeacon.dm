@@ -127,7 +127,7 @@
 	if(surplus() < 1500)
 		if(user) user << "<span class='notice'>The connected wire doesn't have enough current.</span>"
 		return
-	for(var/obj/singularity/singulo in world)
+	for(var/obj/singularity/singulo in singularities)
 		if(singulo.z == z)
 			singulo.target = src
 	icon_state = "[icontype]1"
@@ -184,7 +184,7 @@
 /obj/machinery/power/singularity_beacon/Destroy()
 	if(active)
 		Deactivate()
-	..()
+	return ..()
 
 //stealth direct power usage
 /obj/machinery/power/singularity_beacon/process()

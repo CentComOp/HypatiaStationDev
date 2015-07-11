@@ -343,12 +343,16 @@
 				if(5)
 					var/quantity = rand(1,3)
 					for(var/i=0, i<quantity, i++)
-						getFromPool(/obj/item/weapon/shard, loc)
+						PoolOrNew(/obj/item/weapon/shard, loc)
 
 				if(6)
 					var/quantity = rand(1,3)
 					for(var/i=0, i<quantity, i++)
+<<<<<<< HEAD
 						getFromPool(/obj/item/weapon/shard/phoron, loc)
+=======
+						PoolOrNew(/obj/item/weapon/shard/plasma, loc)
+>>>>>>> d46aa69852da39aa917a50ab0dddf54093ab958e
 
 				if(7)
 					var/obj/item/stack/sheet/mineral/uranium/R = new(src)

@@ -266,7 +266,7 @@
 	update_mob()
 
 	invisibility = INVISIBILITY_MAXIMUM		//kaboom
-	del nadeassembly // do this now to stop infrared beams
+	qdel(nadeassembly) // do this now to stop infrared beams
 	var/end_temp = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
 		G.reagents.trans_to(src, G.reagents.total_volume)
@@ -285,7 +285,7 @@
 
 
 	spawn(15)		   //Making sure all reagents can work
-		del(src)	   //correctly before deleting the grenade.
+		qdel(src)	   //correctly before deleting the grenade.
 
 /obj/item/weapon/grenade/chem_grenade/proc/CreateDefaultTrigger(var/typekey)
 	if(ispath(typekey,/obj/item/device/assembly))
@@ -364,7 +364,7 @@
 
 	invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
 	spawn(50)		   //To make sure all reagents can work
-		del(src)	   //correctly before deleting the grenade.
+		qdel(src)	   //correctly before deleting the grenade.
 
 
 	//I tried to just put it in the allowed_containers list but
@@ -479,9 +479,9 @@
 		beakers += B2
 		update_icon()
 
-/obj/item/weapon/grenade/chem_grenade/saringas
-	payload_name = "saringas"
-	desc = "Contains sarin gas; extremely deadly and fast acting; use with extreme caution."
+/obj/item/weapon/grenade/chem_grenade/tabungas
+	payload_name = "tabungas"
+	desc = "Contains tabun gas; extremely deadly and fast acting; use with extreme caution."
 	stage = READY
 
 	New()
@@ -489,7 +489,7 @@
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
-		B1.reagents.add_reagent("sarin", 25)
+		B1.reagents.add_reagent("tabun", 25)
 		B1.reagents.add_reagent("potassium", 25)
 		B2.reagents.add_reagent("phosphorus", 25)
 		B2.reagents.add_reagent("sugar", 25)

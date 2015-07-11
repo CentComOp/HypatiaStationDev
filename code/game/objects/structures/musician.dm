@@ -21,7 +21,7 @@
 
 /datum/song/Destroy()
 	instrumentObj = null
-	return
+	return ..()
 
 // note is a number from 1-7 for A-G
 // acc is either "b", "n", or "#"
@@ -318,9 +318,9 @@
 		icon_state = "piano"
 
 /obj/structure/piano/Destroy()
-	del(song)
+	qdel(song)
 	song = null
-	..()
+	return ..()
 
 /obj/structure/piano/attack_hand(mob/user as mob)
 	interact(user)

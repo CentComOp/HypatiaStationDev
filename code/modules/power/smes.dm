@@ -18,7 +18,7 @@
 	var/lastout = 0
 	var/loaddemand = 0
 	var/capacity = 5e6
-	var/charge = 1e6
+	var/charge = 0
 	var/charging = 0
 	var/chargemode = 0
 	var/chargecount = 0
@@ -204,7 +204,7 @@
 				"<span class='alert'>[user.name] cuts the cables and dismantles the power terminal.</span>",\
 				"You cut the cables and dismantle the power terminal.")
 			charging = 0 //stop inputting, since we have don't have a terminal anymore
-			del(terminal)
+			qdel(terminal)
 			return
 
 	//crowbarring it !
@@ -219,7 +219,7 @@
 			investigate_log("<font color='red'>deleted</font> at ([area.name])","singulo")
 	if(terminal)
 		disconnect_terminal()
-	..()
+	return ..()
 
 // create a terminal object pointing towards the SMES
 // wires will attach to this
@@ -436,7 +436,7 @@
 			smoke.attach(src)
 			smoke.start()
 			explosion(src.loc, -1, 0, 1, 3, 0)
-			del(src)
+			qdel(src)
 			return
 		if(prob(15)) //Power drain
 			world << "\red SMES power drain in [src.loc.loc]"
@@ -469,6 +469,9 @@
 	..()
 
 
+
+/obj/machinery/power/smes/engineering
+	charge = 1e6 // Engineering starts with some charge for singulo
 
 /obj/machinery/power/smes/magical
 	name = "magical power storage unit"

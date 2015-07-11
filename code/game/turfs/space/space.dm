@@ -3,6 +3,7 @@
 	name = "\proper space"
 	icon_state = "0"
 	dynamic_lighting = 0
+	luminosity = 1
 
 	temperature = TCMB
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
@@ -13,10 +14,15 @@
 	var/destination_y
 
 /turf/space/New()
+	. = ..()
+
 	if(!istype(src, /turf/space/transit))
 		icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	if(config)
 		update_starlight() //MC will initialize all the space turfs that get created before config
+
+/turf/space/Destroy()
+	return QDEL_HINT_LETMELIVE
 
 /turf/space/proc/update_starlight()
 	if(!config)	return
@@ -59,7 +65,7 @@
 				user << "\blue You build a catwalk!"
 				R.use(2)
 				ChangeTurf(/turf/simulated/floor/plating/airless/catwalk)
-				del(L)
+				qdel(L)
 				return
 
 		user << "\blue Constructing support lattice ..."
@@ -72,7 +78,7 @@
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
 			var/obj/item/stack/tile/plasteel/S = C
-			del(L)
+			qdel(L)
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			S.build(src)
 			S.use(1)
@@ -148,7 +154,7 @@
 
 	if(src.x <= 1)
 		if(istype(A, /obj/effect/meteor)||istype(A, /obj/effect/space_dust))
-			del(A)
+			qdel(A)
 			return
 
 		var/list/cur_pos = src.get_global_map_pos()
@@ -173,7 +179,7 @@
 					A.loc.Entered(A)
 	else if (src.x >= world.maxx)
 		if(istype(A, /obj/effect/meteor))
-			del(A)
+			qdel(A)
 			return
 
 		var/list/cur_pos = src.get_global_map_pos()
@@ -198,7 +204,7 @@
 					A.loc.Entered(A)
 	else if (src.y <= 1)
 		if(istype(A, /obj/effect/meteor))
-			del(A)
+			qdel(A)
 			return
 		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
@@ -223,7 +229,7 @@
 
 	else if (src.y >= world.maxy)
 		if(istype(A, /obj/effect/meteor)||istype(A, /obj/effect/space_dust))
-			del(A)
+			qdel(A)
 			return
 		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return

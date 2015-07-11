@@ -49,21 +49,15 @@
 
 	var/list/datum/mind/possible_headrevs = get_players_for_role(BE_REV)
 
-	var/head_check = 0
-	for(var/mob/new_player/player in player_list)
-		if(player.mind.assigned_role in command_positions)
-			head_check = 1
-			break
-
 	for (var/i=1 to max_headrevs)
-		if (possible_headrevs.len==0)
+		if(possible_headrevs.len==0)
 			break
 		var/datum/mind/lenin = pick(possible_headrevs)
 		possible_headrevs -= lenin
 		head_revolutionaries += lenin
 		lenin.restricted_roles = restricted_jobs
 
-	if((head_revolutionaries.len==0)||(!head_check))
+	if(head_revolutionaries.len < required_enemies)
 		return 0
 
 	return 1
@@ -283,14 +277,14 @@
 				if(head_rev_mind.current.client)
 					for(var/image/I in head_rev_mind.current.client.images)
 						if(I.icon_state == "rev" || I.icon_state == "rev_head")
-							del(I)
+							qdel(I)
 
 		for(var/datum/mind/rev_mind in revolutionaries)
 			if(rev_mind.current)
 				if(rev_mind.current.client)
 					for(var/image/I in rev_mind.current.client.images)
 						if(I.icon_state == "rev" || I.icon_state == "rev_head")
-							del(I)
+							qdel(I)
 
 		for(var/datum/mind/head_rev in head_revolutionaries)
 			if(head_rev.current)
@@ -352,20 +346,20 @@
 				if(head_rev_mind.current.client)
 					for(var/image/I in head_rev_mind.current.client.images)
 						if((I.icon_state == "rev" || I.icon_state == "rev_head") && I.loc == rev_mind.current)
-							del(I)
+							qdel(I)
 
 		for(var/datum/mind/rev_mind_1 in revolutionaries)
 			if(rev_mind_1.current)
 				if(rev_mind_1.current.client)
 					for(var/image/I in rev_mind_1.current.client.images)
 						if((I.icon_state == "rev" || I.icon_state == "rev_head") && I.loc == rev_mind.current)
-							del(I)
+							qdel(I)
 
 		if(rev_mind.current)
 			if(rev_mind.current.client)
 				for(var/image/I in rev_mind.current.client.images)
 					if(I.icon_state == "rev" || I.icon_state == "rev_head")
-						del(I)
+						qdel(I)
 
 //////////////////////////
 //Checks for rev victory//

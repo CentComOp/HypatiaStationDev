@@ -174,12 +174,20 @@ var/list/robot_verbs_default = list(
 //If there's an MMI in the robot, have it ejected when the mob goes away. --NEO
 //Improved /N
 /mob/living/silicon/robot/Destroy()
-	if(mmi)//Safety for when a cyborg gets dust()ed. Or there is no MMI inside.
+	if(mmi && mind)//Safety for when a cyborg gets dust()ed. Or there is no MMI inside.
 		var/turf/T = get_turf(loc)//To hopefully prevent run time errors.
 		if(T)	mmi.loc = T
-		if(mind)	mind.transfer_to(mmi.brainmob)
+		if(mmi.brainmob)
+			mind.transfer_to(mmi.brainmob)
+			mmi.update_icon()
+		else
+			src << "<span class='boldannounce'>Oops! Something went very wrong, your MMI was unable to receive your mind. You have been ghosted. Please make a bug report so we can fix this bug.</span>"
+			ghostize()
+			error("A borg has been destroyed, but its MMI lacked a brainmob, so the mind could not be transferred. Player: [ckey].")
 		mmi = null
-	..()
+	if(connected_ai)
+		connected_ai.connected_robots -= src
+	return ..()
 
 /mob/living/silicon/robot/proc/pick_module()
 	if(module)
@@ -528,18 +536,6 @@ var/list/robot_verbs_default = list(
 	return
 
 
-/mob/living/silicon/robot/meteorhit(obj/O as obj)
-	for(var/mob/M in viewers(src, null))
-		M.show_message(text("\red [src] has been hit by [O]"), 1)
-		//Foreach goto(19)
-	if (health > 0)
-		adjustBruteLoss(30)
-		if ((O.icon_state == "flaming"))
-			adjustFireLoss(40)
-		updatehealth()
-	return
-
-
 /mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
 	..(Proj)
 	updatehealth()
@@ -707,7 +703,7 @@ var/list/robot_verbs_default = list(
 					// This doesn't work.  Don't use it.
 					//src.Destroy()
 					// del() because it's infrequent and mobs act weird in qdel.
-					del(src)
+					qdel(src)
 			else
 				// Okay we're not removing the cell or an MMI, but maybe something else?
 				var/list/removable_components = list()
@@ -869,7 +865,7 @@ var/list/robot_verbs_default = list(
 			src << "\red \b ALERT: [M.real_name] is your new master. Obey your new laws and his commands."
 			if(src.module && istype(src.module, /obj/item/weapon/robot_module/miner))
 				for(var/obj/item/weapon/pickaxe/borgdrill/D in src.module.modules)
-					del(D)
+					qdel(D)
 				src.module.modules += new /obj/item/weapon/pickaxe/diamonddrill(src.module)
 				src.module.rebuild()
 			if(src.module && istype(src.module, /obj/item/weapon/robot_module/medical))
@@ -1071,7 +1067,7 @@ var/list/robot_verbs_default = list(
 //Call when target overlay should be added/removed
 /mob/living/silicon/robot/update_targeted()
 	if(!targeted_by && target_locked)
-		del(target_locked)
+		qdel(target_locked)
 	updateicon()
 	if (targeted_by && target_locked)
 		overlays += target_locked
@@ -1209,7 +1205,7 @@ var/list/robot_verbs_default = list(
 				for(var/A in tile)
 					if(istype(A, /obj/effect))
 						if(istype(A, /obj/effect/rune) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay))
-							del(A)
+							qdel(A)
 					else if(istype(A, /obj/item))
 						var/obj/item/cleaned_item = A
 						cleaned_item.clean_blood()
@@ -1236,7 +1232,7 @@ var/list/robot_verbs_default = list(
 	if(emagged)
 		if(mmi)
 			qdel(mmi)
-		explosion(src.loc,1,2,4)
+		explosion(src.loc,1,2,4,flame_range = 2)
 	else
 		explosion(src.loc,-1,0,2)
 	gib()

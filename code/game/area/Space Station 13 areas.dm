@@ -28,7 +28,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
 	layer = 10
-	luminosity = 1
+	luminosity = 0
 	mouse_opacity = 0
 	var/lightswitch = 1
 
@@ -497,6 +497,8 @@ var/list/ghostteleportlocs = list()
 	name = "\improper Thunderdome"
 	icon_state = "thunder"
 	requires_power = 0
+	lighting_use_dynamic = 0
+
 
 /area/tdome/arena_source
 	name = "\improper Thunderdome Arena Template"

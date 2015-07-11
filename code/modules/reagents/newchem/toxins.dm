@@ -80,7 +80,7 @@ datum/reagent/formaldehyde/on_mob_life(var/mob/living/M as mob)
 	result = "formaldehyde"
 	required_reagents = list("ethanol" = 1, "oxygen" = 1, "silver" = 1)
 	result_amount = 3
-	required_temp = 420
+	min_temp = 420
 	mix_message = "Ugh, it smells like the morgue in here."
 
 datum/reagent/venom
@@ -141,7 +141,7 @@ datum/reagent/neurotoxin2/on_mob_life(var/mob/living/M as mob)
 	result = "neurotoxin2"
 	required_reagents = list("space_drugs" = 1)
 	result_amount = 1
-	required_temp = 674
+	min_temp = 674
 	mix_sound = null
 	no_message = 1
 
@@ -175,7 +175,7 @@ datum/reagent/cyanide/on_mob_life(var/mob/living/M as mob)
 	result = "cyanide"
 	required_reagents = list("oil" = 1, "ammonia" = 1, "oxygen" = 1)
 	result_amount = 3
-	required_temp = 380
+	min_temp = 380
 	mix_message = "The mixture gives off a faint scent of almonds."
 
 
@@ -226,6 +226,7 @@ datum/reagent/facid
 	description = "Fluorosulfuric acid is a an extremely corrosive super-acid."
 	reagent_state = LIQUID
 	color = "#4141D2"
+	process_flags = ORGANIC | SYNTHETIC
 
 datum/reagent/facid/reaction_mob(var/mob/living/M, var/method=TOUCH, var/volume)
 	if(!istype(M, /mob/living))
@@ -248,7 +249,7 @@ datum/reagent/facid/reaction_mob(var/mob/living/M, var/method=TOUCH, var/volume)
 				if(method == TOUCH)
 					if(H.wear_mask)
 						if(!H.wear_mask.unacidable)
-							qdel (H.wear_mask)
+							qdel(H.wear_mask)
 							H.update_inv_wear_mask()
 							H << "\red Your mask melts away but protects you from the acid!"
 						else
@@ -286,7 +287,7 @@ datum/reagent/facid/reaction_obj(var/obj/O, var/volume)
 	result = "facid"
 	required_reagents = list("sacid" = 1, "fluorine" = 1, "hydrogen" = 1, "potassium" = 1)
 	result_amount = 4
-	required_temp = 380
+	min_temp = 380
 	mix_message = "The mixture deepens to a dark blue, and slowly begins to corrode its container."
 
 datum/reagent/initropidril
@@ -502,25 +503,25 @@ datum/reagent/curare/on_mob_life(var/mob/living/M as mob)
 	..()
 	return
 
-datum/reagent/sarin
-	name = "Sarin"
-	id = "sarin"
+datum/reagent/tabun
+	name = "Tabun"
+	id = "tabun"
 	description = "An extremely deadly neurotoxin."
 	reagent_state = LIQUID
 	color = "#C7C7C7"
 	metabolization_rate = 0.1
 	penetrates_skin = 1
 
-/datum/chemical_reaction/sarin
-	name = "sarin"
-	id = "sarin"
-	result = "sarin"
-	required_reagents = list("chlorine" = 1, "fluorine" = 1, "hydrogen" = 1, "oxygen" = 1, "phosphorus" = 1, "fuel" = 1, "acetone" = 1, "atrazine" = 1)
-	result_amount = 3
+/datum/chemical_reaction/tabun
+	name = "tabun"
+	id = "tabun"
+	result = "tabun"
+	required_reagents = list("phenol" = 1, "diethylamine" = 1, "phosphorus" = 1, "oxygen" = 1, "chlorine" = 1, "sodiumchloride" = 1, "ethanol" = 1, "cyanide" = 1)
+	result_amount = 8
 	mix_message = "The mixture yields a colorless, odorless liquid."
-	required_temp = 374
+	min_temp = 374
 
-datum/reagent/sarin/on_mob_life(var/mob/living/M as mob)
+datum/reagent/tabun/on_mob_life(var/mob/living/M as mob)
 	if(!M) M = holder.my_atom
 	M.adjustFireLoss(1)
 	if(prob(20))
@@ -573,7 +574,9 @@ datum/reagent/atrazine/reaction_turf(var/turf/T, var/volume)
 		var/turf/simulated/wall/W = T
 		if(W.rotting)
 			W.rotting = 0
-			for(var/obj/effect/E in W) if(E.name == "Wallrot") del E
+			for(var/obj/effect/E in W)
+				if(E.name == "Wallrot")
+					qdel(E)
 
 			for(var/mob/O in viewers(W, null))
 				O.show_message(text("\blue The fungi are completely dissolved by the solution!"), 1)
@@ -584,9 +587,9 @@ datum/reagent/atrazine/reaction_obj(var/obj/O, var/volume)
 		alien_weeds.health -= rand(15,35) // Kills alien weeds pretty fast
 		alien_weeds.healthcheck()
 	else if(istype(O,/obj/effect/glowshroom)) //even a small amount is enough to kill it
-		del(O)
+		qdel(O)
 	else if(istype(O,/obj/effect/plant))
-		if(prob(50)) del(O) //Kills kudzu too.
+		if(prob(50)) qdel(O) //Kills kudzu too.
 	// Damage that is done to growing plants is separately at code/game/machinery/hydroponics at obj/item/hydroponics
 
 datum/reagent/atrazine/reaction_mob(var/mob/living/M, var/method=TOUCH, var/volume)
@@ -720,6 +723,7 @@ datum/reagent/ants
 	description = "A sample of a lost breed of Space Ants (formicidae bastardium tyrannus), they are well-known for ravaging the living shit out of pretty much anything."
 	reagent_state = SOLID
 	color = "#993333"
+	process_flags = ORGANIC | SYNTHETIC
 
 datum/reagent/ants/reaction_mob(var/mob/living/M as mob, var/method=TOUCH, var/volume) //NOT THE ANTS
 	if(iscarbon(M))

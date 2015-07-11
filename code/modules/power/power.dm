@@ -11,7 +11,7 @@
 
 /obj/machinery/power/Destroy()
 	disconnect_from_network()
-	..()
+	return ..()
 
 // common helper procs for all power machines
 /obj/machinery/power/proc/add_avail(var/amount)
@@ -83,7 +83,7 @@
 
 /proc/makepowernets()
 	for(var/datum/powernet/PN in powernets)
-		del(PN)
+		qdel(PN)
 	powernets.Cut()
 
 	for(var/obj/structure/cable/PC in cable_list)
@@ -373,7 +373,7 @@
 			Cable.powernet = net1
 			net1.cables += Cable
 
-	del(net2)
+	qdel(net2)
 	return net1
 
 

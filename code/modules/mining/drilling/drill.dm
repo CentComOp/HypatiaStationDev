@@ -22,7 +22,11 @@
 		"gold" = /obj/item/weapon/ore/gold,
 		"silver" = /obj/item/weapon/ore/silver,
 		"diamond" = /obj/item/weapon/ore/diamond,
+<<<<<<< HEAD
 		"phoron" = /obj/item/weapon/ore/phoron,
+=======
+		"plasma" = /obj/item/weapon/ore/plasma,
+>>>>>>> d46aa69852da39aa917a50ab0dddf54093ab958e
 		"osmium" = /obj/item/weapon/ore/osmium,
 		"hydrogen" = /obj/item/weapon/ore/hydrogen,
 		"silicates" = /obj/item/weapon/ore/glass,

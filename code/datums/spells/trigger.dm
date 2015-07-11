@@ -14,9 +14,10 @@
 
 /obj/effect/proc_holder/spell/wizard/targeted/trigger/Destroy()
 	for(var/spell in contents)
-		del(spell)
-
-	..()
+		qdel(spell)
+	linked_spells = null
+	starting_spells = null
+	return ..()
 
 /obj/effect/proc_holder/spell/wizard/targeted/trigger/cast(list/targets)
 	for(var/mob/living/target in targets)
